@@ -120,6 +120,33 @@ td.id{font-weight:700;white-space:nowrap;color:var(--muted)}
 .note{font-size:11px;color:var(--faint);margin-top:10px;line-height:1.5}.lead{font-size:12.5px;color:var(--muted);line-height:1.5;max-width:900px;margin:0 0 8px}
 #tip{position:fixed;z-index:50;pointer-events:none;background:var(--b1);color:#fff;font-size:11px;line-height:1.4;padding:6px 9px;border-radius:3px;max-width:270px;opacity:0;transition:opacity .1s;box-shadow:0 4px 14px rgba(58,110,166,.4)}#tip .s{color:#cfe0ef}
 .foot{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--faint)}.foot b{color:var(--muted);font-weight:600}
+.tabs{display:flex;gap:0;margin:0 0 14px}
+.tab-btn{flex:1 1 0;min-width:0;justify-content:center;font-family:var(--f);font-size:13px;font-weight:600;letter-spacing:.05em;padding:9px 16px;background:#fff;color:var(--muted);border:1px solid var(--b1);border-radius:3px;cursor:pointer;margin-left:-1px;position:relative;transition:.15s}
+.tab-btn:first-child{margin-left:0}.tab-btn:hover{background:var(--b9)}.tab-btn.active{background:var(--b1);color:#fff;z-index:1}
+.report{max-width:900px;margin:0 auto}
+.rep-h{border-bottom:2px solid var(--b1);padding-bottom:12px;margin-bottom:6px}
+.rep-h .rt{font-size:23px;font-weight:700;color:#111;margin:0}
+.rep-h .rs{font-size:12px;color:var(--muted);margin:5px 0 0;letter-spacing:.04em}
+.rep-sec{margin:22px 0}
+.rep-sec h4{font-size:12.5px;font-weight:700;color:var(--b1);text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid var(--line);padding-bottom:5px;margin:0 0 12px}
+.rep-fig{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.rep-fig .f{border:1px solid var(--b1);border-radius:3px;padding:11px 12px;text-align:center}
+.rep-fig .f b{display:block;font-size:26px;font-weight:700;color:var(--b1);line-height:1}
+.rep-fig .f span{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:4px;display:block}
+table.rep{width:100%;border-collapse:collapse;font-size:12.5px}
+table.rep th{text-align:left;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);padding:6px 8px;border-bottom:1px solid var(--b1)}
+table.rep td{padding:7px 8px;border-bottom:1px solid var(--line2);color:var(--ink)}
+.rep-list{margin:0;padding-left:18px}.rep-list li{margin:9px 0;font-size:13px;line-height:1.55;color:var(--ink)}
+.rep-sign{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.5}.rep-sign b{color:#111}
+@media print{
+ @page{size:A4;margin:14mm}
+ html,body{background:#fff}
+ .noprint{display:none!important}
+ #tab-painel{display:none!important}#tab-relatorio{display:block!important}
+ #nm-root{max-width:none;padding:0}.report{max-width:none}
+ .ce-header{border:1px solid #333;break-inside:avoid}
+ .rep-sec,.rep-fig .f,table.rep tr{break-inside:avoid}
+}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.grid-heat{grid-template-columns:1fr}.ce-header{flex-direction:column}.ce-brand{border-right:none;border-bottom:1px solid var(--line)}.doclist{grid-template-columns:1fr}}
 </style>
 </head>
@@ -149,6 +176,8 @@ td.id{font-weight:700;white-space:nowrap;color:var(--muted)}
    <div class="ce-stats"><span class="ce-stat">Escopo · <b>4 Pilares</b></span><span class="ce-stat">Requisitos · <b>129</b></span><span class="ce-stat">Prontidão · <b id="st-ready">—</b></span><span class="ce-stat">Pendências · <b id="st-pend">—</b></span><span class="ce-stat">Revisão · <b>12/07/2026</b></span></div>
   </div>
  </header>
+ <div class="tabs noprint"><button class="tab-btn active" data-tab="painel">Painel interativo</button><button class="tab-btn" data-tab="relatorio">Relatório</button></div>
+ <div id="tab-painel">
  <div class="bar">
   <span class="mode" id="mode"><span class="dot"></span><span id="mode-t">Prévia · dados de exemplo</span></span>
   <label class="btn ghost" for="file">Carregar planilha (.xlsx)</label><input type="file" id="file" accept=".xlsx">
@@ -183,7 +212,6 @@ td.id{font-weight:700;white-space:nowrap;color:var(--muted)}
  <details class="acc" id="acc-mtx"><summary><span class="k">Área × Status · clique para filtrar</span>Matriz de contagem<span class="chev">▾</span></summary><div class="acc-body"><div id="matrix" style="overflow:auto"></div></div></details>
  <details class="acc" id="acc-pend"><summary><span class="k">Plano de ação</span>Ações e pendências<span class="badge" id="pend-badge">—</span><span class="chev">▾</span></summary>
   <div class="acc-body" style="padding-top:0"><table class="tbl"><thead><tr><th>ID</th><th>Área</th><th>Requisito</th><th>Achado</th><th>Resp.</th><th>Prazo</th><th>Encaminhamento</th></tr></thead><tbody id="rows"></tbody></table><div class="note" id="rows-empty" style="display:none">Nenhuma pendência no filtro atual.</div></div></details>
- <details class="acc" id="acc-concl" open><summary><span class="k">Leitura da CQT</span>Conclusões da avaliação<span class="chev">▾</span></summary><div class="acc-body"><ul class="concl" id="concl"></ul></div></details>
  <details class="acc" id="acc-docs"><summary><span class="k">Base normativa</span>Documentos de fundo utilizados<span class="chev">▾</span></summary>
   <div class="acc-body"><p class="lead">Base oficial Sedex/SMETA 7.0 (v1.1, agosto/2025). Material do Sedex, obtido na plataforma pela organização; não redistribuído aqui.</p>
    <div class="cam">Camada 1 · Normativo</div><ul class="doclist"><li><b>Annex 4 — Workplace Requirements</b> <span>· os 129 requisitos</span></li><li><b>Sedex Supplier Manual</b></li><li><b>Annex 6 — CAR + CAR v1.2</b></li><li><b>ETI Base Code · OIT · Legislação BR</b></li></ul>
@@ -191,6 +219,18 @@ td.id{font-weight:700;white-space:nowrap;color:var(--muted)}
    <div class="cam">Camada 3 · Apoio e interpretação</div><ul class="doclist"><li><b>Guias de Interpretation Guidance por Área ('25)</b></li><li><b>Management Control (1.1/2.1/3.1/4.1)</b></li><li><b>Supplier Guidance: Next Steps</b></li><li><b>FAQs · Complete Audit Guide</b></li><li><b>Forced Labour · Risk · Grievance</b></li></ul>
    <p class="note">Áreas 10.A/10.B/10.C sem guia por área publicado ('25); profundidade via Annex 4 v1.1 + Management Control 3.1 e 4.1.</p></div></details>
  <div class="foot"><span>CQT Sistemas da Qualidade · <b>www.cqt-br.com</b> · Preparação SMETA 7.0</span><span>Fotografia estática · revisão 12/07/2026 · fábrica New Max Industrial, Americana/SP</span></div>
+ </div><!-- /tab-painel -->
+ <div id="tab-relatorio" style="display:none">
+  <div class="report">
+   <div class="rep-h"><p class="rt">Relatório de Prontidão SMETA 7.0</p><p class="rs" id="rep-sub">New Max Industrial · Fábrica de Americana/SP · Revisão 12/07/2026 · Consultoria CQT</p></div>
+   <button class="btn noprint" id="btn-print" style="margin:14px 0 4px">Imprimir / Salvar em PDF</button>
+   <div class="rep-sec"><h4>Sumário executivo</h4><div class="rep-fig" id="rep-fig"></div></div>
+   <div class="rep-sec"><h4>Desempenho por pilar SMETA</h4><table class="rep"><thead><tr><th>Pilar</th><th>Conformidade</th><th>Requisitos</th></tr></thead><tbody id="rep-pil"></tbody></table></div>
+   <div class="rep-sec"><h4>Conclusões da avaliação</h4><ol class="rep-list" id="rep-concl"></ol></div>
+   <div class="rep-sec"><h4>Áreas com mais não conformidades</h4><ul class="rep-list" id="rep-crit"></ul></div>
+   <div class="rep-sign">Elaborado por <b>CQT Sistemas da Qualidade</b> · Leandro Centomo · www.cqt-br.com · Revisão 12/07/2026.<br>Fotografia estática da avaliação de preparação para a auditoria SMETA 7.0. Uma revisão atualizada é entregue mediante novo ciclo de consultoria.</div>
+  </div>
+ </div>
 </div>
 <div id="tip"></div>
 <script>
@@ -266,25 +306,30 @@ window.playScrollSnap=(function(){var ctx,master;function e(){if(ctx){if(ctx.sta
 
  function upTable(list){var pend=list.filter(function(r){var s=stat(r.ach);return s==="NC"||s==="EM";}).sort(function(a,b){return((a.w==="CAR"?0:1)+(stat(a.ach)==="NC"?0:1))-((b.w==="CAR"?0:1)+(stat(b.ach)==="NC"?0:1));});var tb=$("rows");tb.innerHTML="";pend.forEach(function(r){var tr=document.createElement("tr");tr.setAttribute("data-id",r.id);tr.innerHTML='<td class="id">'+r.id+'</td><td>'+r.a+'</td><td>'+esc(r.req)+'</td><td><span class="tag '+r.ach+'">'+r.ach+'</span></td><td>'+(r.resp?esc(r.resp):"—")+'</td><td>'+(r.prazo?esc(r.prazo):"—")+'</td><td>'+esc(leitura(r))+'</td>';tb.appendChild(tr);});$("rows-empty").style.display=pend.length?"none":"block";$("pend-badge").textContent=pend.length;}
 
- function conclui(S){var ul=$("concl");ul.innerHTML="";
+ function renderReport(S){
   var pil=PIL.map(function(P){var g=pillarAgg(P.k);return{n:P.n,pct:g.pct,q:g.n};}).filter(function(x){return x.q>0;});
   var best=pil.slice().sort(function(a,b){return b.pct-a.pct;})[0],worst=pil.slice().sort(function(a,b){return a.pct-b.pct;})[0];
-  var crit=AREAS.map(function(A){var g=areaAgg(A.a);return{t:A.t,nc:g.cnt.NC};}).filter(function(x){return x.nc>0;}).sort(function(a,b){return b.nc-a.nc;}).slice(0,3);
-  var L=['<b>Fotografia de '+REV+'.</b> Prontidão geral de <b>'+S.atend+'%</b>: '+S.by.C+' dos '+S.aplic+' requisitos aplicáveis conformes; '+S.pend+' pendências ('+S.by.NC+' não conformes, '+S.by.EM+' em melhoria).'];
-  if(best&&worst&&best.n!==worst.n)L.push('<b>Por pilar</b>: melhor desempenho em <b>'+best.n+'</b> ('+best.pct+'% conforme); maior atenção em <b>'+worst.n+'</b> ('+worst.pct+'%). Pilares: '+pil.map(function(p){return p.n+' '+p.pct+'%';}).join(' · ')+'.');
+  var crit=AREAS.map(function(A){var g=areaAgg(A.a);return{t:A.t,nc:g.cnt.NC};}).filter(function(x){return x.nc>0;}).sort(function(a,b){return b.nc-a.nc;});
+  var L=['<b>Fotografia de '+REV+'.</b> Prontidão geral de <b>'+S.atend+'%</b>: '+S.by.C+' dos '+S.aplic+' requisitos aplicáveis estão conformes; '+S.pend+' pendências a tratar ('+S.by.NC+' não conformes, '+S.by.EM+' em melhoria).'];
+  if(best&&worst&&best.n!==worst.n)L.push('<b>Por pilar</b>: melhor desempenho em <b>'+best.n+'</b> ('+best.pct+'% conforme); maior atenção em <b>'+worst.n+'</b> ('+worst.pct+'%).');
   else L.push('<b>Por pilar</b>: '+pil.map(function(p){return p.n+' '+p.pct+'%';}).join(' · ')+'.');
-  if(crit.length)L.push('<b>Áreas mais críticas</b> (mais não conformidades): '+crit.map(function(c){return (c.t.split(" · ")[1]||c.t)+' ('+c.nc+' NC)';}).join('; ')+'.');
+  if(crit.length)L.push('<b>Áreas mais críticas</b> (mais não conformidades): '+crit.slice(0,3).map(function(c){return (c.t.split(" · ")[1]||c.t)+' ('+c.nc+' NC)';}).join('; ')+'. Concentrar esforço aqui primeiro.');
   if(S.cars)L.push('<b>'+S.cars+' requisito(s) CAR acionado(s)</b>: exigem plano de ação e engajamento do comprador (Solina), sem prazo unilateral do auditor; não fecham só internamente.');
-  L.push('<b>Efetividade do plano em '+S.efet+'%</b>: '+S.comA+' das '+S.pend+' pendências já têm ação corretiva com responsável e prazo. A evolução no tempo aparece ao comparar esta fotografia com a de um próximo ciclo de consultoria.');
+  L.push('<b>Efetividade do plano em '+S.efet+'%</b>: '+S.comA+' das '+S.pend+' pendências já têm ação corretiva com responsável e prazo definidos. A evolução no tempo aparece ao comparar esta fotografia com a de um próximo ciclo de consultoria.');
   L.push('<b>Escopo de 4 pilares.</b> Meio Ambiente e Ética foram avaliados pelo Annex 4 v1.1 apoiado nos Management Control (não há guia de interpretação por área para essas áreas).');
-  L.push('Este painel é uma <b>fotografia estática</b> de '+REV+': a New Max navega e filtra, mas não edita. Uma revisão atualizada é entregue num novo ciclo de consultoria.');
-  L.forEach(function(t){var li=document.createElement("li");li.innerHTML=t;ul.appendChild(li);});}
+  L.push('Este é um retrato de <b>preparação</b>, não a auditoria oficial: a auditoria SMETA também gradua o sistema de gestão (MSA), que é o módulo seguinte (M2).');
+  $("rep-sub").textContent="New Max Industrial · Fábrica de Americana/SP · Revisão "+REV+" · Consultoria CQT";
+  $("rep-fig").innerHTML='<div class="f"><b>'+S.atend+'%</b><span>Atendimento</span></div><div class="f"><b>'+S.efet+'%</b><span>Efetividade</span></div><div class="f"><b>'+S.aplic+'</b><span>Aplicáveis</span></div><div class="f"><b>'+S.pend+'</b><span>Pendências</span></div><div class="f"><b>'+S.cars+'</b><span>CAR</span></div>';
+  $("rep-pil").innerHTML=PIL.map(function(P){var g=pillarAgg(P.k);return '<tr><td>'+P.n+'</td><td>'+g.pct+'%</td><td>'+g.n+'</td></tr>';}).join("");
+  $("rep-concl").innerHTML=L.map(function(t){return '<li>'+t+'</li>';}).join("");
+  $("rep-crit").innerHTML=crit.length?crit.slice(0,6).map(function(c){return '<li>'+esc(c.t.split(" · ")[1]||c.t)+' — '+c.nc+' NC</li>';}).join(""):'<li>Nenhuma área com não conformidade no filtro atual.</li>';
+ }
 
  function fchip(){var parts=[];if(F.area)parts.push("Área "+F.area);if(F.pillar){var P=PIL.filter(function(x){return x.k===F.pillar;})[0];parts.push("Pilar "+(P?P.n:""));}if(F.scope)parts.push(F.scope);if(F.status)parts.push({C:"Conforme",EM:"Em melhoria",NC:"Não conforme",NA:"Não aplicável"}[F.status]);var on=parts.length>0;$("fchip").style.display=on?"inline-flex":"none";if(on)$("fchip-t").textContent=parts.join(" · ");}
 
  function update(){var list=filtered();var by={C:0,EM:0,NC:0,NA:0,none:0};list.forEach(function(r){by[stat(r.ach)||"none"]++;});var aplic=list.length-by.NA,atend=aplic>0?Math.round(by.C/aplic*100):0,pend=by.EM+by.NC;var comA=list.filter(function(r){var s=stat(r.ach);return(s==="EM"||s==="NC")&&r.resp&&r.prazo;}).length,efet=pend>0?Math.round(comA/pend*100):100,cars=list.filter(function(r){return r.ach==="CAR";}).length;var S={by:by,aplic:aplic,atend:atend,pend:pend,efet:efet,cars:cars,comA:comA};
   $("k-atend").innerHTML=atend+'<small>%</small>';$("k-atend-s").textContent=by.C+" de "+aplic;$("k-efet").innerHTML=efet+'<small>%</small>';$("k-efet-s").textContent=comA+" de "+pend;$("k-aplic").textContent=aplic;$("k-aplic-s").textContent=by.NA+" não aplicáveis";$("k-pend").textContent=pend;$("k-car").textContent=cars;$("st-ready").textContent=atend+"%";$("st-pend").textContent=pend;
-  upDonut(by,atend);upPillars();upRadar();upTreemap();upMatrix();upHeat();upTable(list);conclui(S);fchip();}
+  upDonut(by,atend);upPillars();upRadar();upTreemap();upMatrix();upHeat();upTable(list);renderReport(S);fchip();}
 
  // ---- events ----
  build();
@@ -309,6 +354,8 @@ window.playScrollSnap=(function(){var ctx,master;function e(){if(ctx){if(ctx.sta
    var c=ev.target.closest(".cell");if(!c){tip.style.opacity=0;return;}var r=byId[c.getAttribute("data-id")];if(!r){tip.style.opacity=0;return;}var s=stat(r.ach),nm={C:"Conforme",EM:"Em melhoria",NC:"Não conforme",NA:"Não aplicável","":"—"}[s];tip.innerHTML='<b>'+r.id+'</b> · '+(r.ach||"—")+' <span class="s">('+nm+')</span><br>'+esc(r.req.slice(0,90))+(r.req.length>90?"…":"");tip.style.opacity=1;posTip(ev);});
  root.addEventListener("mouseleave",function(){tip.style.opacity=0;});
  document.querySelectorAll("details.acc>summary").forEach(function(su){su.addEventListener("click",function(){window.playScrollSnap();});});
+ document.querySelectorAll(".tab-btn").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".tab-btn").forEach(function(x){x.classList.remove("active");});b.classList.add("active");var t=b.getAttribute("data-tab");$("tab-painel").style.display=(t==="painel")?"block":"none";$("tab-relatorio").style.display=(t==="relatorio")?"block":"none";window.playScrollSnap();window.scrollTo(0,0);});});
+ $("btn-print").addEventListener("click",function(){window.print();});
  $("file").addEventListener("change",function(ev){var f=ev.target.files&&ev.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(e){try{var wb=XLSX.read(new Uint8Array(e.target.result),{type:"array"});var sh=wb.Sheets["WR 7.0 — CQT Checklist"]||wb.Sheets[wb.SheetNames[0]];var rows=XLSX.utils.sheet_to_json(sh,{header:1,defval:""});var hi=-1;for(var i=0;i<rows.length;i++){if(rows[i].indexOf("ID")>=0){hi=i;break;}}var map={};for(var j=hi+1;j<rows.length;j++){var row=rows[j];var id=(row[1]||"").toString().trim();if(!/^\d/.test(id))continue;map[id]={ach:(row[4]||"").toString().trim(),resp:(row[7]||"").toString().trim(),prazo:(row[8]||"").toString().trim()};}var hit=0;REQS.forEach(function(r){var m=map[r.id];if(m){hit++;r.ach=m.ach;r.resp=m.resp;r.prazo=m.prazo;}});$("mode").className="mode live";$("mode-t").textContent="Dados carregados · "+hit+"/129";update();}catch(err){alert("Não foi possível ler a planilha: "+err.message);}};rd.readAsArrayBuffer(f);});
 
  // primeira pintura: transições animam a partir do zero (entrada)
