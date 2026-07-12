@@ -70,7 +70,12 @@ input[type=file]{display:none}
 .treemap{position:relative;width:100%;height:236px;border-radius:3px;overflow:hidden;background:var(--line2)}
 .tm-tile{position:absolute;border:1px solid #fff;border-radius:3px;padding:7px 9px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;overflow:hidden;left:0;top:0;width:0;height:0;transition:left .6s var(--ease),top .6s var(--ease),width .6s var(--ease),height .6s var(--ease),background .4s,opacity .4s}
 .tm-tile:hover{filter:brightness(1.08)}.tm-tile.sel{outline:2px solid var(--red);outline-offset:-2px}
-.tm-a{font-size:13px;font-weight:700;line-height:1}.tm-p{font-size:11px;font-weight:600;opacity:.9;margin-top:2px;white-space:nowrap}
+.tm-mq{overflow:hidden;width:100%}
+.tm-track{display:inline-flex;white-space:nowrap;will-change:transform}
+.tm-track span{flex:0 0 auto;font-size:12.5px;font-weight:700;line-height:1.1;padding-right:22px}
+.tm-tile:hover .tm-track{animation:mqmove 5s linear infinite}
+@keyframes mqmove{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tm-p{font-size:11px;font-weight:600;opacity:.9;margin-top:2px;white-space:nowrap}
 table.mtx{border-collapse:separate;border-spacing:3px;width:100%}
 table.mtx th{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:2px 4px;text-align:center}
 table.mtx td.ml{font-size:11px;font-weight:700;color:var(--muted);text-align:right;padding-right:6px;white-space:nowrap}
@@ -268,7 +273,7 @@ window.playScrollSnap=(function(){var ctx,master;function e(){if(ctx){if(ctx.sta
   // pillar bars
   var pb=$("pbars");pb.innerHTML="";PIL.forEach(function(P){var d=document.createElement("div");d.className="pbar";d.setAttribute("data-pillar",P.k);d.innerHTML='<div class="pn">'+P.n+'</div><div class="ptrack"><div class="pfill"></div></div><div class="pp">—</div>';pb.appendChild(d);pRow[P.k]=d;pFill[P.k]=d.querySelector(".pfill");});
   // treemap tiles
-  var tm=$("treemap");tm.innerHTML="";AREAS.forEach(function(A){var el=document.createElement("div");el.className="tm-tile";el.setAttribute("data-area",A.a);el.innerHTML='<span class="tm-a">'+A.a+'</span><span class="tm-p"></span>';tm.appendChild(el);tmTile[A.a]=el;});
+  var tm=$("treemap");tm.innerHTML="";AREAS.forEach(function(A){var el=document.createElement("div");el.className="tm-tile";el.setAttribute("data-area",A.a);el.innerHTML='<div class="tm-mq"><div class="tm-track"><span>'+esc(A.t)+'</span><span>'+esc(A.t)+'</span></div></div><span class="tm-p"></span>';tm.appendChild(el);tmTile[A.a]=el;});
   // matrix
   var cols=["C","EM","NC","NA"],names={C:"Conf.",EM:"Melh.",NC:"NC",NA:"NA"};var html='<table class="mtx"><thead><tr><th></th>'+cols.map(function(c){return '<th>'+names[c]+'</th>';}).join("")+'</tr></thead><tbody>';AREAS.forEach(function(A){html+='<tr data-area="'+A.a+'"><td class="ml">'+A.a+'</td>'+cols.map(function(c){return '<td class="mc" data-area="'+A.a+'" data-col="'+c+'"></td>';}).join("")+'</tr>';});html+='</tbody></table>';$("matrix").innerHTML=html;AREAS.forEach(function(A){cols.forEach(function(c){mtxCell[A.a+"|"+c]=$("matrix").querySelector('td[data-area="'+A.a+'"][data-col="'+c+'"]');});$("matrix").querySelector('tr[data-area="'+A.a+'"]');});
   // heat
@@ -292,8 +297,8 @@ window.playScrollSnap=(function(){var ctx,master;function e(){if(ctx){if(ctx.sta
   [25,50,75,100].forEach(function(g){svg+='<circle cx="'+cx+'" cy="'+cy+'" r="'+(R*g/100).toFixed(1)+'" fill="none" stroke="#e9eff5" stroke-width="0.75"></circle>';});
   for(var i=0;i<N;i++){var e=pt(i,R);svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0].toFixed(1)+'" y2="'+e[1].toFixed(1)+'" stroke="#f0f4f8" stroke-width="0.6"></line>';}
   var dp=[];for(var i=0;i<N;i++){var q=pt(i,R*ax[i].pct/100);dp.push(q[0].toFixed(1)+","+q[1].toFixed(1));}
-  svg+='<polygon points="'+dp.join(" ")+'" fill="rgba(87,137,187,.16)" stroke="#3a6ea6" stroke-width="1.25" stroke-linejoin="round"></polygon>';
-  for(var i=0;i<N;i++){var q=pt(i,R*ax[i].pct/100);svg+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="2.6" fill="#3a6ea6" data-area="'+ax[i].a+'" class="rv"></circle>';}
+  svg+='<polygon points="'+dp.join(" ")+'" fill="rgba(87,137,187,.14)" stroke="#3a6ea6" stroke-width="0.7" stroke-linejoin="round"></polygon>';
+  for(var i=0;i<N;i++){var q=pt(i,R*ax[i].pct/100);svg+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="2" fill="#3a6ea6" data-area="'+ax[i].a+'" class="rv"></circle>';}
   for(var i=0;i<N;i++){var l=pt(i,R+15),anc=Math.abs(l[0]-cx)<6?"middle":(l[0]<cx?"end":"start");svg+='<text x="'+l[0].toFixed(1)+'" y="'+(l[1]+3).toFixed(1)+'" text-anchor="'+anc+'" font-size="9.5" font-weight="600" fill="#6a7d8e">'+ax[i].a+'</text>';}
   $("radar").innerHTML=svg;}
 
