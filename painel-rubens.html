@@ -158,11 +158,10 @@
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 36" preserveAspectRatio="none"><path d="M0.5 36L0.5 3Q0.5 0.5 3 0.5L118 0.5Q124 0.5 126 6L140 36L0.5 36Z" fill="%23e2e6f1"/><path d="M0.5 36L0.5 3Q0.5 0.5 3 0.5L118 0.5Q124 0.5 126 6L140 36" fill="none" stroke="%23d7dbea" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>');
     color: var(--accent-dark);
   }
-  #painel-rubens-root .tab-btn:nth-child(1) { z-index: 4; }
-  #painel-rubens-root .tab-btn:nth-child(2) { z-index: 3; }
-  #painel-rubens-root .tab-btn:nth-child(3) { z-index: 2; }
-  #painel-rubens-root .tab-btn:nth-child(4) { z-index: 1; }
-  #painel-rubens-root .tab-btn.active {
+  #painel-rubens-root .tab-btn:nth-child(1) { z-index: 3; }
+  #painel-rubens-root .tab-btn:nth-child(2) { z-index: 2; }
+  #painel-rubens-root .tab-btn:nth-child(3) { z-index: 1; }
+    #painel-rubens-root .tab-btn.active {
     height: 38px; padding: 0 30px 0 20px; font-size: 12.5px; font-weight: 600;
     color: var(--accent-dark); margin-bottom: -1px;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 36" preserveAspectRatio="none"><path d="M0.5 36L0.5 3Q0.5 0.5 3 0.5L118 0.5Q124 0.5 126 6L140 36L0.5 36Z" fill="%23ffffff"/><path d="M0.5 36L0.5 3Q0.5 0.5 3 0.5L118 0.5Q124 0.5 126 6L140 36" fill="none" stroke="%23d7dbea" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>');
@@ -384,7 +383,6 @@
     <button type="button" class="tab-btn active" data-tab="geral" role="tab">Vis&atilde;o geral</button>
     <button type="button" class="tab-btn" data-tab="agenda" role="tab">Agenda</button>
     <button type="button" class="tab-btn" data-tab="calendario" role="tab">Calend&aacute;rio</button>
-    <button type="button" class="tab-btn" data-tab="repasse" role="tab">Esquema de repasses</button>
   </div>
 
   <!-- ===================== TAB 1: VISAO GERAL ===================== -->
@@ -567,41 +565,6 @@
         <span><span class="cal-dot aconfirmar"></span> A confirmar</span>
         <span><span class="cal-dot pendente"></span> Viagem sem reserva</span>
         <span><b style="color:var(--warn)">P</b> presencial &middot; <b style="color:var(--text-faint)">R</b> remoto</span>
-      </div>
-    </section>
-  </div>
-
-  <!-- ===================== TAB 4: REPASSE ===================== -->
-  <div class="tab-panel" data-tab="repasse">
-    <section>
-      <div class="section-head"><h2>Como o repasse &eacute; calculado</h2></div>
-      <div class="explainer-grid">
-        <div>
-          <p>Cada nota sai do valor h/d cobrado do cliente. Cinco impostos s&atilde;o retidos antes de chegar ao l&iacute;quido, com refer&ecirc;ncia sobre uma base de R$ 2.000,00:</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Imposto</th><th class="num">Al&iacute;quota</th><th class="num">Sobre R$ 2.000</th></tr></thead>
-              <tbody>
-                <tr><td>PIS</td><td class="num">0,65%</td><td class="num tabular">R$ 13,00</td></tr>
-                <tr><td>COFINS</td><td class="num">3%</td><td class="num tabular">R$ 60,00</td></tr>
-                <tr><td>CSLL</td><td class="num">2,88%</td><td class="num tabular">R$ 57,60</td></tr>
-                <tr><td>IR</td><td class="num">4,8%</td><td class="num tabular">R$ 96,00</td></tr>
-                <tr><td>ISS</td><td class="num">3%</td><td class="num tabular">R$ 60,00</td></tr>
-                <tr><td><b>L&iacute;quido</b></td><td class="num"></td><td class="num tabular"><b>R$ 1.713,40</b></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="margin-top: 12px;">A partir do l&iacute;quido, o repasse ao consultor que executa o trabalho &eacute; de ~65% do valor h/d (Consultor A) quando n&atilde;o h&aacute; parceiro comercial envolvido: &eacute; o caso de todos os clientes ativos hoje.</p>
-        </div>
-        <div>
-          <p>Quando um parceiro externo traz o cliente, o percentual muda conforme seu envolvimento:</p>
-          <div class="case-list">
-            <div class="case-item"><b>Caso 1: Indica&ccedil;&atilde;o, 3%.</b> Parceiro s&oacute; apresenta o cliente; CQT assume o resto.</div>
-            <div class="case-item"><b>Caso 2: Indica&ccedil;&atilde;o + gest&atilde;o, 60&ndash;63%.</b> Parceiro gerencia o projeto.</div>
-            <div class="case-item"><b>Caso 3: Indica&ccedil;&atilde;o + consultoria, 50&ndash;53%.</b> Parceiro entrega parte do trabalho t&eacute;cnico.</div>
-            <div class="case-item"><b>Caso 4: CQT indica a um parceiro, 3&ndash;4%.</b> Rela&ccedil;&atilde;o invertida: CQT s&oacute; cobra sobre o faturamento do parceiro.</div>
-          </div>
-        </div>
       </div>
     </section>
   </div>
@@ -908,7 +871,7 @@
   function fmtHd(n){ return (n + "").replace(".", ","); }
   function modoLabel(m){ return m === "P" ? "Presencial" : m === "D" ? "Remoto" : "–"; }
 
-  var sorted = AGENDA.slice().sort(function(a, b){ return a.d < b.d ? -1 : a.d > b.d ? 1 : 0; });
+  var sorted = AGENDA.slice().sort(function(a, b){ return a.d < b.d ? 1 : a.d > b.d ? -1 : 0; });
   var rowsHtml = sorted.map(function(e){
     var st = status(e);
     return "<tr><td>" + fmtDate(e.d) + "</td><td>" + e.c + "</td><td>" + e.p + "</td><td>" + (e.s || "–") +
