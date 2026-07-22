@@ -540,6 +540,14 @@ html.foto .rv{opacity:1;transform:none;transition:none}
 
 <script>
 if(location.search.includes('foto')||/Headless/i.test(navigator.userAgent)){document.documentElement.classList.add('foto')}
+// F5 sempre nasce no topo: sem restauracao de rolagem e sem ancora residual na URL.
+// Clique no menu continua navegando normal; so o RELOAD e neutralizado.
+if(!document.documentElement.classList.contains('foto')){
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+  window.scrollTo(0,0);
+  window.addEventListener('pageshow',()=>window.scrollTo(0,0),{once:true});
+}
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
