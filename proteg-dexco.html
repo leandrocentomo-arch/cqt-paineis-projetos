@@ -22,6 +22,57 @@ h1,h2,h3{font-family:'Roboto Slab',serif;text-wrap:pretty}
 .mono{font-family:'Roboto Mono',monospace}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 
+/* ---------- trilho lateral ---------- */
+.rail{position:fixed;left:0;top:0;bottom:0;width:236px;background:#fff;border-right:1px solid var(--cinza2);z-index:60;display:flex;flex-direction:column;padding:28px 20px 22px}
+.rail svg{height:20px;width:auto;fill:var(--preto);margin:0 0 34px 10px;flex-shrink:0}
+.rail nav{display:flex;flex-direction:column;gap:2px}
+.rail nav a{display:flex;align-items:baseline;gap:12px;padding:10px 10px;font-size:13.5px;font-weight:500;color:var(--cinza6);text-decoration:none;border-radius:3px;border-left:2px solid transparent}
+.rail nav a i{font-style:normal;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--cinza4);letter-spacing:.08em}
+.rail nav a:hover{background:var(--cinza1);color:var(--preto)}
+.rail nav a.on{color:var(--laranja);border-left-color:var(--laranja);background:var(--fundo)}
+.rail nav a.on i{color:var(--laranja)}
+.rail .fimr{margin-top:auto;padding:14px 10px 0;border-top:1px solid var(--cinza2);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--cinza4);text-transform:uppercase;line-height:1.9}
+.pagina{margin-left:236px}
+@media(max-width:1100px){.rail{display:none}.pagina{margin-left:0}}
+@media(min-width:1101px){.topo{display:none}section{scroll-margin-top:16px}}
+
+/* ---------- trajetoria navegavel ---------- */
+.stepper{border:1px solid var(--cinza2);border-radius:3px;background:#fff;overflow:hidden}
+.anos{display:flex;border-bottom:1px solid var(--cinza2);overflow-x:auto}
+.anos button{flex:1 0 auto;min-width:96px;padding:13px 10px;border:none;background:none;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12.5px;letter-spacing:.08em;color:var(--cinza5);border-bottom:2px solid transparent;transition:.18s}
+.anos button:hover{background:var(--cinza1)}
+.anos button.on{color:var(--laranja);border-bottom-color:var(--laranja);background:var(--fundo)}
+.ev-area{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:26px 24px;min-height:150px}
+.ev-area .evb b{font-family:'Roboto Slab',serif;font-size:19px;font-weight:600;display:block;margin-bottom:6px}
+.ev-area .evb p{font-size:14.5px;color:var(--cinza6);max-width:60ch}
+.ev-area .evb .anoluz{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--laranja);letter-spacing:.12em;display:block;margin-bottom:8px}
+.ev-nav{display:flex;gap:8px}
+.ev-nav button{width:40px;height:40px;border:1px solid var(--cinza2);background:#fff;border-radius:3px;cursor:pointer;font-size:16px;color:var(--cinza6)}
+.ev-nav button:hover{border-color:var(--laranja);color:var(--laranja)}
+.evb{transition:opacity .25s ease}
+.evb.troca{opacity:0}
+.ev-barra{height:2px;background:var(--cinza2)}
+.ev-barra i{display:block;height:100%;background:var(--laranja);transition:width .3s ease}
+
+/* ---------- painel LPR ---------- */
+.filtros{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.filtros button{border:1px solid var(--cinza2);background:#fff;border-radius:3px;padding:8px 14px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.05em;color:var(--cinza6)}
+.filtros button:hover{border-color:var(--laranja)}
+.filtros button.on{background:var(--preto);color:#fff;border-color:var(--preto)}
+.filtros input{flex:1 1 220px;border:1px solid var(--cinza2);border-radius:3px;padding:9px 13px;font-size:14px;font-family:'Roboto',sans-serif}
+.filtros input:focus{outline:2px solid var(--laranja);border-color:transparent}
+.lpr-conta{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--cinza4);margin:0 0 14px}
+.lpr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:1250px){.lpr-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.lpr-grid{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--cinza2);border-radius:3px;background:#fff;padding:14px 16px;height:128px;display:flex;flex-direction:column}
+.pcard .cab{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.pcard .cd{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--laranja);letter-spacing:.06em}
+.pcard .sif{margin-left:auto;font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.08em;background:#FDECEC;color:var(--vermelho);border-radius:3px;padding:2px 7px}
+.pcard .tx{font-size:13.5px;line-height:1.45;color:var(--preto);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .pe{margin-top:auto;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--cinza4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gtag{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.08em;border-radius:3px;padding:2px 7px;background:var(--cinza1);color:var(--cinza5)}
+
 /* ---------- persiana ---------- */
 .persiana{position:fixed;inset:0;z-index:100;display:flex;pointer-events:none}
 .persiana i{flex:1;background:var(--preto);transform-origin:50% 0;animation:persAbre .82s cubic-bezier(.7,0,.24,1) forwards}
@@ -205,16 +256,29 @@ html.foto{scroll-behavior:auto}
 
 <div class="persiana" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
+<aside class="rail" aria-label="Menu lateral"><svg role="img" aria-label="Dexco" viewBox="0 0 311.45 58.83" xmlns="http://www.w3.org/2000/svg"><path d="M95.62.13c-3.51-.3-7.01-.07-10.43.83-7.96,2.11-14.17,6.6-18.23,13.81-3.88,6.9-4.71,14.29-2.88,21.94,2.96,12.36,13.38,20.86,26.07,21.95,2.22.19,4.45.15,6.68-.12,3.87-.46,7.51-1.62,10.87-3.59,5.54-3.24,9.43-7.95,12.19-13.67.05-.1.06-.21.11-.4-.17-.03-.26-.05-.34-.05-4.44,0-8.88,0-13.31-.02-.45,0-.67.2-.91.52-1.6,2.1-3.63,3.64-6.11,4.56-3.17,1.18-6.43,1.41-9.74.82-6.27-1.11-10.61-4.61-12.97-10.53-.36-.91-.67-1.84-.77-2.83.35-.12.67-.06.98-.06,14.62,0,29.24,0,43.86,0,.2,0,.41-.01.61,0,.36.03.51-.1.54-.48.35-3.61.15-7.17-.67-10.71C118.43,10.37,108.85,1.27,95.62.13ZM108.39,22.69h-31.7c.05-.52.29-.93.49-1.34,2.47-5.07,6.47-8.22,12.02-9.3,5.24-1.02,10.07-.04,14.32,3.29,2.32,1.82,3.93,4.15,4.83,6.96.03.08.04.17.06.25,0,.03,0,.06-.02.13Z"/><path d="M52.42,16.07C47.02,6.28,38.57,1.29,27.49.99c-8.84-.24-17.69-.05-26.53-.05C-.16.95.01.8,0,1.92c0,9.16,0,18.32,0,27.47s0,18.32,0,27.47c0,1.11-.17.98.95.98,8.55,0,17.11,0,25.66,0,2.36,0,4.68-.2,6.98-.74,6.26-1.46,11.54-4.57,15.63-9.55,4.76-5.79,6.73-12.51,6.34-19.95-.21-4.07-1.18-7.97-3.14-11.54ZM41.11,38.28c-2.41,4.17-6.08,6.63-10.73,7.72-1.47.35-2.98.44-4.48.45-4.38.01-8.76,0-13.13,0-.14,0-.29,0-.43,0-.34.02-.47-.14-.45-.47.01-.2,0-.41,0-.61,0-5.33,0-10.66,0-15.99v-15.91c0-.17.02-.35,0-.52-.07-.49.17-.57.6-.57,4.99.02,9.98-.14,14.96.06,8.14.32,14.66,5.98,15.74,14.27.53,4.07,0,7.97-2.08,11.57Z"/><path d="M311.07,24.69c-.85-5.8-3.28-10.89-7.28-15.18-5.29-5.67-11.9-8.69-19.57-9.38-3.77-.34-7.53-.05-11.19,1-7.78,2.23-13.85,6.74-17.83,13.83-3.48,6.19-4.42,12.85-3.21,19.82,1.05,6.06,3.78,11.28,8.2,15.56,5.93,5.73,13.13,8.34,21.14,8.45,2.82-.04,5.43-.31,7.99-.98,7.35-1.94,13.27-5.95,17.44-12.35,4.14-6.34,5.4-13.34,4.31-20.78ZM299.18,29.48c-.22,6.85-3.05,12.19-9.2,15.52-2.13,1.16-4.45,1.73-6.87,1.93-3.7.31-7.21-.31-10.46-2.11-4.84-2.68-7.69-6.82-8.62-12.26-.8-4.66-.01-9.07,2.6-13.04,2.77-4.22,6.74-6.66,11.71-7.46,4.34-.7,8.49-.11,12.31,2.11,4.9,2.86,7.62,7.21,8.39,12.8.06.4.12.8.14,1.21.02.43,0,.87,0,1.3Z"/><path d="M208.4,13.38c2.96-1.35,6.08-1.79,9.31-1.51,3.23.28,6.14,1.34,8.68,3.36,2.22,1.77,3.84,4.01,4.92,6.62.28.68.64.86,1.33.85,3.63-.04,7.25-.02,10.88-.02h.95c-.05-.29-.08-.5-.13-.69-1.17-4.65-3.25-8.85-6.45-12.43-5.13-5.73-11.61-8.78-19.22-9.44-3.95-.34-7.87,0-11.68,1.18-8.19,2.56-14.29,7.61-17.96,15.4-2.71,5.75-3.38,11.81-2.29,18.06,1.27,7.23,4.73,13.22,10.55,17.71,7.52,5.8,16.08,7.54,25.26,5.59,10.03-2.13,16.88-8.24,20.67-17.76.49-1.24.88-2.51,1.16-3.81.11-.52.09-.52-.43-.54-.06,0-.12,0-.17,0-3.8,0-7.6,0-11.4,0-.47,0-.76.08-.9.58-.12.41-.33.8-.52,1.19-1.89,3.84-4.7,6.72-8.76,8.24-3.08,1.15-6.26,1.36-9.49.78-5.21-.93-9.26-3.59-11.84-8.23-2.93-5.25-3.14-10.76-.92-16.32,1.62-4.05,4.49-6.98,8.46-8.79Z"/><path d="M185.32.94h-1.05c-4.55,0-9.11.02-13.66-.02-.66,0-1.05.22-1.45.7-6.53,7.8-13.08,15.58-19.62,23.37-8.37,9.96-16.75,19.92-25.12,29.88-.79.94-1.58,1.89-2.36,2.82.12.18.24.14.35.14,4.93,0,9.86,0,14.79.01.43,0,.68-.18.93-.49,4.55-5.45,9.11-10.89,13.67-16.34.74-.89,1.49-1.77,2.28-2.7,5.19,6.33,10.3,12.56,15.41,18.79.33.4.61.75,1.25.75,4.81-.03,9.63-.02,14.44-.02.18,0,.41.11.56-.17-7.87-9.64-15.75-19.28-23.65-28.95,7.73-9.24,15.43-18.44,23.23-27.77Z"/><path d="M150.35,15.64c-.22-.28-.43-.55-.65-.82-3.52-4.23-7.06-8.44-10.52-12.72-.72-.88-1.42-1.2-2.54-1.19-4.61.06-9.22.03-14.03.03,6.75,7.94,13.39,15.74,20.08,23.61,2.58-3.01,5.11-5.94,7.66-8.91Z"/></svg>
+  <nav id="railnav">
+      <a href="#contexto"><i>01</i>O PROTEG</a>
+      <a href="#estrutura"><i>02</i>Estrutura</a>
+      <a href="#lpr"><i>03</i>Perigos e riscos</a>
+      <a href="#objetivos"><i>04</i>Objetivos</a>
+      <a href="#conceitos"><i>05</i>Conceitos</a>
+      <a href="#ferramentas"><i>06</i>Ferramentas</a>
+      <a href="#documentos"><i>07</i>Documentos</a>
+  </nav>
+  <div class="fimr">PROTEG<br>Dexco · v1.2</div></aside>
+<div class="pagina">
 <header class="topo">
   <div class="topo-in">
     <svg role="img" aria-label="Dexco" viewBox="0 0 311.45 58.83" xmlns="http://www.w3.org/2000/svg"><path d="M95.62.13c-3.51-.3-7.01-.07-10.43.83-7.96,2.11-14.17,6.6-18.23,13.81-3.88,6.9-4.71,14.29-2.88,21.94,2.96,12.36,13.38,20.86,26.07,21.95,2.22.19,4.45.15,6.68-.12,3.87-.46,7.51-1.62,10.87-3.59,5.54-3.24,9.43-7.95,12.19-13.67.05-.1.06-.21.11-.4-.17-.03-.26-.05-.34-.05-4.44,0-8.88,0-13.31-.02-.45,0-.67.2-.91.52-1.6,2.1-3.63,3.64-6.11,4.56-3.17,1.18-6.43,1.41-9.74.82-6.27-1.11-10.61-4.61-12.97-10.53-.36-.91-.67-1.84-.77-2.83.35-.12.67-.06.98-.06,14.62,0,29.24,0,43.86,0,.2,0,.41-.01.61,0,.36.03.51-.1.54-.48.35-3.61.15-7.17-.67-10.71C118.43,10.37,108.85,1.27,95.62.13ZM108.39,22.69h-31.7c.05-.52.29-.93.49-1.34,2.47-5.07,6.47-8.22,12.02-9.3,5.24-1.02,10.07-.04,14.32,3.29,2.32,1.82,3.93,4.15,4.83,6.96.03.08.04.17.06.25,0,.03,0,.06-.02.13Z"/><path d="M52.42,16.07C47.02,6.28,38.57,1.29,27.49.99c-8.84-.24-17.69-.05-26.53-.05C-.16.95.01.8,0,1.92c0,9.16,0,18.32,0,27.47s0,18.32,0,27.47c0,1.11-.17.98.95.98,8.55,0,17.11,0,25.66,0,2.36,0,4.68-.2,6.98-.74,6.26-1.46,11.54-4.57,15.63-9.55,4.76-5.79,6.73-12.51,6.34-19.95-.21-4.07-1.18-7.97-3.14-11.54ZM41.11,38.28c-2.41,4.17-6.08,6.63-10.73,7.72-1.47.35-2.98.44-4.48.45-4.38.01-8.76,0-13.13,0-.14,0-.29,0-.43,0-.34.02-.47-.14-.45-.47.01-.2,0-.41,0-.61,0-5.33,0-10.66,0-15.99v-15.91c0-.17.02-.35,0-.52-.07-.49.17-.57.6-.57,4.99.02,9.98-.14,14.96.06,8.14.32,14.66,5.98,15.74,14.27.53,4.07,0,7.97-2.08,11.57Z"/><path d="M311.07,24.69c-.85-5.8-3.28-10.89-7.28-15.18-5.29-5.67-11.9-8.69-19.57-9.38-3.77-.34-7.53-.05-11.19,1-7.78,2.23-13.85,6.74-17.83,13.83-3.48,6.19-4.42,12.85-3.21,19.82,1.05,6.06,3.78,11.28,8.2,15.56,5.93,5.73,13.13,8.34,21.14,8.45,2.82-.04,5.43-.31,7.99-.98,7.35-1.94,13.27-5.95,17.44-12.35,4.14-6.34,5.4-13.34,4.31-20.78ZM299.18,29.48c-.22,6.85-3.05,12.19-9.2,15.52-2.13,1.16-4.45,1.73-6.87,1.93-3.7.31-7.21-.31-10.46-2.11-4.84-2.68-7.69-6.82-8.62-12.26-.8-4.66-.01-9.07,2.6-13.04,2.77-4.22,6.74-6.66,11.71-7.46,4.34-.7,8.49-.11,12.31,2.11,4.9,2.86,7.62,7.21,8.39,12.8.06.4.12.8.14,1.21.02.43,0,.87,0,1.3Z"/><path d="M208.4,13.38c2.96-1.35,6.08-1.79,9.31-1.51,3.23.28,6.14,1.34,8.68,3.36,2.22,1.77,3.84,4.01,4.92,6.62.28.68.64.86,1.33.85,3.63-.04,7.25-.02,10.88-.02h.95c-.05-.29-.08-.5-.13-.69-1.17-4.65-3.25-8.85-6.45-12.43-5.13-5.73-11.61-8.78-19.22-9.44-3.95-.34-7.87,0-11.68,1.18-8.19,2.56-14.29,7.61-17.96,15.4-2.71,5.75-3.38,11.81-2.29,18.06,1.27,7.23,4.73,13.22,10.55,17.71,7.52,5.8,16.08,7.54,25.26,5.59,10.03-2.13,16.88-8.24,20.67-17.76.49-1.24.88-2.51,1.16-3.81.11-.52.09-.52-.43-.54-.06,0-.12,0-.17,0-3.8,0-7.6,0-11.4,0-.47,0-.76.08-.9.58-.12.41-.33.8-.52,1.19-1.89,3.84-4.7,6.72-8.76,8.24-3.08,1.15-6.26,1.36-9.49.78-5.21-.93-9.26-3.59-11.84-8.23-2.93-5.25-3.14-10.76-.92-16.32,1.62-4.05,4.49-6.98,8.46-8.79Z"/><path d="M185.32.94h-1.05c-4.55,0-9.11.02-13.66-.02-.66,0-1.05.22-1.45.7-6.53,7.8-13.08,15.58-19.62,23.37-8.37,9.96-16.75,19.92-25.12,29.88-.79.94-1.58,1.89-2.36,2.82.12.18.24.14.35.14,4.93,0,9.86,0,14.79.01.43,0,.68-.18.93-.49,4.55-5.45,9.11-10.89,13.67-16.34.74-.89,1.49-1.77,2.28-2.7,5.19,6.33,10.3,12.56,15.41,18.79.33.4.61.75,1.25.75,4.81-.03,9.63-.02,14.44-.02.18,0,.41.11.56-.17-7.87-9.64-15.75-19.28-23.65-28.95,7.73-9.24,15.43-18.44,23.23-27.77Z"/><path d="M150.35,15.64c-.22-.28-.43-.55-.65-.82-3.52-4.23-7.06-8.44-10.52-12.72-.72-.88-1.42-1.2-2.54-1.19-4.61.06-9.22.03-14.03.03,6.75,7.94,13.39,15.74,20.08,23.61,2.58-3.01,5.11-5.94,7.66-8.91Z"/></svg>
     <nav class="nav" id="nav">
-      <a href="#contexto">O PROTEG</a>
-      <a href="#estrutura">Estrutura</a>
-      <a href="#objetivos">Objetivos</a>
-      <a href="#conceitos">Conceitos</a>
-      <a href="#ferramentas">Ferramentas</a>
-      <a href="#documentos">Documentos</a>
+      <a href="#contexto"><i>01</i>O PROTEG</a>
+      <a href="#estrutura"><i>02</i>Estrutura</a>
+      <a href="#lpr"><i>03</i>Perigos e riscos</a>
+      <a href="#objetivos"><i>04</i>Objetivos</a>
+      <a href="#conceitos"><i>05</i>Conceitos</a>
+      <a href="#ferramentas"><i>06</i>Ferramentas</a>
+      <a href="#documentos"><i>07</i>Documentos</a>
     </nav>
   </div>
 </header>
@@ -268,13 +332,14 @@ html.foto{scroll-behavior:auto}
       </div>
       <div class="rv">
         <h3>A trajetória</h3>
-        <div class="tl" style="margin-top:20px">
-          <div class="ev"><span class="ano">2015</span><b>Primeira Unidade certificada OHSAS 18001</b><p>A gestão de SST da Dexco entra no padrão internacional de sistema de gestão.</p></div>
-          <div class="ev"><span class="ano">2018</span><b>Adoção da metodologia SIF</b><p>Foco em incidentes com potencial de lesão grave ou fatalidade. Precursores e exposições passam a ser vigiados, não só acidentes ocorridos.</p></div>
-          <div class="ev"><span class="ano">2019</span><b>Revisão da NR-1 introduz o GRO</b><p>O Gerenciamento de Riscos Ocupacionais entra na legislação brasileira.</p></div>
-          <div class="ev"><span class="ano">2020 a 2021</span><b>Migração para a ISO 45001</b><p>Período de transição da OHSAS 18001. Hoje são 13 Unidades certificadas.</p></div>
-          <div class="ev"><span class="ano">2024</span><b>Nova revisão da NR-1</b><p>Maior robustez do GRO, explicitação dos fatores de risco psicossociais, análise de eventos potenciais e requisito de eficácia.</p></div>
-          <div class="ev"><span class="ano">2026</span><b>Entrada em vigor e grupo de trabalho</b><p>O texto revisado entra em vigor. O grupo de trabalho interno revisa a identificação de perigos, o inventário e o tratamento dos fatores psicossociais.</p></div>
+        <p class="sub">Navegue pelos marcos: clique no ano ou use as setas.</p>
+        <div class="stepper">
+          <div class="anos" id="tlAnos"></div>
+          <div class="ev-area">
+            <div class="evb" id="tlCard"></div>
+            <div class="ev-nav"><button id="tlPrev" aria-label="Anterior">&#8592;</button><button id="tlNext" aria-label="Proximo">&#8594;</button></div>
+          </div>
+          <div class="ev-barra"><i id="tlBarra" style="width:17%"></i></div>
         </div>
       </div>
       <div class="rv" style="margin-top:40px">
@@ -384,11 +449,35 @@ html.foto{scroll-behavior:auto}
   </div>
 </section>
 
-<!-- ================= 03 OBJETIVOS ================= -->
-<section id="objetivos">
+
+<!-- ================= 03 PERIGOS E RISCOS ================= -->
+<section id="lpr">
   <div class="wrap sec-grid">
     <aside class="aside rv">
       <div class="num"><i>0</i>3</div>
+      <div class="rot">Perigos e riscos</div>
+      <div class="tit">O catálogo corporativo, navegável</div>
+      <div class="dica">Fonte: LPR A-00_0069 Rev.07 e Inventário A-00_0071 Rv.03. A consulta detalhada é sempre com o SST.</div>
+    </aside>
+    <div class="conteudo">
+      <div class="rv">
+        <h2>A Relação de Perigos, interativa</h2>
+        <p class="lede">No decorrer das atividades há exposição a perigos dos grupos <b>acidental, biológico, ergonômico, físico, químico e psicossocial</b>. Filtre por grupo, busque por palavra ou código, e veja o Elemento PROTEG que responde por cada perigo. A marcação <b>SIF</b> indica potencial de lesão grave ou fatalidade.</p>
+      </div>
+      <div class="rv">
+        <div class="filtros" id="lprFiltros"></div>
+        <div class="lpr-conta" id="lprConta"></div>
+        <div class="lpr-grid" id="lprGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 OBJETIVOS ================= -->
+<section id="objetivos">
+  <div class="wrap sec-grid">
+    <aside class="aside rv">
+      <div class="num"><i>0</i>4</div>
       <div class="rot">Objetivos de desempenho</div>
       <div class="tit">8 ODP extraídos da Política PO.09</div>
       <div class="dica">Resultado a atingir: melhoria contínua do desempenho e cumprimento dos requisitos legais.</div>
@@ -429,11 +518,11 @@ html.foto{scroll-behavior:auto}
   </div>
 </section>
 
-<!-- ================= 04 CONCEITOS ================= -->
+<!-- ================= 05 CONCEITOS ================= -->
 <section id="conceitos" class="cinza">
   <div class="wrap sec-grid">
     <aside class="aside rv">
-      <div class="num"><i>0</i>4</div>
+      <div class="num"><i>0</i>5</div>
       <div class="rot">Conceitos de segurança</div>
       <div class="tit">Do requisito legal ao trabalho real</div>
       <div class="dica">SIF desde 2018. Segurança não é ausência de acidente: é risco controlado enquanto o trabalho acontece.</div>
@@ -500,11 +589,11 @@ html.foto{scroll-behavior:auto}
   </div>
 </section>
 
-<!-- ================= 05 FERRAMENTAS ================= -->
+<!-- ================= 06 FERRAMENTAS ================= -->
 <section id="ferramentas">
   <div class="wrap sec-grid">
     <aside class="aside rv">
-      <div class="num"><i>0</i>5</div>
+      <div class="num"><i>0</i>6</div>
       <div class="rot">Ferramentas</div>
       <div class="tit">O PROTEG na palma da mão</div>
       <div class="dica">Indicador proativo vale mais que estatística de acidente: vigia-se o precursor, antes do evento.</div>
@@ -529,11 +618,11 @@ html.foto{scroll-behavior:auto}
   </div>
 </section>
 
-<!-- ================= 06 DOCUMENTOS ================= -->
+<!-- ================= 07 DOCUMENTOS ================= -->
 <section id="documentos" class="cinza">
   <div class="wrap sec-grid">
     <aside class="aside rv">
-      <div class="num"><i>0</i>6</div>
+      <div class="num"><i>0</i>7</div>
       <div class="rot">Documentos</div>
       <div class="tit">A série DCP como fonte única</div>
       <div class="dica">Documento de Unidade detalha a aplicação local e nunca contraria o corporativo.</div>
@@ -597,6 +686,7 @@ html.foto{scroll-behavior:auto}
       <ul>
         <li><a href="#contexto">O PROTEG</a></li>
         <li><a href="#estrutura">Estrutura</a></li>
+        <li><a href="#lpr">Perigos e riscos</a></li>
         <li><a href="#objetivos">Objetivos</a></li>
         <li><a href="#conceitos">Conceitos</a></li>
         <li><a href="#ferramentas">Ferramentas</a></li>
@@ -615,11 +705,12 @@ html.foto{scroll-behavior:auto}
   </div>
   <div class="wrap" style="display:block">
     <div class="fim">
-      <span>PROTEG · Dexco · página de referência v1.1 · 22.07.2026</span>
+      <span>PROTEG · Dexco · página de referência v1.2 · 22.07.2026</span>
       <span>Elaboração CQT Centomo Qualidade Total</span>
     </div>
   </div>
 </footer>
+</div><!-- /pagina -->
 
 <script>
 if(location.search.includes('foto')||/Headless/i.test(navigator.userAgent)){document.documentElement.classList.add('foto')}
@@ -635,11 +726,57 @@ const pers=document.querySelector('.persiana');
 if(pers){const ult=pers.querySelector('i:last-child');
  ult.addEventListener('animationend',()=>pers.remove());
  setTimeout(()=>pers&&pers.remove(),2000);}
+
+// trajetoria navegavel
+const TL=[
+ {a:'2015',b:'Primeira Unidade certificada OHSAS 18001',p:'A gestão de SST da Dexco entra no padrão internacional de sistema de gestão.'},
+ {a:'2018',b:'Adoção da metodologia SIF',p:'Foco em incidentes com potencial de lesão grave ou fatalidade. Precursores e exposições passam a ser vigiados, não só acidentes ocorridos.'},
+ {a:'2019',b:'Revisão da NR-1 introduz o GRO',p:'O Gerenciamento de Riscos Ocupacionais entra na legislação brasileira.'},
+ {a:'2020 a 2021',b:'Migração para a ISO 45001',p:'Período de transição da OHSAS 18001. Hoje são 13 Unidades certificadas.'},
+ {a:'2024',b:'Nova revisão da NR-1',p:'Maior robustez do GRO, explicitação dos fatores de risco psicossociais, análise de eventos potenciais e requisito de eficácia.'},
+ {a:'2026',b:'Entrada em vigor e grupo de trabalho',p:'O texto revisado entra em vigor. O grupo de trabalho interno revisa a identificação de perigos, o inventário e o tratamento dos fatores psicossociais.'}];
+let tlI=0;
+const tlAnos=document.getElementById('tlAnos'),tlCard=document.getElementById('tlCard'),tlBarra=document.getElementById('tlBarra');
+function tlVai(i){tlI=(i+TL.length)%TL.length;
+ tlCard.classList.add('troca');
+ const aplica=()=>{const e=TL[tlI];
+  tlCard.innerHTML='<span class="anoluz">'+e.a+'</span><b>'+e.b+'</b><p>'+e.p+'</p>';
+  tlCard.classList.remove('troca');
+  Array.from(tlAnos.children).forEach((b,j)=>b.classList.toggle('on',j===tlI));
+  tlBarra.style.width=((tlI+1)/TL.length*100)+'%';};
+ if(document.documentElement.classList.contains('foto')) aplica(); else setTimeout(aplica,180);}
+if(tlAnos){
+ TL.forEach((e,i)=>{const b=document.createElement('button');b.textContent=e.a;b.onclick=()=>tlVai(i);tlAnos.appendChild(b);});
+ document.getElementById('tlPrev').onclick=()=>tlVai(tlI-1);
+ document.getElementById('tlNext').onclick=()=>tlVai(tlI+1);
+ tlVai(0);
+}
+// painel LPR
+const LPR=[{"g": "A", "c": "A01", "t": "Ser atacado por animais peçonhentos ou insetos", "e": "5.13", "s": true}, {"g": "A", "c": "A02", "t": "Ser atacado por animais", "e": "5.13", "s": false}, {"g": "A", "c": "A03", "t": "Ser atingido por cargas suspensas", "e": "2.15", "s": true}, {"g": "A", "c": "A04", "t": "Ser atingido por objeto em queda", "e": "1.15", "s": true}, {"g": "A", "c": "A05", "t": "Ser atingido por material ou partícula projetados", "e": "2.11", "s": true}, {"g": "A", "c": "A06", "t": "Ser atingido por vazão de material pressurizado", "e": "2.16", "s": false}, {"g": "A", "c": "A07", "t": "Ter contato com temperatura baixa", "e": "2.11", "s": false}, {"g": "A", "c": "A08", "t": "Ter contato com partes aquecidas, líquido, respingo ou vapor (acima de 50ºC)", "e": "2.11", "s": true}, {"g": "A", "c": "A09", "t": "Colidir contra objetos fixos do layout ou que fazem parte da área, incluindo cantos vivos", "e": "1.11 / 1.16 / 2.11", "s": false}, {"g": "A", "c": "A10", "t": "Ter contato com objetos cortantes ou perfuro cortantes", "e": "2.19 / 2.21", "s": false}, {"g": "A", "c": "A11", "t": "Ter contato com partes móveis ou ser prensado no uso de máquinas e dispositivos", "e": "2.11", "s": true}, {"g": "A", "c": "A12", "t": "Ser prensado na movimentação de materiais", "e": "2.12", "s": false}, {"g": "A", "c": "A13", "t": "Ter contato direto com agentes químicos", "e": "2.17", "s": true}, {"g": "A", "c": "A14", "t": "Utilizar inadequadamente ferramentas manuais", "e": "2.19", "s": false}, {"g": "A", "c": "A15", "t": "Utilizar inadequadamente ferramentas eletroportáteis", "e": "2.19", "s": true}, {"g": "A", "c": "A16", "t": "Ser atingido ou atropelado por veículos motorizados", "e": "2.18", "s": true}, {"g": "A", "c": "A17", "t": "Colidir ou tombar veículos motorizados", "e": "2.18", "s": true}, {"g": "A", "c": "A18", "t": "Ser atingido ou atropelado por veículos não motorizados", "e": "2.18", "s": false}, {"g": "A", "c": "A19", "t": "Colidir ou cair com veículo não motorizado", "e": "2.18", "s": false}, {"g": "A", "c": "A20", "t": "Escorregar, tropeçar e/ou cair em mesmo nível", "e": "1.11", "s": false}, {"g": "A", "c": "A21", "t": "Cair em desnível", "e": "1.11 / 2.13", "s": true}, {"g": "A", "c": "A22", "t": "Cair em altura", "e": "2.14", "s": true}, {"g": "A", "c": "A23", "t": "Cair em volume de líquidos (rio, lagoa, tanques)", "e": "5.15", "s": false}, {"g": "A", "c": "A24", "t": "Ter contato com corrente elétrica de baixa tensão (tensão superior a 50 V em CA ou 120 V em CC e igual ou inferior a 1000 V em CA ou 1500 V em CC)", "e": "2.20", "s": true}, {"g": "A", "c": "A25", "t": "Ter contato com corrente elétrica de alta tensão (tensão superior a 1000 V em corrente alternada ou 1500 V em corrente contínua)", "e": "2.20", "s": true}, {"g": "A", "c": "A26", "t": "Estar exposto a arcos elétricos", "e": "2.20", "s": true}, {"g": "A", "c": "A27", "t": "Ser atingido diretamente por descarga atmosférica (raio)", "e": "5.15", "s": false}, {"g": "A", "c": "A28", "t": "Ser agredido fisicamente", "e": "5.15", "s": false}, {"g": "A", "c": "A29", "t": "Ser atingido por aglomeração de pessoas (e pisoteamento)", "e": "3.13 / 5.15", "s": false}, {"g": "A", "c": "A30", "t": "Ser atingido por projétil de arma de fogo (tomar um tiro)", "e": "5.15", "s": true}, {"g": "A", "c": "A31", "t": "Estar exposto a ambiente com deficiência ou excesso de oxigênio", "e": "2.23", "s": false}, {"g": "A", "c": "A32", "t": "Ser soterrado", "e": "2.23", "s": false}, {"g": "A", "c": "A33", "t": "Estar em local confinado, enclausurado ou trancado, em ambiente que necessite de resgate", "e": "5.15 / 5.14", "s": false}, {"g": "A", "c": "A34", "t": "Ser engolfado", "e": "1.15 / 2.23", "s": false}, {"g": "A", "c": "A35", "t": "Estar exposto diretamente a incêndio", "e": "3.11", "s": true}, {"g": "A", "c": "A36", "t": "Estar exposto a explosão", "e": "3.11", "s": true}, {"g": "A", "c": "A37", "t": "Ser vítima de acidente aéreo", "e": "-", "s": false}, {"g": "A", "c": "A38", "t": "Ser vítima de desastres naturais", "e": "", "s": false}, {"g": "B", "c": "B01", "t": "Estar exposto a qualidade de ar inadequada", "e": "1.13 / 1.14", "s": false}, {"g": "B", "c": "B02", "t": "Ser intoxicado por alimentos", "e": "1.13 / 1.14", "s": false}, {"g": "B", "c": "B03", "t": "Ser contaminado por consumo de água", "e": "1.13 / 1.14", "s": false}, {"g": "B", "c": "B04", "t": "Estar exposto a pessoas com doenças infecto contagiosas", "e": "1.14 / 5.13", "s": false}, {"g": "B", "c": "B05", "t": "Estar exposto a material infecto contagiante", "e": "1.14 / 5.13", "s": false}, {"g": "E", "c": "E01", "t": "Ter postura ergonômica inadequada", "e": "1.16", "s": false}, {"g": "E", "c": "E02", "t": "Executar movimentos repetitivos", "e": "1.16", "s": false}, {"g": "E", "c": "E03", "t": "Se esforçar excessivamente, ou realizar trabalho com esforço físico intenso", "e": "1.16", "s": false}, {"g": "E", "c": "E04", "t": "Estar em frequente deslocamento durante a jornada de trabalho", "e": "", "s": false}, {"g": "E", "c": "E05", "t": "Estar em ambiente com iluminação inadequada, insuficiente, excessiva ou não difusa", "e": "1.16", "s": false}, {"g": "E", "c": "E06", "t": "Realizar trabalhos prolongados focados em telas de computadores", "e": "1.16", "s": false}, {"g": "E", "c": "E07", "t": "Estar em atividade com ausência de pausas", "e": "1.16", "s": false}, {"g": "E", "c": "E08", "t": "Permanecer em postura sentada por longos períodos", "e": "1.16", "s": false}, {"g": "E", "c": "E09", "t": "Permanecer em postura em pé por longos períodos", "e": "1.16", "s": false}, {"g": "E", "c": "E10", "t": "Estar em local com desconforto de temperatura ou umidade", "e": "1.13 / 1.16", "s": false}, {"g": "E", "c": "E11", "t": "Estar exposto a ambientes com fatores que possam causar distração", "e": "1.16", "s": false}, {"g": "E", "c": "E12", "t": "Exercer múltiplas tarefas, com alta demanda cognitiva, ser submetido a períodos excessivos de concentração e estado de alerta", "e": "", "s": false}, {"g": "E", "c": "E13", "t": "Executar atividades manuais fora da zona de alcance do ponto de operação", "e": "", "s": false}, {"g": "E", "c": "E14", "t": "Operar máquinas ou equipamentos que tenham dimensões ergonômicas inadequadas ao alcance do operador", "e": "", "s": false}, {"g": "E", "c": "E15", "t": "Trabalhar de forma intensiva com teclado ou outros dispositivos", "e": "", "s": false}, {"g": "F", "c": "F01", "t": "Estar exposto ao frio ou calor (NR-15)", "e": "5.13", "s": false}, {"g": "F", "c": "F02", "t": "Estar exposto a vibrações", "e": "5.13", "s": false}, {"g": "F", "c": "F03", "t": "Estar exposto a ruído de impacto", "e": "5.13", "s": false}, {"g": "F", "c": "F04", "t": "Estar exposto a ruído contínuo", "e": "5.13", "s": false}, {"g": "F", "c": "F05", "t": "Estar exposto a radiações ionizantes", "e": "5.13", "s": false}, {"g": "F", "c": "F06", "t": "Estar exposto a radiações não ionizantes", "e": "5.13", "s": false}, {"g": "F", "c": "F07", "t": "Estar exposto a ambientes úmidos", "e": "5.13", "s": false}, {"g": "F", "c": "F08", "t": "Estar exposto ao sol", "e": "5.13", "s": false}, {"g": "F", "c": "F09", "t": "Estar exposto a chuvas e ventos", "e": "1.11 / 1.13", "s": false}, {"g": "Q", "c": "Q01", "t": "Inalar/ingerir/absorver poeiras", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q02", "t": "Estar exposto a fumos metálicos", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q03", "t": "Estar exposto/inalar/ingerir/absorver gases", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q04", "t": "Estar exposto/inalar poluição", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q05", "t": "Estar exposto/inalar/ingerir/absorver névoas", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q06", "t": "Estar exposto/inalar/ingerir/absorver agrotóxicos, herbicida, inseticida e fungicida", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q07", "t": "Estar exposto/inalar/ingerir/absorver fertilizantes", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q08", "t": "Estar exposto/inalar/ingerir/absorver inflamáveis e combustíveis", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q09", "t": "Estar exposto/inalar/ingerir/absorver tintas e solventes aromáticos", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q10", "t": "Estar exposto/inalar/ingerir/absorver produtos químicos utilizados na manutenção e produção (limpeza de máquinas, matéria-prima, aditivos, etc)", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q11", "t": "Estar exposto/inalar/ingerir/absorver produtos químicos de serviços gerais", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q12", "t": "Estar exposto/inalar/ingerir/absorver óleos e graxas (hidrocarbonetos refinados)", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q13", "t": "Estar exposto/inalar/ingerir/absorver agentes orgânicos formaldeído", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "Q", "c": "Q14", "t": "Estar exposto/inalar/ingerir/absorver vapores metálicos (cromo)", "e": "1.13 / 2.17 / 2.21 / 5.13", "s": false}, {"g": "P", "c": "P01", "t": "Ser submetido a uma jornada ou carga de trabalho excessiva", "e": "-", "s": false}, {"g": "P", "c": "P02", "t": "Ser submetido a demandas conflitantes ou incompatíveis, ordens divergentes ou conflitos hierárquicos", "e": "-", "s": false}, {"g": "P", "c": "P03", "t": "Ser submetido a um ambiente de trabalho instável, de frequente mudanças", "e": "-", "s": false}, {"g": "P", "c": "P04", "t": "Ser agredido verbalmente ou discriminado", "e": "-", "s": false}, {"g": "P", "c": "P05", "t": "Ser assediado moralmente", "e": "-", "s": false}, {"g": "P", "c": "P06", "t": "Ser assediado sexualmente", "e": "-", "s": false}, {"g": "P", "c": "P07", "t": "Ser assaltado, sequestrado ou estar em cena de uma ocorrência criminal", "e": "-", "s": false}, {"g": "P", "c": "P08", "t": "Realizar operações solitárias ou em locais distantes", "e": "-", "s": false}, {"g": "P", "c": "P09", "t": "Ser submetido a condições de difícil comunicação ou entendimento", "e": "-", "s": false}, {"g": "P", "c": "P10", "t": "Exercer atividades incompatíveis com as habilidades profissionais", "e": "-", "s": false}, {"g": "P", "c": "P11", "t": "Presenciar situações traumáticas de acidentes", "e": "", "s": false}, {"g": "P", "c": "P12", "t": "Estar submetido a um ambiente de trabalho com relacionamento interpessoal negativo", "e": "", "s": false}, {"g": "P", "c": "P13", "t": "Estar sob condições de desencorajamento ou represálias", "e": "", "s": false}, {"g": "P", "c": "P14", "t": "Estar submetido a expectativas irreais ou metas de trabalho inalcançáveis", "e": "", "s": false}, {"g": "P", "c": "P15", "t": "Estar submetido a falta de expectativa de crescimento, incompatibilidade salarial ou falta de bonificação", "e": "", "s": false}, {"g": "P", "c": "P16", "t": "Estar submetido a situações de calamidade por desastres naturais", "e": "", "s": false}];
+const GRUPOS={A:'Acidentes',B:'Biológicos',E:'Ergonômicos',F:'Físicos',Q:'Químicos',P:'Psicossociais'};
+const fEl=document.getElementById('lprFiltros'),gEl=document.getElementById('lprGrid'),cEl=document.getElementById('lprConta');
+if(fEl){
+ let gAtivo='*',busca='';
+ const bt=(rot,val)=>{const b=document.createElement('button');b.textContent=rot;b.dataset.g=val;
+   b.onclick=()=>{gAtivo=val;fEl.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.g===val));pinta();};return b;};
+ fEl.appendChild(bt('TODOS ('+LPR.length+')','*'));
+ for(const g in GRUPOS){const n=LPR.filter(x=>x.g===g).length; if(n) fEl.appendChild(bt(g+' ('+n+')',g));}
+ const inp=document.createElement('input');inp.placeholder='Buscar perigo, código ou elemento...';
+ inp.oninput=()=>{busca=inp.value.trim().toLowerCase();pinta();};fEl.appendChild(inp);
+ fEl.querySelector('button').classList.add('on');
+ function pinta(){
+  const vis=LPR.filter(x=>(gAtivo==='*'||x.g===gAtivo)&&(!busca||(x.c+' '+x.t+' '+(x.e||'')).toLowerCase().includes(busca)));
+  cEl.textContent=vis.length+' de '+LPR.length+' perigos'+(gAtivo!=='*'?' · '+GRUPOS[gAtivo]:'')+(busca?' · busca ativa':'');
+  gEl.innerHTML=vis.map(x=>'<div class="pcard"><div class="cab"><span class="cd">'+x.c+'</span><span class="gtag">'+GRUPOS[x.g]+'</span>'+(x.s?'<span class="sif">SIF</span>':'')+'</div><div class="tx" title="'+x.t.replace(/"/g,'&quot;')+'">'+x.t+'</div><div class="pe">'+(x.e||'Elemento a vincular')+'</div></div>').join('');
+ }
+ pinta();
+}
+
 // reveal
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 // scroll-spy
-const links=[...document.querySelectorAll('#nav a')];
+const links=[...document.querySelectorAll('#nav a'),...document.querySelectorAll('#railnav a')];
 const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
 const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
 secs.forEach(s=>s&&spy.observe(s));
