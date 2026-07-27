@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Perguntas e Respostas NR-1 · PROTEG Dexco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --preto:#282828; --cinza6:#58595B; --cinza5:#6D6E71; --cinza4:#939598;
+  --cinza3:#BCBEC0; --cinza2:#E6E7E8; --cinza1:#F1F2F2; --fundo:#FBFBFB;
+  --laranja:#ED7C18; --verde:#6EB751; --verde-esc:#228E50; --vermelho:#D35143;
+  --amarelo:#F7A920; --azul:#2D75B9; --topo-h:64px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',Arial,sans-serif;color:var(--preto);background:#fff;font-size:16px;line-height:1.65}
+h1,h2,h3{font-family:'Roboto Slab',serif;text-wrap:pretty}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+/* persiana */
+.persiana{position:fixed;inset:0;z-index:100;display:flex;pointer-events:none}
+.persiana i{flex:1;background:var(--preto);transform-origin:50% 0;animation:persAbre .82s cubic-bezier(.7,0,.24,1) forwards}
+.persiana i:nth-child(2){animation-delay:.06s}.persiana i:nth-child(3){animation-delay:.12s}
+.persiana i:nth-child(4){animation-delay:.18s}.persiana i:nth-child(5){animation-delay:.24s}
+.persiana i:nth-child(6){animation-delay:.30s}.persiana i:nth-child(7){animation-delay:.36s}
+.persiana i:nth-child(8){animation-delay:.42s}
+@keyframes persAbre{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+html.foto .persiana{display:none}
+@media (prefers-reduced-motion: reduce){.persiana{display:none}}
+
+/* trilho lateral */
+.rail{position:fixed;left:0;top:0;bottom:0;width:236px;background:#fff;border-right:1px solid var(--cinza2);z-index:60;display:flex;flex-direction:column;padding:28px 20px 22px}
+.rail svg{height:20px;width:auto;fill:var(--preto);margin:0 0 34px 10px;flex-shrink:0}
+.rail nav{display:flex;flex-direction:column;gap:2px}
+.rail nav a{display:flex;align-items:baseline;gap:12px;padding:10px 10px;font-size:13.5px;font-weight:500;color:var(--cinza6);text-decoration:none;border-radius:3px;border-left:2px solid transparent}
+.rail nav a i{font-style:normal;font-family:'Roboto Mono',monospace;font-size:10.5px;color:var(--cinza4);letter-spacing:.08em}
+.rail nav a:hover{background:var(--cinza1);color:var(--preto)}
+.rail nav a.on{color:var(--laranja);border-left-color:var(--laranja);background:var(--fundo)}
+.rail nav a.on i{color:var(--laranja)}
+.rail .grupo{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza4);padding:0 10px;margin:26px 0 8px}
+.rail nav a.ext{color:var(--preto);border-left-color:var(--cinza2)}
+.rail nav a.ext:hover{border-left-color:var(--laranja)}
+.rail nav a.ext i{color:var(--laranja);font-size:13px}
+.rail .fimr{margin-top:auto;padding:14px 10px 0;border-top:1px solid var(--cinza2);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--cinza4);text-transform:uppercase;line-height:1.9}
+.pagina{margin-left:236px}
+@media(max-width:1100px){.rail{position:static;width:auto;flex-direction:row;align-items:center;gap:18px;padding:12px 20px;border-right:none;border-bottom:1px solid var(--cinza2);overflow-x:auto}
+.rail svg{margin:0}.rail nav{flex-direction:row;gap:2px}.rail .grupo,.rail .fimr{display:none}.pagina{margin-left:0}
+.rail nav a{border-left:none;border-bottom:2px solid transparent;white-space:nowrap}
+.rail nav a.on{border-left-color:transparent;border-bottom-color:var(--laranja)}}
+
+/* hero compacto */
+.hero{position:relative;min-height:440px;display:flex;align-items:flex-end;background:var(--preto)}
+.hero .bg{position:absolute;inset:0;background:url("data:image/jpeg;base64,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") center 35%/cover no-repeat;opacity:.9}
+.hero .veu{position:absolute;inset:0;background:linear-gradient(12deg,rgba(20,20,20,.9) 20%,rgba(20,20,20,.4) 62%,rgba(20,20,20,.1) 100%)}
+.hero-in{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:74px 32px 46px;color:#fff}
+.hero .eyebrow{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.16em;color:#f5f5f5;opacity:.85;text-transform:uppercase;margin-bottom:13px}
+.hero h1{font-size:clamp(27px,3.8vw,44px);font-weight:600;line-height:1.16;max-width:20em}
+.hero p.sub{margin-top:16px;font-size:clamp(14.5px,1.5vw,18px);font-weight:300;max-width:46em;color:#EDEDED}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.pill{border:1px solid rgba(255,255,255,.4);border-radius:3px;padding:9px 16px;font-size:13px;background:rgba(0,0,0,.25)}
+.pill b{font-family:'Roboto Mono',monospace;font-weight:500;color:var(--laranja);margin-right:7px;font-size:15px}
+
+/* secoes com aside preso */
+section{padding:78px 0;scroll-margin-top:16px}
+section.cinza{background:var(--fundo);border-top:1px solid var(--cinza2);border-bottom:1px solid var(--cinza2)}
+.sec-grid{display:grid;grid-template-columns:210px minmax(0,1fr);gap:56px;align-items:start}
+.aside{position:sticky;top:28px}
+.aside .num{font-family:'Roboto Slab',serif;font-size:74px;font-weight:700;line-height:1;color:var(--preto);letter-spacing:-.04em}
+.aside .num i{font-style:normal;color:var(--laranja)}
+.aside .rot{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza4);margin:14px 0 8px}
+.aside .tit{font-family:'Roboto Slab',serif;font-size:15.5px;font-weight:600;line-height:1.35;padding-bottom:16px;border-bottom:2px solid var(--laranja)}
+.aside .dica{margin-top:14px;font-size:12.5px;color:var(--cinza5);line-height:1.55}
+@media(max-width:960px){.sec-grid{grid-template-columns:1fr;gap:26px}.aside{position:static}.aside .num{font-size:52px}}
+.conteudo{min-width:0}
+h2{font-size:clamp(23px,2.7vw,32px);font-weight:600;line-height:1.22;margin-bottom:14px;max-width:24em}
+.lede{font-size:17px;font-weight:300;color:var(--cinza6);max-width:48em;margin-bottom:34px}
+.lede b{font-weight:500;color:var(--preto)}
+h3{font-size:18.5px;font-weight:600;margin:38px 0 6px;display:flex;align-items:center;gap:14px}
+h3::after{content:"";flex:1;height:1px;background:var(--cinza2)}
+h3+.sub{font-size:13.5px;color:var(--cinza5);margin-bottom:18px;max-width:66ch}
+p{max-width:74ch}
+
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:960px){.g3{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--cinza2);border-radius:3px;padding:24px}
+.card h4{font-family:'Roboto Slab',serif;font-size:16px;font-weight:600;margin-bottom:7px}
+.card p{font-size:14px;color:var(--cinza6)}
+.card .cod{font-family:'Roboto Mono',monospace;font-size:11.5px;color:var(--laranja);letter-spacing:.08em;display:block;margin-bottom:9px}
+.card .qt{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--cinza4);letter-spacing:.06em;margin-top:12px;display:block;padding-top:12px;border-top:1px solid var(--cinza2)}
+
+/* filtros */
+.filtros{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fg label{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza4)}
+.fg select,.fg input{border:1px solid var(--cinza2);border-radius:3px;padding:9px 11px;font-size:13.5px;font-family:'Roboto',sans-serif;background:#fff;color:var(--preto);height:38px}
+.fg select:focus,.fg input:focus{outline:2px solid var(--laranja);border-color:transparent}
+.fg select:hover{border-color:var(--cinza3)}
+.acoes{display:flex;gap:8px;align-items:flex-end}
+.acoes button{border:1px solid var(--cinza2);background:#fff;border-radius:3px;padding:0 15px;height:38px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--cinza6);white-space:nowrap}
+.acoes button:hover{border-color:var(--laranja);color:var(--laranja)}
+.acoes button.primario{background:var(--preto);color:#fff;border-color:var(--preto)}
+.acoes button.primario:hover{background:var(--laranja);border-color:var(--laranja);color:#fff}
+.conta{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--cinza4);margin:0 0 14px}
+.conta b{color:var(--preto);font-weight:500}
+
+/* tabela: TODA linha com a mesma altura, detalhe vai no painel */
+.tab{border:1px solid var(--cinza2);border-radius:3px;background:#fff;overflow:hidden}
+.tab .th,.tab .tr{display:grid;align-items:center;column-gap:16px;padding:0 18px;
+  grid-template-columns:46px minmax(0,2.5fr) minmax(0,1.1fr) 116px 136px 112px}
+.tab .th{height:42px;background:var(--cinza1);border-bottom:1px solid var(--cinza2);font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--cinza5)}
+.tab .tr{height:56px;border-bottom:1px solid var(--cinza2);font-size:14px;cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;width:100%;text-align:left;font-family:inherit;color:inherit}
+.tab .tr:last-child{border-bottom:none}
+.tab .tr:hover{background:var(--fundo)}
+.tab .tr:focus-visible{outline:2px solid var(--laranja);outline-offset:-2px}
+.tab .tr>span,.tab .th>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.tab .num{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--cinza4)}
+.tab .perg{font-weight:400;color:var(--preto)}
+.tab .fnt{font-size:13px;color:var(--cinza5)}
+@media(max-width:1180px){.tab .th,.tab .tr{grid-template-columns:44px minmax(0,2.4fr) 112px 112px}
+.tab .th>:nth-child(3),.tab .tr>:nth-child(3){display:none}
+.tab .th>:nth-child(6),.tab .tr>:nth-child(6){display:none}}
+@media(max-width:720px){.tab .th,.tab .tr{grid-template-columns:40px minmax(0,1fr) 108px}
+.tab .th>:nth-child(5),.tab .tr>:nth-child(5){display:none}}
+.chip{display:inline-block;font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.04em;border-radius:3px;padding:3px 8px;white-space:nowrap;background:var(--cinza1);color:var(--cinza5)}
+.chip.nr1{background:#FDF3E1;color:#A96A00}
+.chip.iso{background:#EAF0F8;color:#1F5A96}
+.chip.nr17{background:#EAF4E4;color:var(--verde-esc)}
+.vazio{padding:52px 24px;text-align:center;color:var(--cinza4);font-size:14.5px}
+.vazio b{display:block;font-family:'Roboto Slab',serif;font-size:17px;color:var(--preto);margin-bottom:6px;font-weight:600}
+
+/* painel de detalhe */
+.mod{position:fixed;inset:0;z-index:90;background:rgba(20,20,20,.62);display:none;align-items:flex-start;justify-content:center;padding:5vh 24px;overflow-y:auto}
+.mod.abre{display:flex}
+.mod-cx{background:#fff;border-radius:3px;width:min(860px,100%);animation:sobe .28s cubic-bezier(.16,1,.3,1)}
+@keyframes sobe{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.mod-cab{display:flex;align-items:flex-start;gap:20px;padding:24px 28px;border-bottom:1px solid var(--cinza2);position:sticky;top:0;background:#fff;border-radius:3px 3px 0 0}
+.mod-cab .qn{font-family:'Roboto Slab',serif;font-size:34px;font-weight:700;color:var(--laranja);line-height:1;flex-shrink:0}
+.mod-cab .qt{flex:1;min-width:0}
+.mod-cab .qt .fo{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--cinza4);margin-bottom:6px}
+.mod-cab .qt h3{font-family:'Roboto Slab',serif;font-size:19px;font-weight:600;line-height:1.35;margin:0;display:block}
+.mod-cab .qt h3::after{display:none}
+.mod-fecha{border:1px solid var(--cinza2);background:#fff;width:34px;height:34px;border-radius:3px;cursor:pointer;font-size:18px;color:var(--cinza5);line-height:1;flex-shrink:0}
+.mod-fecha:hover{border-color:var(--laranja);color:var(--laranja)}
+.mod-corpo{padding:26px 28px 30px}
+.mod-resp{font-size:15.5px;line-height:1.7;color:var(--preto);margin-bottom:26px}
+.mod-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--cinza2);border:1px solid var(--cinza2);border-radius:3px;overflow:hidden}
+@media(max-width:640px){.mod-meta{grid-template-columns:1fr}}
+.mod-meta div{background:#fff;padding:13px 16px;min-height:62px}
+.mod-meta .rt{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--cinza4);display:block;margin-bottom:5px}
+.mod-meta .vl{font-size:13.5px;color:var(--preto)}
+.mod-nav{display:flex;gap:8px;justify-content:space-between;align-items:center;margin-top:22px;padding-top:20px;border-top:1px solid var(--cinza2)}
+.mod-nav button{border:1px solid var(--cinza2);background:#fff;border-radius:3px;padding:9px 15px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:11.5px;color:var(--cinza6)}
+.mod-nav button:hover{border-color:var(--laranja);color:var(--laranja)}
+.mod-nav .pos{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--cinza4)}
+
+.aviso{border:1px solid var(--cinza2);border-left:3px solid var(--laranja);background:#fff;border-radius:3px;padding:16px 20px;font-size:14px;color:var(--cinza6);max-width:74ch}
+.aviso b{color:var(--preto)}
+
+footer{background:var(--preto);color:var(--cinza3);padding:52px 0 38px;font-size:13.5px}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+@media(max-width:860px){footer .wrap{grid-template-columns:1fr}}
+footer img{height:36px;margin-bottom:16px;opacity:.95}
+footer h5{font-family:'Roboto Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza4);margin-bottom:12px;font-weight:500}
+footer a{color:var(--cinza2);text-decoration:none}
+footer a:hover{color:#fff}
+footer ul{list-style:none;display:grid;gap:7px}
+footer .fim{border-top:1px solid #3a3a3a;margin-top:40px;padding-top:20px;font-family:'Roboto Mono',monospace;font-size:11.5px;color:var(--cinza5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+html.foto .rv{opacity:1;transform:none;transition:none}
+html.foto{scroll-behavior:auto}
+</style>
+</head>
+<body>
+
+<div class="persiana" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<aside class="rail" aria-label="Menu lateral">
+  <svg class="marca-dexco" role="img" aria-label="Dexco" viewBox="0 0 311.45 58.83" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M95.62.13c-3.51-.3-7.01-.07-10.43.83-7.96,2.11-14.17,6.6-18.23,13.81-3.88,6.9-4.71,14.29-2.88,21.94,2.96,12.36,13.38,20.86,26.07,21.95,2.22.19,4.45.15,6.68-.12,3.87-.46,7.51-1.62,10.87-3.59,5.54-3.24,9.43-7.95,12.19-13.67.05-.1.06-.21.11-.4-.17-.03-.26-.05-.34-.05-4.44,0-8.88,0-13.31-.02-.45,0-.67.2-.91.52-1.6,2.1-3.63,3.64-6.11,4.56-3.17,1.18-6.43,1.41-9.74.82-6.27-1.11-10.61-4.61-12.97-10.53-.36-.91-.67-1.84-.77-2.83.35-.12.67-.06.98-.06,14.62,0,29.24,0,43.86,0,.2,0,.41-.01.61,0,.36.03.51-.1.54-.48.35-3.61.15-7.17-.67-10.71C118.43,10.37,108.85,1.27,95.62.13ZM108.39,22.69h-31.7c.05-.52.29-.93.49-1.34,2.47-5.07,6.47-8.22,12.02-9.3,5.24-1.02,10.07-.04,14.32,3.29,2.32,1.82,3.93,4.15,4.83,6.96.03.08.04.17.06.25,0,.03,0,.06-.02.13Z"/><path d="M52.42,16.07C47.02,6.28,38.57,1.29,27.49.99c-8.84-.24-17.69-.05-26.53-.05C-.16.95.01.8,0,1.92c0,9.16,0,18.32,0,27.47s0,18.32,0,27.47c0,1.11-.17.98.95.98,8.55,0,17.11,0,25.66,0,2.36,0,4.68-.2,6.98-.74,6.26-1.46,11.54-4.57,15.63-9.55,4.76-5.79,6.73-12.51,6.34-19.95-.21-4.07-1.18-7.97-3.14-11.54ZM41.11,38.28c-2.41,4.17-6.08,6.63-10.73,7.72-1.47.35-2.98.44-4.48.45-4.38.01-8.76,0-13.13,0-.14,0-.29,0-.43,0-.34.02-.47-.14-.45-.47.01-.2,0-.41,0-.61,0-5.33,0-10.66,0-15.99v-15.91c0-.17.02-.35,0-.52-.07-.49.17-.57.6-.57,4.99.02,9.98-.14,14.96.06,8.14.32,14.66,5.98,15.74,14.27.53,4.07,0,7.97-2.08,11.57Z"/><path d="M311.07,24.69c-.85-5.8-3.28-10.89-7.28-15.18-5.29-5.67-11.9-8.69-19.57-9.38-3.77-.34-7.53-.05-11.19,1-7.78,2.23-13.85,6.74-17.83,13.83-3.48,6.19-4.42,12.85-3.21,19.82,1.05,6.06,3.78,11.28,8.2,15.56,5.93,5.73,13.13,8.34,21.14,8.45,2.82-.04,5.43-.31,7.99-.98,7.35-1.94,13.27-5.95,17.44-12.35,4.14-6.34,5.4-13.34,4.31-20.78ZM299.18,29.48c-.22,6.85-3.05,12.19-9.2,15.52-2.13,1.16-4.45,1.73-6.87,1.93-3.7.31-7.21-.31-10.46-2.11-4.84-2.68-7.69-6.82-8.62-12.26-.8-4.66-.01-9.07,2.6-13.04,2.77-4.22,6.74-6.66,11.71-7.46,4.34-.7,8.49-.11,12.31,2.11,4.9,2.86,7.62,7.21,8.39,12.8.06.4.12.8.14,1.21.02.43,0,.87,0,1.3Z"/><path d="M208.4,13.38c2.96-1.35,6.08-1.79,9.31-1.51,3.23.28,6.14,1.34,8.68,3.36,2.22,1.77,3.84,4.01,4.92,6.62.28.68.64.86,1.33.85,3.63-.04,7.25-.02,10.88-.02h.95c-.05-.29-.08-.5-.13-.69-1.17-4.65-3.25-8.85-6.45-12.43-5.13-5.73-11.61-8.78-19.22-9.44-3.95-.34-7.87,0-11.68,1.18-8.19,2.56-14.29,7.61-17.96,15.4-2.71,5.75-3.38,11.81-2.29,18.06,1.27,7.23,4.73,13.22,10.55,17.71,7.52,5.8,16.08,7.54,25.26,5.59,10.03-2.13,16.88-8.24,20.67-17.76.49-1.24.88-2.51,1.16-3.81.11-.52.09-.52-.43-.54-.06,0-.12,0-.17,0-3.8,0-7.6,0-11.4,0-.47,0-.76.08-.9.58-.12.41-.33.8-.52,1.19-1.89,3.84-4.7,6.72-8.76,8.24-3.08,1.15-6.26,1.36-9.49.78-5.21-.93-9.26-3.59-11.84-8.23-2.93-5.25-3.14-10.76-.92-16.32,1.62-4.05,4.49-6.98,8.46-8.79Z"/><path d="M185.32.94h-1.05c-4.55,0-9.11.02-13.66-.02-.66,0-1.05.22-1.45.7-6.53,7.8-13.08,15.58-19.62,23.37-8.37,9.96-16.75,19.92-25.12,29.88-.79.94-1.58,1.89-2.36,2.82.12.18.24.14.35.14,4.93,0,9.86,0,14.79.01.43,0,.68-.18.93-.49,4.55-5.45,9.11-10.89,13.67-16.34.74-.89,1.49-1.77,2.28-2.7,5.19,6.33,10.3,12.56,15.41,18.79.33.4.61.75,1.25.75,4.81-.03,9.63-.02,14.44-.02.18,0,.41.11.56-.17-7.87-9.64-15.75-19.28-23.65-28.95,7.73-9.24,15.43-18.44,23.23-27.77Z"/><path d="M150.35,15.64c-.22-.28-.43-.55-.65-.82-3.52-4.23-7.06-8.44-10.52-12.72-.72-.88-1.42-1.2-2.54-1.19-4.61.06-9.22.03-14.03.03,6.75,7.94,13.39,15.74,20.08,23.61,2.58-3.01,5.11-5.94,7.66-8.91Z"/></svg>
+  <nav id="railnav">
+    <a href="#base"><i>01</i>A base</a>
+    <a href="#consulta"><i>02</i>Consulta</a>
+    <a href="#fontes"><i>03</i>As fontes</a>
+  </nav>
+  <div class="grupo">Portal PROTEG</div>
+  <nav>
+    <a class="ext" href="proteg-dexco.html"><i>&#8592;</i>Voltar ao portal</a>
+  </nav>
+  <div class="fimr">PERGUNTAS<br>NR-1 · V1.0</div>
+</aside>
+
+<div class="pagina">
+
+<div class="hero" id="inicio">
+  <div class="bg"></div><div class="veu"></div>
+  <div class="hero-in">
+    <div class="eyebrow">Dexco · PROTEG · Conformidade normativa</div>
+    <h1>Perguntas e respostas sobre a nova NR-1</h1>
+    <p class="sub">O que as fontes oficiais já responderam sobre fatores de risco psicossociais e gerenciamento de riscos ocupacionais, com cada resposta amarrada ao requisito correspondente da NR-1, da NR-17 e da ISO 45001.</p>
+    <div class="pills">
+      <span class="pill"><b>27</b>Perguntas respondidas</span>
+      <span class="pill"><b>3</b>Fontes oficiais</span>
+      <span class="pill"><b>NR-1</b>NR-17 · NR-9 · ISO 45001</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= 01 A BASE ================= -->
+<section id="base">
+  <div class="wrap sec-grid">
+    <aside class="aside rv">
+      <div class="num"><i>0</i>1</div>
+      <div class="rot">A base</div>
+      <div class="tit">Interpretação oficial, com rastreabilidade</div>
+      <div class="dica">Cada resposta traz a página da fonte e o requisito normativo que ela esclarece.</div>
+    </aside>
+    <div class="conteudo">
+      <div class="rv">
+        <h2>Por que esta base existe</h2>
+        <p class="lede">A revisão da NR-1 incluiu expressamente os <b>fatores de risco psicossociais</b> no Gerenciamento de Riscos Ocupacionais. O texto da norma diz o que fazer, não como. As respostas reunidas aqui vêm de <b>três fontes oficiais</b> que preencheram essa lacuna, e cada uma está vinculada ao requisito que esclarece.</p>
+      </div>
+      <div class="g3 rv">
+        <div class="card">
+          <span class="cod">O QUE É</span>
+          <h4>Interpretação, não norma</h4>
+          <p>Estas respostas orientam a leitura da norma. Elas não substituem o texto legal: em caso de divergência, prevalece o que está publicado na NR.</p>
+        </div>
+        <div class="card">
+          <span class="cod">COMO USAR</span>
+          <h4>Filtre e abra o detalhe</h4>
+          <p>Filtre por fonte, por data ou por requisito, ou busque por palavra. Clique em qualquer linha para ver a resposta completa e todos os vínculos normativos.</p>
+        </div>
+        <div class="card">
+          <span class="cod">RASTREABILIDADE</span>
+          <h4>Página e requisito</h4>
+          <p>Toda resposta indica a página exata da fonte e os requisitos correspondentes na NR-1, NR-17, NR-9 e ISO 45001, mais o capítulo da tese quando aplicável.</p>
+        </div>
+      </div>
+      <div class="rv" style="margin-top:34px">
+        <div class="aviso"><b>A numeração segue a planilha de origem.</b> Os números da coluna Nº são os do arquivo de trabalho do cliente e começam em 2, o que preserva a rastreabilidade com o material original em vez de renumerar aqui.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 CONSULTA ================= -->
+<section id="consulta" class="cinza">
+  <div class="wrap sec-grid">
+    <aside class="aside rv">
+      <div class="num"><i>0</i>2</div>
+      <div class="rot">Consulta</div>
+      <div class="tit">Todas as perguntas, filtráveis</div>
+      <div class="dica">Clique na linha para abrir a resposta completa. Use as setas do teclado para percorrer os registros.</div>
+    </aside>
+    <div class="conteudo">
+      <div class="rv">
+        <h2>Base de perguntas e respostas</h2>
+        <p class="lede">Toda linha tem a mesma altura e a pergunta é abreviada quando não cabe. <b>A resposta completa abre no painel de detalhe</b>, junto com os vínculos normativos e a página da fonte.</p>
+      </div>
+      <div class="rv">
+        <div class="filtros">
+          <div class="fg"><label for="fFonte">Fonte</label><select id="fFonte"><option value="">Todas</option></select></div>
+          <div class="fg"><label for="fPub">Publicado por</label><select id="fPub"><option value="">Todos</option></select></div>
+          <div class="fg"><label for="fData">Data</label><select id="fData"><option value="">Todas</option></select></div>
+          <div class="fg"><label for="fNr1">Requisito NR-1</label><select id="fNr1"><option value="">Todos</option></select></div>
+          <div class="fg"><label for="fNr17">Requisito NR-17</label><select id="fNr17"><option value="">Todos</option></select></div>
+          <div class="fg"><label for="fBusca">Buscar</label><input id="fBusca" type="search" placeholder="pergunta, resposta, requisito..."></div>
+        </div>
+        <div class="acoes" style="margin-bottom:16px">
+          <button id="bLimpar">Limpar filtros</button>
+          <button id="bCsv" class="primario">Exportar CSV</button>
+        </div>
+        <div class="conta" id="conta"></div>
+        <div class="tab">
+          <div class="th"><span>Nº</span><span>Pergunta</span><span>Fonte</span><span>Req. NR-1</span><span>Req. ISO 45001</span><span>Req. NR-17</span></div>
+          <div id="corpo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 AS FONTES ================= -->
+<section id="fontes">
+  <div class="wrap sec-grid">
+    <aside class="aside rv">
+      <div class="num"><i>0</i>3</div>
+      <div class="rot">As fontes</div>
+      <div class="tit">De onde vem cada resposta</div>
+      <div class="dica">Os três documentos estão no acervo do PROTEG e são de órgãos oficiais.</div>
+    </aside>
+    <div class="conteudo">
+      <div class="rv">
+        <h2>Três documentos, três naturezas</h2>
+        <p class="lede">Nenhuma das respostas é interpretação da consultoria: todas vêm de material publicado por <b>Auditor Fiscal do Trabalho, Fundacentro ou Ministério do Trabalho e Emprego</b>.</p>
+      </div>
+      <div class="g3 rv" id="cardsFontes"></div>
+      <div class="rv" style="margin-top:34px">
+        <div class="aviso"><b>Documentos publicados pelo MTE citam a tese do AFT Mauro Marques Muller.</b> É por isso que a coluna de capítulo da tese acompanha as respostas: ela liga a orientação prática ao fundamento acadêmico que a fiscalização usa como referência.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="data:image/png;base64,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" alt="Programa PROTEG">
+      <p style="max-width:38em">Base de perguntas e respostas sobre a nova NR-1, compilada de fontes oficiais e vinculada aos requisitos normativos. Parte do portal de referência do Sistema PROTEG.</p>
+    </div>
+    <div>
+      <h5>Nesta página</h5>
+      <ul>
+        <li><a href="#base">A base</a></li>
+        <li><a href="#consulta">Consulta</a></li>
+        <li><a href="#fontes">As fontes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Portal PROTEG</h5>
+      <ul>
+        <li><a href="proteg-dexco.html">Página inicial</a></li>
+        <li><a href="proteg-dexco.html#lpr">Perigos e riscos</a></li>
+        <li><a href="proteg-dexco.html#conceitos">Conceitos</a></li>
+        <li><a href="proteg-dexco.html#documentos">Documentos</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap" style="display:block">
+    <div class="fim">
+      <span>PROTEG · Dexco · perguntas e respostas NR-1 · v1.0</span>
+      <span>Elaboração CQT Centomo Qualidade Total</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /pagina -->
+
+<!-- painel de detalhe -->
+<div class="mod" id="mod" role="dialog" aria-modal="true" aria-labelledby="modTit">
+  <div class="mod-cx">
+    <div class="mod-cab">
+      <span class="qn" id="modNum"></span>
+      <div class="qt"><div class="fo" id="modFonte"></div><h3 id="modTit"></h3></div>
+      <button class="mod-fecha" id="modFecha" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="mod-corpo">
+      <div class="mod-resp" id="modResp"></div>
+      <div class="mod-meta" id="modMeta"></div>
+      <div class="mod-nav">
+        <button id="modPrev">&#8592; Anterior</button>
+        <span class="pos" id="modPos"></span>
+        <button id="modNext">Próxima &#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+if(location.search.includes('foto')||/Headless/i.test(navigator.userAgent)){document.documentElement.classList.add('foto')}
+if(!document.documentElement.classList.contains('foto')){
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+  window.scrollTo(0,0);
+  window.addEventListener('pageshow',()=>window.scrollTo(0,0),{once:true});
+}
+const pers=document.querySelector('.persiana');
+if(pers){const ult=pers.querySelector('i:last-child');
+ ult.addEventListener('animationend',()=>pers.remove());
+ setTimeout(()=>pers&&pers.remove(),2000);}
+
+// ---------------------------------------------------------------- dados
+const QA=[{"num": "2", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "O que mudou na NR-1 sobre os fatores de risco psicossociais?", "resposta": "O gerenciamento de riscos ocupacionais passou a ter a inclusão expressa de que deve abranger os \"riscos relacionados aos fatores ergonômicos, incluindo os fatores de risco psicossociais relacionados ao trabalho\" (subitem 1.5.3.1.4).", "pagina": "Apresentação (Slide 2)", "nr1": "Item 1.5.3.1.4", "iso": "", "nr17": "", "nr9": "", "cap": "Capítulo 2 (2.1)", "obs": ""}, {"num": "3", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "Fatores de risco psicossociais: Como proceder e o que fazer como passos preliminares?", "resposta": "Como passos preliminares, a organização precisa: verificar se precisa de ajuda especializada, envolver todas as partes interessadas, realizar a atribuição de responsabilidades e fazer a comunicação aos trabalhadores.", "pagina": "Apresentação (Slide 4)", "nr1": "Item 1.5.3.3", "iso": "Item 5.4", "nr17": "", "nr9": "", "cap": "Capítulo 4 (4.3)", "obs": ""}, {"num": "4", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "Como deve ser a preparação do processo de identificação de perigos e avaliação de riscos?", "resposta": "A preparação envolve: levantar informações do estabelecimento, processo produtivo e trabalhadores; reunir informações do acompanhamento de saúde e análises de acidentes; verificar a oportunidade de estabelecer prioridades iniciais", "pagina": "Apresentação (Slides 5, 6 e 7)", "nr1": "Item 1.5.4.3.1", "iso": "Item 6.1.2.1", "nr17": "Item 9.3.1", "nr9": "", "cap": "Capítulo 4", "obs": ""}, {"num": "5", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "Quais são as opções de avaliação para os fatores de risco psicossociais?", "resposta": "As opções de avaliação incluem: 1) Observação da atividade de trabalho; 2) Utilização de pesquisas padronizadas; 3) Realização de oficinas com moderação; 4) Ou uma combinação dessas.", "pagina": "Apresentação (Slides 7 e 8)", "nr1": "Item 1.5.4.4.2.1", "iso": "", "nr17": "Item 17.3.1.1", "nr9": "", "cap": "Capítulo 2 (2.4)", "obs": ""}, {"num": "6", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "O que considerar se a empresa for aplicar uma ferramenta específica de avaliação?", "resposta": "A ferramenta deve ser adequada ao risco ou circunstância em avaliação e adaptada às condições gerais da empresa. Deve-se selecionar ferramentas cientificamente fundamentadas.", "pagina": "Apresentação (Slide 8)", "nr1": "Item 1.5.4.4.2.1", "iso": "", "nr17": "Item 17.3.1.1", "nr9": "", "cap": "Capítulo 2 (2.4.1)", "obs": ""}, {"num": "7", "fonte": "Apresentação Mauro Muller - nova NR-1", "publicado": "Treinamento MTE", "data": "maio/2025", "pergunta": "Onde deve ser feito o registro do processo de identificação de perigos e avaliação de riscos?", "resposta": "O registro do processo deve ser feito no inventário de riscos, no plano de ação ou em documento próprio (AEP). Deve-se garantir a integração da AEP com o inventário de riscos.", "pagina": "Apresentação (Slides 10 e 11)", "nr1": "Item 1.5.7.3.2", "iso": "Item 7.5", "nr17": "Item 17.3.1.2.1", "nr9": "", "cap": "Capítulo 4 (4.1)", "obs": ""}, {"num": "8", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "1. A MUDANÇA NA NR 1 SIGNIFICA COMEÇAR A AVALIAR AS CONDIÇÕES PSÍQUICAS OU O ESTADO DE SAÚDE MENTAL DE CADA TRABALHADOR?", "resposta": "Não. As normas regulamentadoras não têm como foco as condições físicas ou psíquicas dos trabalhadores, mas sim as condições, a organização e a gestão do trabalho.", "pagina": "Fundacentro (p. 144)", "nr1": "Item 1.5.3.1.4", "iso": "", "nr17": "Item 17.1.1", "nr9": "", "cap": "Capítulo 2 (2.2)", "obs": ""}, {"num": "9", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "2. A MUDANÇA NA NR 1 VAI TER COMO RESULTADO A MELHORIA DA SAÚDE MENTAL DOS TRABALHADORES?", "resposta": "Depende. Se a empresa se dedicar à análise do processo de trabalho e trabalhar com a participação efetiva dos trabalhadores, poderá identificar aspectos que produzem acidentes e adoecimentos.", "pagina": "Fundacentro (p. 144)", "nr1": "Item 1.5.3.3", "iso": "Item 5.4", "nr17": "Item 17.3.8", "nr9": "", "cap": "Capítulo 2 (2.3)", "obs": ""}, {"num": "10", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "3. QUAIS INSTRUMENTOS DEVEM SER USADOS PARA AVALIAR OS RISCOS PSICOSSOCIAIS?", "resposta": "Métodos de análise e instrumentos devem ser escolhidos à luz do que se quer avaliar. A participação efetiva dos trabalhadores e democracia nos locais de trabalho são essenciais.", "pagina": "Fundacentro (p. 144)", "nr1": "Item 1.5.4.4.2.1", "iso": "", "nr17": "", "nr9": "", "cap": "Capítulo 2 (2.4)", "obs": ""}, {"num": "11", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "4. A MUDANÇA NA NR 1 É APLICÁVEL À MICROEMPRESA - ME, À EMPRESA DE PEQUENO PORTE - EPP E AO MICROEMPREENDEDOR INDIVIDUAL - MEI?", "resposta": "ME e EPP devem incluir os processos psicossociais relacionados ao trabalho no seu GRO. O MEI está dispensado, porém a organização contratante deve incluí-lo.", "pagina": "Fundacentro (p. 145)", "nr1": "Item 1.8", "iso": "", "nr17": "Item 17.3.4", "nr9": "", "cap": "Capítulo 4 (4.1)", "obs": ""}, {"num": "12", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "5. PODEMOS CONSIDERAR QUE TODOS OS PROCESSOS DE TRABALHO DEVEM SER AVALIADOS QUANTO AOS RISCOS PSICOSSOCIAIS?", "resposta": "Sim. Todos os processos de trabalho possuem aspectos referentes às normas de produção, às exigências de tempo, aos ritmos de trabalho, aos conteúdos da tarefa.", "pagina": "Fundacentro (p. 145)", "nr1": "Item 1.5.4.3.1", "iso": "Item 6.1.2", "nr17": "Item 17.4.1", "nr9": "", "cap": "Capítulo 4", "obs": ""}, {"num": "13", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "6. COMO DEFINIR SE OS INSTRUMENTOS A SEREM UTILIZADOS DEVEM SER DE NATUREZA QUANTITATIVA OU QUALITATIVA?", "resposta": "As abordagens quantitativas realizadas juntamente com as qualitativas se complementam eficazmente na avaliação de fenômenos de natureza social como o trabalho.", "pagina": "Fundacentro (p. 145)", "nr1": "Item 1.5.4.4.2.1", "iso": "", "nr17": "Item 17.3.1.1", "nr9": "", "cap": "Capítulo 2 (2.4.2)", "obs": ""}, {"num": "14", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "7. A PRÓPRIA EMPRESA PODE AVALIAR SEUS RISCOS PSICOSSOCIAIS? OU PRECISA CONTRATAR UM ESPECIALISTA?", "resposta": "A empresa não é obrigada a contratar especialistas. Porém, é preciso que haja um clima democrático, transparência e definição da empresa para que o processo de diálogo seja contínuo.", "pagina": "Fundacentro (p. 146)", "nr1": "Item 1.5.3.1.1", "iso": "Item 5.4", "nr17": "", "nr9": "", "cap": "Capítulo 4 (4.1)", "obs": ""}, {"num": "15", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "8. EXISTE ALGUM INSTRUMENTO QUE CONSIGA COMPARAR O PESO DE CARACTERÍSTICAS PESSOAIS E DOS PROCESSOS DO TRABALHO?", "resposta": "Não existe. Os processos individuais e do trabalho podem contribuir simultaneamente no adoecimento mental. Sempre que houver aspectos da gestão no trabalho, há fundamentos para se considerar o papel do trabalho.", "pagina": "Fundacentro (p. 146)", "nr1": "Item 1.5.3.2.1", "iso": "", "nr17": "Item 17.4", "nr9": "", "cap": "Capítulo 2 (2.2)", "obs": ""}, {"num": "16", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "9. COM QUE PERIODICIDADE AS EMPRESAS DEVEM FAZER A AVALIAÇÃO DE FATORES DE RISCO PSICOSSOCIAIS?", "resposta": "Embora a NR-1 estabeleça que a avaliação de riscos deve ser revista a cada dois anos, trata-se de um processo de avaliação contínua.", "pagina": "Fundacentro (p. 147)", "nr1": "Item 1.5.4.4.6", "iso": "Item 9.1", "nr17": "", "nr9": "", "cap": "Capítulo 4 (4.3)", "obs": ""}, {"num": "17", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "10. QUANDO AS EMPRESAS SÃO CERTIFICADAS PELA ISO, SIGNIFICA QUE ELAS TÊM BAIXO POTENCIAL DE RISCO DE ADOECIMENTO?", "resposta": "A certificação ISO certifica quanto à conformidade do sistema de gestão. Porém, não é possível afirmar que a certificação está associada a baixo risco de adoecimento.", "pagina": "Fundacentro (p. 147)", "nr1": "Item 1.5.4.4.6.1", "iso": "Requisitos gerais", "nr17": "", "nr9": "", "cap": "Capítulo 2 (2.1)", "obs": ""}, {"num": "18", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "11. QUANDO E COMO É QUE CIPAS E SINDICATOS PODEM PARTICIPAR DOS PROCESSOS?", "resposta": "Os representantes dos trabalhadores devem participar em TODAS as etapas. A empresa poderá organizar diversos comitês conforme necessário.", "pagina": "Fundacentro (p. 148)", "nr1": "Item 1.5.5.3.2", "iso": "Item 5.4", "nr17": "", "nr9": "", "cap": "Capítulo 2 (2.3)", "obs": ""}, {"num": "19", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "12. HÁ MUITAS EMPRESAS PRONTIFICANDO-SE A SEREM CONTRATADAS PARA IMPLEMENTAR A \"NOVA NR-1\". COMO AVALIAR A SERIEDADE?", "resposta": "É preciso contemplar: participação dos trabalhadores em todas as etapas e que a avaliação seja das condições, organização e gestão do trabalho e não dos trabalhadores.", "pagina": "Fundacentro (p. 148)", "nr1": "Item 1.5.3.1", "iso": "", "nr17": "Item 17.3.1.1", "nr9": "", "cap": "Capítulo 2", "obs": ""}, {"num": "20", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "13. A PARTICIPAÇÃO DOS TRABALHADORES NA AVALIAÇÃO DOS FATORES DE RISCOS PSICOSSOCIAIS É OBRIGATÓRIA?", "resposta": "O processo de avaliação deve ser construído de tal forma que todos os trabalhadores sejam convidados e se sintam seguros para participarem. A participação deve ser sempre voluntária.", "pagina": "Fundacentro (p. 149)", "nr1": "Item 1.5.3.3", "iso": "Item 5.4", "nr17": "Item 17.3.8", "nr9": "", "cap": "Capítulo 2 (2.3)", "obs": ""}, {"num": "21", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "14. É NECESSÁRIO DESENHAR UMA MEDIDA PARA CADA \"FATOR DE RISCO\" IDENTIFICADO?", "resposta": "Não. A avaliação deve adotar uma abordagem qualitativa e sistêmica. Uma medida pode servir simultaneamente para vários fatores.", "pagina": "Fundacentro (p. 150)", "nr1": "Item 1.5.5.1.1", "iso": "Item 8.1.2", "nr17": "Item 17.3.6", "nr9": "", "cap": "Capítulo 4 (4.1)", "obs": ""}, {"num": "22", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "15. SE MINHA EMPRESA TIVER CERTIFICADO DE EMPRESA PROMOTORA DA SAÚDE MENTAL, SERÁ NECESSÁRIO SEGUIR A NR-1?", "resposta": "Sim.", "pagina": "Fundacentro (p. 150)", "nr1": "Item 1.5.3.1.2", "iso": "", "nr17": "", "nr9": "", "cap": "", "obs": ""}, {"num": "23", "fonte": "Diretrizes para aplicar a NR-1 Fundacentro", "publicado": "Fundacentro", "data": "maio/2026", "pergunta": "16. O QUE PODE SER CONSIDERADO UMA BOA MEDIDA DE PREVENÇÃO?", "resposta": "Não há uma única boa medida de prevenção. É fundamental que as medidas atendam os quatro pontos sinalizados no quadro \"Desenho das medidas de prevenção e de proteção\".", "pagina": "Fundacentro (p. 150)", "nr1": "Item 1.5.5.1.2", "iso": "Item 8.1.2", "nr17": "Item 17.4.3.1", "nr9": "", "cap": "Capítulo 4", "obs": ""}, {"num": "24", "fonte": "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1", "publicado": "MTE", "data": "maio/2026", "pergunta": "Tenho ISO 45001, preciso do PGR?", "resposta": "Sim. A ISO 45001 pode ser usada para atender aos requisitos do GRO, mas a certificação não isenta do cumprimento integral da NR-1.", "pagina": "Manual (p. 15)", "nr1": "Item 1.5.3.1.2", "iso": "Requisitos gerais", "nr17": "", "nr9": "", "cap": "Capítulo 2 (2.1)", "obs": ""}, {"num": "25", "fonte": "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1", "publicado": "MTE", "data": "maio/2026", "pergunta": "Quais riscos do meu ambiente (contratante) podem afetar a equipe da contratada?", "resposta": "A contratada deve complementar seu PGR com medidas específicas para se proteger dos riscos existentes no local do serviço.", "pagina": "Manual (p. 104)", "nr1": "Item 1.5.8.2", "iso": "Item 8.1.4.2", "nr17": "Item 9.2.1", "nr9": "", "cap": "", "obs": ""}, {"num": "26", "fonte": "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1", "publicado": "MTE", "data": "maio/2026", "pergunta": "Quais riscos a atividade da contratada vai introduzir no meu ambiente?", "resposta": "A contratante deve complementar seu PGR com medidas para proteger seus próprios funcionários dos riscos gerados pelo serviço terceirizado.", "pagina": "Manual (p. 104)", "nr1": "Item 1.5.8.3", "iso": "Item 8.1.4.2", "nr17": "Item 9.2.1", "nr9": "", "cap": "", "obs": ""}, {"num": "27", "fonte": "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1", "publicado": "MTE", "data": "maio/2026", "pergunta": "O que é organização do trabalho?", "resposta": "É a forma como as tarefas e atividades são estruturadas, distribuídas e coordenadas dentro do ambiente de trabalho.", "pagina": "Manual (p. 117)", "nr1": "Item 1.5.3.2.1", "iso": "", "nr17": "Item 17.4", "nr9": "", "cap": "Capítulo 2", "obs": ""}, {"num": "28", "fonte": "Manual de Interpretação e Aplicação do Capítulo 1.5 da NR-1", "publicado": "MTE", "data": "maio/2026", "pergunta": "O que ela (organização do trabalho) envolve?", "resposta": "Ela envolve a definição de funções, responsabilidades, hierarquias, processos, sistemas de comunicação e outros elementos que direcionam a realização das atividades laborais.", "pagina": "Manual (p. 117)", "nr1": "", "iso": "", "nr17": "Item 17.4.1", "nr9": "", "cap": "Capítulo 2", "obs": ""}];
+// rotulo curto da fonte, para a coluna estreita da tabela
+const CURTA={};
+QA.forEach(r=>{ if(!CURTA[r.fonte]){
+  CURTA[r.fonte] = /Mauro Muller/i.test(r.fonte) ? 'Mauro Muller, AFT'
+                 : /Fundacentro/i.test(r.fonte)  ? 'Fundacentro'
+                 : /Manual/i.test(r.fonte)       ? 'Manual do MTE'
+                 : r.fonte;
+}});
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// ---------------------------------------------------------------- filtros
+const els={fonte:'fFonte',pub:'fPub',data:'fData',nr1:'fNr1',nr17:'fNr17'};
+for(const campo in els){
+  const sel=document.getElementById(els[campo]);
+  [...new Set(QA.map(r=>r[campo]).filter(Boolean))].sort().forEach(v=>{
+    const o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
+  });
+  sel.addEventListener('change',pinta);
+}
+const bus=document.getElementById('fBusca');
+bus.addEventListener('input',pinta);
+
+function visiveis(){
+  const f={}; for(const c in els) f[c]=document.getElementById(els[c]).value;
+  const q=bus.value.trim().toLowerCase();
+  return QA.filter(r=>{
+    for(const c in els){ if(f[c] && r[c]!==f[c]) return false; }
+    if(!q) return true;
+    return [r.pergunta,r.resposta,r.nr1,r.iso,r.nr17,r.nr9,r.fonte,r.pagina,r.cap]
+      .join(' ').toLowerCase().includes(q);
+  });
+}
+
+let lista=[];
+function pinta(){
+  lista=visiveis();
+  const corpo=document.getElementById('corpo');
+  const conta=document.getElementById('conta');
+  conta.innerHTML='Exibindo <b>'+lista.length+'</b> de <b>'+QA.length+'</b> perguntas';
+  if(!lista.length){
+    corpo.innerHTML='<div class="vazio"><b>Nenhuma pergunta encontrada</b>Ajuste os filtros ou limpe a busca para ver a base completa.</div>';
+    return;
+  }
+  corpo.innerHTML=lista.map((r,i)=>
+    '<button class="tr" data-i="'+i+'" title="'+esc(r.pergunta)+'">'
+    +'<span class="num">'+r.num+'</span>'
+    +'<span class="perg">'+esc(r.pergunta)+'</span>'
+    +'<span class="fnt">'+esc(CURTA[r.fonte])+'</span>'
+    +'<span>'+(r.nr1?'<span class="chip nr1">'+esc(r.nr1)+'</span>':'')+'</span>'
+    +'<span>'+(r.iso?'<span class="chip iso">'+esc(r.iso)+'</span>':'')+'</span>'
+    +'<span>'+(r.nr17?'<span class="chip nr17">'+esc(r.nr17)+'</span>':'')+'</span>'
+    +'</button>').join('');
+  corpo.querySelectorAll('.tr').forEach(b=>b.addEventListener('click',()=>abre(+b.dataset.i)));
+}
+
+document.getElementById('bLimpar').addEventListener('click',()=>{
+  for(const c in els) document.getElementById(els[c]).value='';
+  bus.value=''; pinta();
+});
+
+// ---------------------------------------------------------------- detalhe
+const mod=document.getElementById('mod');
+let atual=0;
+function abre(i){
+  atual=i; const r=lista[i];
+  document.getElementById('modNum').textContent=r.num;
+  document.getElementById('modFonte').textContent=r.fonte+' · '+r.publicado+' · '+r.data;
+  document.getElementById('modTit').textContent=r.pergunta;
+  document.getElementById('modResp').textContent=r.resposta;
+  const meta=[['Página da fonte',r.pagina],['Requisito NR-1',r.nr1],['Requisito ISO 45001',r.iso],
+              ['Requisito NR-17',r.nr17],['Requisito NR-9',r.nr9],['Capítulo da tese',r.cap]];
+  if(r.obs) meta.push(['Observações',r.obs]);
+  document.getElementById('modMeta').innerHTML=meta.map(([rt,vl])=>
+    '<div><span class="rt">'+rt+'</span><span class="vl">'+(vl?esc(vl):'não informado')+'</span></div>').join('');
+  document.getElementById('modPos').textContent=(i+1)+' de '+lista.length;
+  mod.classList.add('abre'); document.body.style.overflow='hidden';
+  document.getElementById('modFecha').focus();
+}
+function fecha(){mod.classList.remove('abre'); document.body.style.overflow='';}
+document.getElementById('modFecha').addEventListener('click',fecha);
+mod.addEventListener('click',e=>{if(e.target===mod)fecha();});
+document.getElementById('modPrev').addEventListener('click',()=>abre((atual-1+lista.length)%lista.length));
+document.getElementById('modNext').addEventListener('click',()=>abre((atual+1)%lista.length));
+document.addEventListener('keydown',e=>{
+  if(!mod.classList.contains('abre'))return;
+  if(e.key==='Escape')fecha();
+  if(e.key==='ArrowLeft')abre((atual-1+lista.length)%lista.length);
+  if(e.key==='ArrowRight')abre((atual+1)%lista.length);
+});
+
+// ---------------------------------------------------------------- CSV
+document.getElementById('bCsv').addEventListener('click',()=>{
+  const cab=['Nº','Fonte','Publicado por','Data','Pergunta','Resposta','Página',
+             'Req. NR-1','Req. ISO 45001','Req. NR-17','Req. NR-9','Cap. Tese','Obs.'];
+  const linhas=visiveis().map(r=>[r.num,r.fonte,r.publicado,r.data,r.pergunta,r.resposta,
+                                  r.pagina,r.nr1,r.iso,r.nr17,r.nr9,r.cap,r.obs]);
+  const csv=[cab,...linhas].map(l=>l.map(c=>{
+    const s=String(c==null?'':c);
+    return /[";\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+  }).join(';')).join('\r\n');
+  // BOM + ponto e virgula: abre direto no Excel em portugues
+  const b=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);
+  a.download='proteg-perguntas-nr1.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+});
+
+// ---------------------------------------------------------------- cards das fontes
+const porFonte={};
+QA.forEach(r=>{(porFonte[r.fonte]=porFonte[r.fonte]||{n:0,pub:r.publicado,data:r.data,pags:new Set()}).n++;
+  porFonte[r.fonte].pags.add((r.pagina||'').replace(/\s*\(.*/,''));});
+document.getElementById('cardsFontes').innerHTML=Object.entries(porFonte).map(([f,d])=>
+  '<div class="card"><span class="cod">'+esc(d.pub.toUpperCase())+' · '+esc(d.data)+'</span>'
+  +'<h4>'+esc(CURTA[f])+'</h4><p>'+esc(f)+'</p>'
+  +'<span class="qt">'+d.n+' perguntas respondidas</span></div>').join('');
+
+// ---------------------------------------------------------------- reveal e spy
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const links=[...document.querySelectorAll('#railnav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}})},
+  {rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>s&&spy.observe(s));
+
+pinta();
+</script>
+</body>
+</html>
