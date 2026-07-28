@@ -253,6 +253,7 @@
   #painel-rubens-root .pill-sm.st-realizado { background: #eceef5; color: var(--text-faint); }
   #painel-rubens-root .pill-sm.st-confirmado { background: var(--accent-bg); color: var(--accent-dark); }
   #painel-rubens-root .pill-sm.st-aconfirmar { background: #f1f2f9; color: var(--text-muted); }
+  #painel-rubens-root .cell-muted { color: var(--text-faint); }
 
   /* Scrollable itemized table with sticky header */
   #painel-rubens-root .table-scroll { max-height: 560px; overflow-y: auto; border: 1px solid var(--border-thin); border-radius: var(--radius); }
@@ -380,13 +381,13 @@
   </div>
 
   <div class="tabs" role="tablist">
-    <button type="button" class="tab-btn active" data-tab="geral" role="tab">Vis&atilde;o geral</button>
+    <button type="button" class="tab-btn active" data-tab="calendario" role="tab">Calend&aacute;rio</button>
     <button type="button" class="tab-btn" data-tab="agenda" role="tab">Agenda</button>
-    <button type="button" class="tab-btn" data-tab="calendario" role="tab">Calend&aacute;rio</button>
+    <button type="button" class="tab-btn" data-tab="geral" role="tab">Vis&atilde;o geral</button>
   </div>
 
   <!-- ===================== TAB 1: VISAO GERAL ===================== -->
-  <div class="tab-panel active" data-tab="geral">
+  <div class="tab-panel" data-tab="geral">
 
     <section>
       <div class="section-head"><h2>Onde eu estou</h2></div>
@@ -490,7 +491,7 @@
           <thead>
             <tr>
               <th>Data</th><th>Cliente</th><th>Projeto</th><th>Serv.</th><th>Modo</th>
-              <th class="num">HD</th><th>Situa&ccedil;&atilde;o</th>
+              <th class="num">HD</th><th>Nota</th><th>Situa&ccedil;&atilde;o</th>
             </tr>
           </thead>
           <tbody id="agenda-rows"></tbody>
@@ -544,7 +545,7 @@
   </div>
 
   <!-- ===================== TAB 3: CALENDARIO ===================== -->
-  <div class="tab-panel" data-tab="calendario">
+  <div class="tab-panel active" data-tab="calendario">
     <section>
       <div class="section-head">
         <h2>Calend&aacute;rio de agenda</h2>
@@ -881,12 +882,13 @@
     var st = status(e);
     return "<tr><td>" + fmtDate(e.d) + "</td><td>" + e.c + "</td><td>" + e.p + "</td><td>" + (e.s || "–") +
       "</td><td>" + modoLabel(e.m) + "</td><td class=\"num tabular\">" + fmtHd(e.hd) +
+      "</td><td>" + (e.nf ? e.nf : '<span class="cell-muted">sem nota</span>') +
       "</td><td><span class=\"pill-sm st-" + st + "\">" + ST_LABEL[st] + "</span></td></tr>";
   }).join("");
   var totalHd = 0;
   AGENDA.forEach(function(e){ totalHd += e.hd; });
   rowsHtml += '<tr class="total-row"><td colspan="5">Total &middot; ' + AGENDA.length + ' dias</td>' +
-    '<td class="num tabular">' + fmtHd(totalHd) + '</td><td></td></tr>';
+    '<td class="num tabular">' + fmtHd(totalHd) + '</td><td></td><td></td></tr>';
   var rowsEl = document.getElementById("agenda-rows");
   if (rowsEl) rowsEl.innerHTML = rowsHtml;
 
