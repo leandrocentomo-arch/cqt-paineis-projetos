@@ -747,6 +747,7 @@
     {d:"2026-08-10",c:"Sodexo",p:"SDX-SI",s:"C",m:"D",hd:1,nf:"NFS-e 3",cf:true},
     {d:"2026-08-11",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
     {d:"2026-08-12",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1,cf:true},
+    {d:"2026-08-13",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"D",hd:1,cf:true},
     {d:"2026-08-21",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1},
     {d:"2026-08-24",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
     {d:"2026-08-25",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
@@ -796,7 +797,10 @@
     {d:"2026-11-05",c:"Sodexo",p:"SDX-SI",s:"C",m:"D",hd:1,nf:"NFS-e 3",cf:false},
     {d:"2026-11-06",c:"Sodexo",p:"SDX-1 Whirlpool",s:"O",m:"P",hd:1,cf:true,vp:true},
     {d:"2026-11-09",c:"Sodexo",p:"SDX-1",s:"O",m:"P",hd:1,cf:true,vp:true},
-    {d:"2026-11-10",c:"Sodexo",p:"SDX-1",s:"O",m:"P",hd:1,cf:true,vp:true}
+    {d:"2026-11-10",c:"Sodexo",p:"SDX-1",s:"O",m:"P",hd:1,cf:true,vp:true},
+    {d:"2026-11-16",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false},
+    {d:"2026-11-17",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false},
+    {d:"2026-11-18",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false}
   ];
   var TODAY = "2026-07-30";
   var MONTH_NAMES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
@@ -906,7 +910,11 @@
   });
   var summaryEl = document.getElementById("agenda-summary");
   if (summaryEl) {
-    summaryEl.textContent = "12/01 a 10/11/2026 · " + summary.count + " lançamentos · " +
+    var _ds = AGENDA.map(function(e){ return e.d; }).sort();
+    var _ini = _ds[0].slice(8,10) + "/" + _ds[0].slice(5,7);
+    var _f = _ds[_ds.length - 1];
+    var _fim = _f.slice(8,10) + "/" + _f.slice(5,7) + "/" + _f.slice(0,4);
+    summaryEl.textContent = _ini + " a " + _fim + " · " + summary.count + " lançamentos · " +
       fmtHd(summary.hd) + " h/d · " + summary.realizado + " realizados · " +
       summary.confirmado + " confirmados · " + summary.aconfirmar + " a confirmar · " +
       summary.pendente + " com viagem pendente";
