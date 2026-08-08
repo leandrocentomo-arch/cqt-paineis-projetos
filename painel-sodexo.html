@@ -576,7 +576,7 @@
       dias:["2026-01-12","2026-01-13","2026-01-14","2026-01-15","2026-01-16","2026-01-22","2026-01-23","2026-02-03","2026-02-04","2026-02-05","2026-02-06","2026-02-13","2026-02-17","2026-02-18","2026-03-02","2026-03-12","2026-03-16","2026-03-17","2026-03-23"]},
     {nf:"NFS-e 56", projeto:"SDX-G Brazil Region", emissao:"2026-07-01", valor:12800.00, situacao:"paga",
       dias:["2026-06-02","2026-06-03","2026-06-22","2026-06-23"]},
-    {nf:"Invoice CQT_2026-06-001.A", projeto:"SDX-G EMEA Sweden", emissao:"2026-06-26", valor:8126.61, moeda:"EUR", situacao:"paga", semNota:true, extensaoTotal:5.5, extensaoAntes:"jun/2026 (sess&atilde;o online de 24/Jun)",
+    {nf:"Invoice CQT_2026-06-001.A", projeto:"SDX-G EMEA Sweden", emissao:"2026-06-26", valor:8126.61 * 5.8765, valorOrigem:8126.61, moedaOrigem:"EUR", cambio:5.8765, cambioData:"2026-08-06", cambioFonte:"PTAX compra, fechamento", estimado:true, situacao:"paga", semNota:true, extensaoTotal:5.5, extensaoAntes:"jun/2026 (sess&atilde;o online de 24/Jun)",
       dias:["2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22"]},
     {nf:"NFS-e 61", projeto:"SDX-G Brazil Region", emissao:"2026-07-29", valor:6400.00, situacao:"pendente", vencimento:"2026-09-02",
       dias:["2026-07-17","2026-07-30"]}
@@ -745,6 +745,12 @@
         ' com registro di&aacute;rio no vault (' + rangeTxt + '). Os outros ' + fmtHd(n.extensaoTotal - hdSum) +
         ' h/d s&atilde;o de ' + n.extensaoAntes + ', sem registro di&aacute;rio individual.</p>';
     }
+    if (n.estimado && n.valorOrigem) {
+      notaExtra += '<p class="nf-note"><b>Valor em reais &eacute; estimativa.</b> A cobran&ccedil;a foi de ' +
+        fmtMoeda(n.valorOrigem, n.moedaOrigem) + ', e a entrada ainda n&atilde;o foi convertida no extrato. O n&uacute;mero acima usa a ' +
+        n.cambioFonte + ' do Banco Central em ' + fmtDate(n.cambioData) + ', data do cr&eacute;dito: 1 &euro; = R$ ' + fmtHd(n.cambio) +
+        '. O valor real tende a ficar abaixo disso, porque o banco aplica spread sobre a PTAX. Ser&aacute; corrigido quando o extrato do Ita&uacute; sair.</p>';
+    }
     var sitLabel = n.situacao === "paga" ? "Paga" : "Pendente" + (n.vencimento ? " (venc. " + fmtDate(n.vencimento) + ")" : "");
     if (n.semNota) sitLabel += " <span class=\"cell-muted\">&middot; NFS-e a emitir</span>";
     var realizadas = diasOrd.filter(function(d){ return d < TODAY; }).length;
@@ -757,7 +763,7 @@
     return "<tr class=\"nf-row\" data-nf-idx=\"" + i + "\"><td><span class=\"nf-chevron\">&#9656;</span>" + n.nf + "</td><td>" + n.projeto + "</td><td>" + fmtDate(n.emissao) +
       "</td><td class=\"wrap\"><span class=\"cell-clip\">" + diasFmt + "</span></td>" +
       "<td class=\"num tabular\">" + realizadas + "/" + diasOrd.length + "</td>" +
-      "<td class=\"num tabular\">" + fmtMoeda(n.valor, n.moeda) + "</td>" +
+      "<td class=\"num tabular\">" + (n.estimado ? "&asymp; " : "") + fmtMoeda(n.valor, n.moeda) + "</td>" +
       "<td><span class=\"pill-sm st-" + n.situacao + "\">" + sitLabel + "</span></td></tr>" +
       "<tr class=\"nf-detail-row\" data-nf-idx=\"" + i + "\" style=\"display:none\"><td colspan=\"7\">" + notaExtra + "<div class=\"nf-days-list\">" + chipsHtml + "</div></td></tr>";
   }).join("");
