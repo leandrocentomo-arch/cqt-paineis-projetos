@@ -240,7 +240,9 @@
   #painel-sodexo-root .pill-sm.st-pendente { background: var(--warn-bg); color: var(--warn); }
   #painel-sodexo-root .pill-sm.st-semnota { background: #f1f2f9; color: var(--text-faint); }
   #painel-sodexo-root .cell-muted { color: var(--text-faint); }
-  #painel-sodexo-root td.wrap { white-space: normal; max-width: 360px; font-size: 12.5px; color: var(--text-muted); }
+  #painel-sodexo-root td.wrap { white-space: nowrap; font-size: 12.5px; color: var(--text-muted); }
+  #painel-sodexo-root .cell-clip { display: block; max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #painel-sodexo-root .nf-note { margin: 2px 0 12px; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); max-width: 78ch; white-space: normal; }
   #painel-sodexo-root .nf-row { cursor: pointer; }
   #painel-sodexo-root .nf-chevron { display: inline-block; width: 10px; margin-right: 6px; color: var(--text-faint); transition: transform .15s ease; }
   #painel-sodexo-root .nf-row.open .nf-chevron { transform: rotate(90deg); color: var(--accent-dark); }
@@ -734,11 +736,14 @@
     nfEntries.forEach(function(e){ hdByDay[e.d] = e.hd; });
     var hdSum = nfEntries.reduce(function(s, e){ return s + e.hd; }, 0);
     var rangeTxt = diasOrd.length === 1 ? fmtDate(diasOrd[0]) : fmtDate(diasOrd[0]) + '&ndash;' + fmtDate(diasOrd[diasOrd.length - 1]);
-    var diasFmt = fmtHd(hdSum) + " h/d em " + diasOrd.length + (diasOrd.length === 1 ? " dia" : " dias") + ' <span class="cell-muted">(' + rangeTxt + ')</span>';
+    var diaPal = diasOrd.length === 1 ? " dia" : " dias";
+    var diasFmt = fmtHd(hdSum) + " h/d em " + diasOrd.length + diaPal + ' <span class="cell-muted">(' + rangeTxt + ')</span>';
+    var notaExtra = "";
     if (n.extensaoTotal && n.extensaoTotal > hdSum) {
-      diasFmt = fmtHd(n.extensaoTotal) + ' h/d no total <span class="cell-muted">(' + fmtHd(hdSum) + ' h/d em ' + diasOrd.length +
-        (diasOrd.length === 1 ? ' dia detalhado aqui' : ' dias detalhados aqui') + ', ' + rangeTxt + '; mais ' +
-        fmtHd(n.extensaoTotal - hdSum) + ' h/d de ' + n.extensaoAntes + ' sem registro di&aacute;rio individual no vault)</span>';
+      diasFmt = fmtHd(n.extensaoTotal) + ' h/d no total <span class="cell-muted">&middot; ' + diasOrd.length + diaPal + ' aqui</span>';
+      notaExtra = '<p class="nf-note">' + fmtHd(hdSum) + ' h/d em ' + diasOrd.length + diaPal +
+        ' com registro di&aacute;rio no vault (' + rangeTxt + '). Os outros ' + fmtHd(n.extensaoTotal - hdSum) +
+        ' h/d s&atilde;o de ' + n.extensaoAntes + ', sem registro di&aacute;rio individual.</p>';
     }
     var sitLabel = n.situacao === "paga" ? "Paga" : "Pendente" + (n.vencimento ? " (venc. " + fmtDate(n.vencimento) + ")" : "");
     if (n.semNota) sitLabel += " <span class=\"cell-muted\">&middot; NFS-e a emitir</span>";
@@ -750,11 +755,11 @@
       return '<span class="day-chip' + futureClass + '">' + fmtDate(d) + hdTxt + '</span>';
     }).join("");
     return "<tr class=\"nf-row\" data-nf-idx=\"" + i + "\"><td><span class=\"nf-chevron\">&#9656;</span>" + n.nf + "</td><td>" + n.projeto + "</td><td>" + fmtDate(n.emissao) +
-      "</td><td class=\"wrap\">" + diasFmt + "</td>" +
+      "</td><td class=\"wrap\"><span class=\"cell-clip\">" + diasFmt + "</span></td>" +
       "<td class=\"num tabular\">" + realizadas + "/" + diasOrd.length + "</td>" +
       "<td class=\"num tabular\">" + fmtMoeda(n.valor, n.moeda) + "</td>" +
       "<td><span class=\"pill-sm st-" + n.situacao + "\">" + sitLabel + "</span></td></tr>" +
-      "<tr class=\"nf-detail-row\" data-nf-idx=\"" + i + "\" style=\"display:none\"><td colspan=\"7\"><div class=\"nf-days-list\">" + chipsHtml + "</div></td></tr>";
+      "<tr class=\"nf-detail-row\" data-nf-idx=\"" + i + "\" style=\"display:none\"><td colspan=\"7\">" + notaExtra + "<div class=\"nf-days-list\">" + chipsHtml + "</div></td></tr>";
   }).join("");
   var nfRowsEl = document.getElementById("nf-rows");
   if (nfRowsEl) nfRowsEl.innerHTML = nfRowsHtml;
