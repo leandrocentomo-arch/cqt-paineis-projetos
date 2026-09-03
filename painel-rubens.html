@@ -290,6 +290,7 @@
     border: 1px solid var(--border-thin); border-radius: 3px; cursor: pointer; position: relative; transition: background .15s;
   }
   #painel-rubens-root .fc-btn:hover { background: var(--accent-bg); z-index: 1; }
+  #painel-rubens-root tr.is-prev td { color: var(--text-faint); background: var(--bg-alt); }
   #painel-rubens-root .blk { border: 1px solid var(--border-thin); border-radius: 3px; padding: 14px 16px 12px; }
   #painel-rubens-root .blk + .blk { margin-top: 12px; }
   #painel-rubens-root .blk-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
@@ -427,13 +428,13 @@
     <div class="ce-titleblock">
       <div class="eyebrow">CQT &middot; Controle financeiro</div>
       <h1>Painel de Atividades LRC</h1>
-      <div class="subtitle">Snapshot est&aacute;tico &middot; Atualizado 03/09/2026</div>
+      <div class="subtitle">Snapshot est&aacute;tico &middot; Atualizado 03/09/2026 &middot; N&uacute;meros do cabe&ccedil;alho: <b>s&oacute; notas j&aacute; emitidas</b></div>
       <div class="stats">
         <span class="stat">Fonte &middot; <b>Planilha HD do Rubens (01/09/2026)</b></span>
-        <span class="stat">Base do ano &middot; <b>R$ 574.000,89</b></span>
-        <span class="stat">Repasse Leandro &middot; <b>R$ 435.354,34</b></span>
-        <span class="stat">Reten&ccedil;&atilde;o CQT &middot; <b>R$ 58.343,25</b></span>
-        <span class="stat">NFs pendentes &middot; <b>5</b></span>
+        <span class="stat">Faturado no ano &middot; <b>R$ 390.918,71</b></span>
+        <span class="stat">Repasse Leandro &middot; <b>R$ 310.998,93</b></span>
+        <span class="stat">Reten&ccedil;&atilde;o CQT &middot; <b>R$ 33.521,53</b></span>
+        <span class="stat">NFs pendentes de pagamento &middot; <b>5</b></span>
       </div>
     </div>
   </div>
@@ -450,11 +451,11 @@
     <section>
       <div class="section-head"><h2>Onde eu estou</h2></div>
       <div class="card where-grid">
-        <div class="where-row"><span class="tag">Hoje, 01/09</span><span class="val">Ter&ccedil;a. <b>Sodexo</b> (SDX-1), remoto. Depois 02/09 SDX-1, 03/09 <b>SDX-SI</b>, 04/09 <b>SDX-1 Sede Maca&eacute;</b>.</span></div>
-        <div class="where-row"><span class="tag">Recebido hoje</span><span class="val"><b class="tabular">R$ 3.670,16</b>, repasse da NFS-e 61 (R$ 4.040,00) menos os R$ 369,84 de acerto das invoices. Conta das exporta&ccedil;&otilde;es encerrada.</span></div>
+        <div class="where-row"><span class="tag" id="wr-hoje-tag">Hoje</span><span class="val" id="wr-hoje-val">&hellip;</span></div>
+        <div class="where-row"><span class="tag">&Uacute;ltimo repasse</span><span class="val"><b>NFS-e 61</b>, Sodexo Brazil Region, <b class="tabular">R$ 6.400,00</b>, paga em <b>01/09/2026</b>. Repasse de <b class="tabular">R$ 3.670,16</b>, que &eacute; R$ 4.040,00 menos R$ 369,84 de acerto das invoices. Conta das exporta&ccedil;&otilde;es encerrada.</span></div>
         <div class="where-row"><span class="tag">Faturado em agosto</span><span class="val">Seis notas: <b>Dexco</b> 67, 68 e 72 (R$ 6.240,00 cada), <b>Sodexo</b> 75 (R$ 3.200,00), 78 (R$ 49.894,71) e 79 (R$ 17.622,37).</span></div>
         <div class="where-row"><span class="tag">A emitir em setembro</span><span class="val"><b>Sodexo SDX-1</b>: nota &uacute;nica do ciclo set/26 a ago/27, <b class="tabular">R$ 84.000,00</b>, que s&atilde;o <b>42 di&aacute;rias</b> a R$ 2.000. Aditivo aprovado em 02/09. &Eacute; a maior nota dom&eacute;stica do ano.</span></div>
-        <div class="where-row"><span class="tag">Pr&oacute;xima presencial</span><span class="val">08 a 10/09, <b>Sodexo</b> (SDX-1, Sede POA FM), Porto Alegre. Viagem ainda a reservar.</span></div>
+        <div class="where-row"><span class="tag">Pr&oacute;xima presencial</span><span class="val" id="wr-pres-val">&hellip;</span></div>
       </div>
     </section>
 
@@ -524,9 +525,9 @@
         <span class="note">refeito em 01/09/2026 pelo modelo da Planilha HD</span>
       </div>
       <div class="stat-row">
-        <div class="kpi"><div class="label">Base do ano</div><div class="value tabular">R$ 574.000,89</div></div>
-        <div class="kpi"><div class="label">Repasse Leandro &middot; 75,84%</div><div class="value tabular">R$ 435.354,34</div></div>
-        <div class="kpi"><div class="label">Reten&ccedil;&atilde;o CQT &middot; 10,16%</div><div class="value accent tabular">R$ 58.343,25</div></div>
+        <div class="kpi"><div class="label">Faturado &middot; 26 notas emitidas</div><div class="value tabular">R$ 390.918,71</div></div>
+        <div class="kpi"><div class="label">Repasse Leandro &middot; 79,6%</div><div class="value tabular">R$ 310.998,93</div></div>
+        <div class="kpi"><div class="label">Reten&ccedil;&atilde;o CQT &middot; 8,6%</div><div class="value accent tabular">R$ 33.521,53</div></div>
       </div>
 
       <div class="table-wrap" style="margin-top:14px;">
@@ -536,11 +537,11 @@
           </thead>
           <tbody>
             <tr>
-              <td><b>Nacional</b> &middot; 22 notas emitidas mais 6 a faturar</td>
-              <td class="num tabular">R$ 307.210,00</td>
-              <td class="num tabular">R$ 71.979,30</td>
-              <td class="num tabular">R$ 191.165,00</td>
-              <td class="num tabular">R$ 44.065,70 &middot; 14,34%</td>
+              <td><b>Nacional</b> &middot; 23 notas emitidas</td>
+              <td class="num tabular">R$ 164.560,00</td>
+              <td class="num tabular">R$ 38.556,41</td>
+              <td class="num tabular">R$ 103.800,00</td>
+              <td class="num tabular">R$ 22.203,59 &middot; 13,49%</td>
             </tr>
             <tr>
               <td><b>Exporta&ccedil;&atilde;o recebida</b> &middot; &Iacute;ndia, Su&eacute;cia e Arganda</td>
@@ -550,23 +551,24 @@
               <td class="num tabular">R$ 11.317,94 &middot; 5,00%</td>
             </tr>
             <tr>
-              <td><b>Exporta&ccedil;&atilde;o a receber</b> &middot; &Iacute;ndia abril, THA e VNM</td>
-              <td class="num tabular">R$ 40.432,18</td>
-              <td class="num tabular">R$ 1.420,17</td>
-              <td class="num tabular">R$ 36.990,41</td>
-              <td class="num tabular">R$ 2.021,61 &middot; 5,00%</td>
+              <td><b>Faturado no ano</b></td>
+              <td class="num tabular"><b>R$ 390.918,71</b></td>
+              <td class="num tabular"><b>R$ 46.398,24</b></td>
+              <td class="num tabular"><b>R$ 310.998,93</b></td>
+              <td class="num tabular"><b>R$ 33.521,53</b></td>
             </tr>
-            <tr>
-              <td><b>Ano</b></td>
-              <td class="num tabular"><b>R$ 574.000,89</b></td>
-              <td class="num tabular"><b>R$ 81.241,31</b></td>
-              <td class="num tabular"><b>R$ 435.354,34</b></td>
-              <td class="num tabular"><b>R$ 58.343,25</b></td>
+            <tr class="is-prev">
+              <td><i>A faturar</i> &middot; ainda sem nota fiscal</td>
+              <td class="num tabular"><i>R$ 196.672,23</i></td>
+              <td class="num tabular"><i>&mdash;</i></td>
+              <td class="num tabular"><i>R$ 130.146,08</i></td>
+              <td class="num tabular"><i>&mdash;</i></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="note" style="margin-top:8px;">No nacional a base &eacute; o valor faturado ao cliente. Na exporta&ccedil;&atilde;o &eacute; a <b>entrada em reais depois do c&acirc;mbio</b>, que &eacute; sobre o que a adm de 5% incide. Por isso o total do ano n&atilde;o bate com a soma dos brutos das notas: s&atilde;o bases diferentes, de prop&oacute;sito.</p>
+      <p class="note" style="margin-top:8px;"><b>S&oacute; nota emitida entra no total.</b> A linha <i>A faturar</i> fica fora da soma e sem decomposi&ccedil;&atilde;o, porque enquanto n&atilde;o h&aacute; nota n&atilde;o h&aacute; tributo apurado nem reten&ccedil;&atilde;o realizada. Detalhe dela em <b>O que ainda n&atilde;o foi emitido</b>, abaixo.</p>
+      <p class="note">No nacional a base &eacute; o valor faturado ao cliente. Na exporta&ccedil;&atilde;o &eacute; a <b>entrada em reais depois do c&acirc;mbio</b>, que &eacute; sobre o que a adm de 5% incide. S&atilde;o bases diferentes, de prop&oacute;sito.</p>
       <p class="note">Pendentes de pagamento pelo cliente: NFS-e 59, 67, 68, 72 e 75, somando R$ 28.320,00. A <b>NFS-e 61 saiu da lista</b>, o repasse dela foi depositado em 01/09.</p>
     </section>
 
@@ -740,12 +742,13 @@
     <section>
       <div class="section-head">
         <h2>Contador dos blocos de consultoria</h2>
-        <span class="note">dias consumidos e o que cada bloco deixa em imposto e em reten&ccedil;&atilde;o</span>
+        <span class="note">apenas notas emitidas &middot; dias consumidos e o que cada bloco deixa em imposto e em reten&ccedil;&atilde;o</span>
       </div>
       <div class="card">
         <p style="margin-bottom:12px;">Blocos anuais do SDX-1, faturados em nota &uacute;nica. <b>Auditoria (servi&ccedil;o A) e acompanhamento (servi&ccedil;o O) nunca entram aqui: t&ecirc;m nota pr&oacute;pria &agrave; parte.</b> Contagem restrita a servi&ccedil;o C, somando meias di&aacute;rias.</p>
         <div id="contador-blocos"></div>
         <p class="note" id="contador-base" style="margin-top:12px;"></p>
+        <p class="note" style="margin-top:6px;"><b>S&oacute; nota emitida &eacute; calculada aqui.</b> O bloco do <b>ciclo FY27</b> (01/09/2026 a 31/08/2027, R$ 84.000,00, 42 di&aacute;rias) tem o aditivo aprovado em 02/09/2026, mas a nota ainda n&atilde;o saiu. Ele entra neste contador na emiss&atilde;o. At&eacute; l&aacute;, fica em <b>O que ainda n&atilde;o foi emitido</b>, na aba Vis&atilde;o geral.</p>
       </div>
     </section>
 
@@ -895,13 +898,13 @@
   }
 
   var AGENDA = [
-    {d:"2025-10-30",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-10-31",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-11-03",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-11-13",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-11-14",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-11-25",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2025-11-28",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
+    {d:"2025-10-30",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-10-31",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-11-03",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-11-13",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-11-14",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-11-25",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2025-11-28",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
     {d:"2025-12-08",c:"LD Celulose",p:"Compliance",s:"C",m:"D",hd:1,nf:"NF 735"},
     {d:"2025-12-09",c:"LD Celulose",p:"Compliance",s:"C",m:"D",hd:1,nf:"NF 735"},
     {d:"2025-12-10",c:"LD Celulose",p:"Compliance",s:"C",m:"D",hd:1,nf:"NF 735"},
@@ -911,7 +914,7 @@
     {d:"2025-12-16",c:"LD Celulose",p:"Compliance",s:"A",m:"D",hd:1,nf:"NF 735"},
     {d:"2025-12-17",c:"LD Celulose",p:"Compliance",s:"C",m:"D",hd:1,nf:"NF 735"},
     {d:"2025-12-19",c:"LD Celulose",p:"Compliance",s:"A",m:"D",hd:1,nf:"NF 735"},
-    {d:"2025-12-22",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
+    {d:"2025-12-22",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
     {d:"2026-01-12",c:"Sodexo",p:"SDX-G APAC India",s:"C",m:"P",hd:1,nf:"NFS-e 51"},
     {d:"2026-01-13",c:"Sodexo",p:"SDX-G APAC India",s:"C",m:"P",hd:1,nf:"NFS-e 51"},
     {d:"2026-01-14",c:"Sodexo",p:"SDX-G APAC India",s:"C",m:"P",hd:1,nf:"NFS-e 51"},
@@ -992,24 +995,24 @@
     {d:"2026-05-29",c:"Sodexo",p:"SDX-1",s:"A",m:"D",hd:1,nf:"NFS-e 49"},
     {d:"2026-06-01",c:"LD Celulose",p:"Compliance",s:"C",m:"D",hd:1,nf:"NF 735"},
     {d:"2026-06-02",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"P",hd:1,nf:"NFS-e 56"},
-    {d:"2026-06-03",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"P",hd:1,nf:"NFS-e 56"},
+    {d:"2026-06-03",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"P",hd:1,nf:"NFS-e 56",vp:true},
     {d:"2026-06-11",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
     {d:"2026-06-15",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
     {d:"2026-06-16",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
-    {d:"2026-06-17",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2026-06-18",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2026-06-19",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
+    {d:"2026-06-17",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2026-06-18",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
+    {d:"2026-06-19",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
     {d:"2026-06-22",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"P",hd:1,nf:"NFS-e 56"},
     {d:"2026-06-23",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"P",hd:1,nf:"NFS-e 56"},
     {d:"2026-06-24",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
-    {d:"2026-07-03",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
+    {d:"2026-07-03",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",vp:true},
     {d:"2026-07-06",c:"LD Celulose",p:"SGI",s:"C",m:"D",hd:1,nf:"NF 735"},
-    {d:"2026-07-07",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A"},
-    {d:"2026-07-08",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A"},
-    {d:"2026-07-09",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A"},
+    {d:"2026-07-07",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A",vp:true},
+    {d:"2026-07-08",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A",vp:true},
+    {d:"2026-07-09",c:"Sodexo",p:"SDX-G COEU Spain",s:"C",m:"D",hd:1,nf:"Invoice CQT_2026-08-001.A",vp:true},
     {d:"2026-07-13",c:"New Max Industrial",p:"SMETA",s:"C",m:"P",hd:1,nf:"NFS-e 59"},
-    {d:"2026-07-14",c:"New Max Industrial",p:"SMETA",s:"C",m:"P",hd:1,nf:"NFS-e 59"},
-    {d:"2026-07-15",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1},
+    {d:"2026-07-14",c:"New Max Industrial",p:"SMETA",s:"C",m:"P",hd:1,nf:"NFS-e 59",vp:true},
+    {d:"2026-07-15",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1,vp:true},
     {d:"2026-07-16",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
     {d:"2026-07-17",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"D",hd:1,nf:"NFS-e 61"},
     {d:"2026-07-20",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
@@ -1017,7 +1020,7 @@
     {d:"2026-07-27",c:"Dexco",p:"PROTEG",s:"C",m:"D",hd:1,nf:"NFS-e 67",cf:true},
     {d:"2026-07-28",c:"Dexco",p:"PROTEG",s:"C",m:"D",hd:1,nf:"NFS-e 67",cf:true},
     {d:"2026-07-29",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
-    {d:"2026-07-30",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"D",hd:1,nf:"NFS-e 61",cf:true},
+    {d:"2026-07-30",c:"Sodexo",p:"SDX-G Brazil Region",s:"C",m:"D",hd:1,nf:"NFS-e 61",cf:true,vp:true},
     {d:"2026-07-31",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
     {d:"2026-08-03",c:"LD Celulose",p:"SGI",s:"C",m:"D",hd:1,nf:"NF 735",cf:true},
     {d:"2026-08-04",c:"Dexco",p:"PROTEG",s:"C",m:"D",hd:1,nf:"NFS-e 68",cf:true},
@@ -1038,27 +1041,27 @@
     {d:"2026-08-27",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
     {d:"2026-08-28",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
     {d:"2026-08-28",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1},
-    {d:"2026-08-31",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
+    {d:"2026-08-31",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",vp:true},
     {d:"2026-09-01",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2026-09-02",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689"},
+    {d:"2026-09-02",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",vp:true},
     {d:"2026-09-03",c:"Sodexo",p:"SDX-SI ISO 27001",s:"C",m:"D",hd:0.5,nf:"NFS-e 3",cf:true},
     {d:"2026-09-04",c:"Sodexo",p:"SDX-1 Sede Macaé",s:"A",m:"D",hd:1,cf:true},
     {d:"2026-09-07",c:"Sodexo",p:"SDX-G APAC VNM & THA",s:"C",m:"D",hd:1},
-    {d:"2026-09-08",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true},
-    {d:"2026-09-09",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true},
-    {d:"2026-09-10",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true},
-    {d:"2026-09-11",c:"Sodexo",p:"SDX-1 Sede Macaé",s:"A",m:"D",hd:1,cf:true},
+    {d:"2026-09-08",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true,vp:true},
+    {d:"2026-09-09",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true,vp:true},
+    {d:"2026-09-10",c:"Sodexo",p:"SDX-1 Sede POA FM",s:"A",m:"D",hd:1,cf:true,vp:true},
+    {d:"2026-09-11",c:"Sodexo",p:"SDX-1 Sede Macaé",s:"A",m:"D",hd:1,cf:true,vp:true},
     {d:"2026-09-14",c:"Sodexo",p:"SDX-1 Áreas Funcionais",s:"A",m:"D",hd:1,cf:true},
     {d:"2026-09-15",c:"Sodexo",p:"SDX-1 Áreas Funcionais",s:"A",m:"D",hd:1,cf:true},
     {d:"2026-09-16",c:"Sodexo",p:"SDX-1 Áreas Funcionais",s:"A",m:"D",hd:1,cf:true},
     {d:"2026-09-17",c:"Sodexo",p:"SDX-1 Áreas Funcionais",s:"A",m:"D",hd:1,cf:true},
     {d:"2026-09-18",c:"Sodexo",p:"SDX-1 Áreas Funcionais",s:"A",m:"D",hd:1,cf:true},
-    {d:"2026-09-22",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
+    {d:"2026-09-22",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true,vp:true},
     {d:"2026-09-23",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,nf:"NF 689",cf:true},
-    {d:"2026-09-24",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,cf:true},
+    {d:"2026-09-24",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,cf:true,vp:true},
     {d:"2026-09-28",c:"Sodexo",p:"SDX-SI",s:"C",m:"D",hd:1,nf:"NFS-e 3"},
     {d:"2026-09-29",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,cf:true},
-    {d:"2026-09-30",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,cf:true},
+    {d:"2026-09-30",c:"Sodexo",p:"SDX-1",s:"C",m:"D",hd:1,cf:true,vp:true},
     {d:"2026-10-01",c:"Sodexo",p:"SDX-SI ISO 27001",s:"C",m:"D",hd:0.5,nf:"NFS-e 3",cf:true},
     {d:"2026-10-05",c:"Sodexo",p:"SDX-1 Whirlpool",s:"A",m:"P",hd:1,cf:true},
     {d:"2026-10-06",c:"Sodexo",p:"SDX-1 Whirlpool",s:"A",m:"P",hd:1,cf:true},
@@ -1080,7 +1083,7 @@
     {d:"2026-11-06",c:"Sodexo",p:"SDX-1 Whirlpool",s:"O",m:"P",hd:1,cf:true},
     {d:"2026-11-09",c:"Sodexo",p:"SDX-1",s:"O",m:"P",hd:1,cf:true},
     {d:"2026-11-10",c:"Sodexo",p:"SDX-1",s:"O",m:"P",hd:1,cf:true},
-    {d:"2026-11-16",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false},
+    {d:"2026-11-16",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false,vp:true},
     {d:"2026-11-17",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false},
     {d:"2026-11-18",c:"Sodexo",p:"SDX-G Brazil Region",s:"A",m:"P",hd:1,cf:false},
     {d:"2026-12-18",c:"Sodexo",p:"SDX-SI",s:"A",m:"D",hd:1,nf:"NFS-e 3",cf:true},
@@ -1315,13 +1318,66 @@
       summary.pendente + " com viagem pendente";
   }
 
+  // "Onde eu estou": data e agenda do dia sao derivadas de TODAY, nunca digitadas,
+  // senao a linha envelhece em silencio a cada dia que passa.
+  var DIAS_SEM = ["Domingo", "Segunda", "Ter\u00e7a", "Quarta", "Quinta", "Sexta", "S\u00e1bado"];
+  function descreveDia(e) {
+    var t = "<b>" + esc(e.c) + "</b> (" + esc(e.p) + ")";
+    if (e.hd && e.hd !== 1) t += ", " + fmtDia(e.hd) + " di\u00e1ria";
+    if (e.m === "P") t += ", presencial";
+    else if (e.m === "D") t += ", remoto";
+    return t;
+  }
+  (function () {
+    var tagEl = document.getElementById("wr-hoje-tag");
+    var valEl = document.getElementById("wr-hoje-val");
+    if (!tagEl || !valEl) return;
+    var d = new Date(TODAY + "T12:00:00");
+    tagEl.textContent = "Hoje, " + pad(d.getDate()) + "/" + pad(d.getMonth() + 1);
+
+    var hoje = MAP[TODAY] || [];
+    var txt = DIAS_SEM[d.getDay()] + ". ";
+    txt += hoje.length ? hoje.map(descreveDia).join("; ") + "." : "Sem agenda.";
+
+    var prox = AGENDA.filter(function (e) { return e.d > TODAY; })
+                     .sort(function (a2, b2) { return a2.d < b2.d ? -1 : a2.d > b2.d ? 1 : 0; });
+    if (prox.length) {
+      var pd = prox[0].d;
+      var mesmos = prox.filter(function (e) { return e.d === pd; });
+      var dd = new Date(pd + "T12:00:00");
+      var quando = (pd === isoMais(TODAY, 1)) ? "Amanh\u00e3" : DIAS_SEM[dd.getDay()] + " " + pad(dd.getDate()) + "/" + pad(dd.getMonth() + 1);
+      txt += " " + quando + ", " + mesmos.map(descreveDia).join("; ") + ".";
+    }
+    valEl.innerHTML = txt;
+  })();
+  function isoMais(iso, n) {
+    var d = new Date(iso + "T12:00:00");
+    d.setDate(d.getDate() + n);
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  }
+  (function () {
+    var el = document.getElementById("wr-pres-val");
+    if (!el) return;
+    var pres = AGENDA.filter(function (e) { return (e.m === "P" || e.vp) && e.d >= TODAY; })
+                     .sort(function (a2, b2) { return a2.d < b2.d ? -1 : a2.d > b2.d ? 1 : 0; });
+    if (!pres.length) { el.textContent = "Nenhuma viagem presencial agendada."; return; }
+    // Agrupa os dias seguidos do mesmo projeto num bloco so
+    var ini = pres[0], fim = ini, i = 1;
+    while (i < pres.length && pres[i].p === ini.p && pres[i].d === isoMais(fim.d, 1)) { fim = pres[i]; i++; }
+    var f = function (iso) { var d = new Date(iso + "T12:00:00"); return pad(d.getDate()) + "/" + pad(d.getMonth() + 1); };
+    var periodo = ini.d === fim.d ? f(ini.d) : f(ini.d) + " a " + f(fim.d);
+    var vp = pres.slice(0, i).some(function (e) { return e.vp; });
+    el.innerHTML = periodo + ", <b>" + esc(ini.c) + "</b> (" + esc(ini.p) + ")."
+      + (vp ? " <b>Viagem ainda a reservar.</b>" : "");
+  })();
+
   // Contador dos blocos de consultoria. Cada bloco e uma nota unica anual do SDX-1.
   // Restrito a servico C: auditoria (A) e acompanhamento (O) tem nota propria.
+  // So entra aqui nota JA EMITIDA. Bloco previsto, sem nota, nao e calculado:
+  // fica na secao "O que ainda nao foi emitido", na aba Visao geral.
   var BLOCOS = [
     { nf: "NF 689", nome: "Ciclo FY26", periodo: "30/10/2025 a 23/09/2026",
-      bruto: 82000, dias: 40, situacao: "emitida em 27/08/2025" },
-    { nf: null, nome: "Ciclo FY27", periodo: "01/09/2026 a 31/08/2027",
-      bruto: 84000, dias: 42, situacao: "a emitir em setembro, aditivo aprovado em 02/09" }
+      bruto: 82000, dias: 40, situacao: "emitida em 27/08/2025" }
   ];
   var blkEl = document.getElementById("contador-blocos");
   if (blkEl) {
