@@ -290,6 +290,23 @@
     border: 1px solid var(--border-thin); border-radius: 3px; cursor: pointer; position: relative; transition: background .15s;
   }
   #painel-rubens-root .fc-btn:hover { background: var(--accent-bg); z-index: 1; }
+  #painel-rubens-root .blk { border: 1px solid var(--border-thin); border-radius: 3px; padding: 14px 16px 12px; }
+  #painel-rubens-root .blk + .blk { margin-top: 12px; }
+  #painel-rubens-root .blk-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  #painel-rubens-root .blk-nome { font-family: var(--font-slab); font-size: 15px; font-weight: 700; }
+  #painel-rubens-root .blk-sub { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); margin-top: 2px; }
+  #painel-rubens-root .blk-dias { font-family: var(--font-mono); font-size: 22px; font-weight: 700; line-height: 1; white-space: nowrap; }
+  #painel-rubens-root .blk-dias small { font-size: 11px; font-weight: 500; color: var(--text-faint); letter-spacing: .04em; }
+  #painel-rubens-root .blk-bar { height: 5px; border-radius: 3px; background: #eceff6; overflow: hidden; margin: 10px 0 12px; }
+  #painel-rubens-root .blk-bar i { display: block; height: 100%; background: var(--accent-dark); }
+  #painel-rubens-root .blk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-thin); border: 1px solid var(--border-thin); border-radius: 3px; overflow: hidden; }
+  #painel-rubens-root .blk-cell { background: #fff; padding: 9px 10px; }
+  #painel-rubens-root .blk-cell .k { font-family: var(--font-mono); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); display: block; margin-bottom: 3px; }
+  #painel-rubens-root .blk-cell .v { font-family: var(--font-mono); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #painel-rubens-root .blk-cell .p { font-family: var(--font-mono); font-size: 9px; color: var(--text-faint); margin-left: 4px; font-weight: 500; }
+  #painel-rubens-root .blk-cell.is-cqt { background: var(--accent-bg); }
+  #painel-rubens-root .blk-cell.is-lrc .v { color: var(--accent-dark); }
+  @media (max-width: 720px) { #painel-rubens-root .blk-grid { grid-template-columns: repeat(2, 1fr); } }
   #painel-rubens-root .fc-cal-wrap { overflow-x: auto; }
   #painel-rubens-root .fc-cal {
     width: 100%; min-width: 700px; border-collapse: separate; border-spacing: 0; table-layout: fixed;
@@ -721,10 +738,14 @@
   <div class="tab-panel" data-tab="agenda">
 
     <section>
-      <div class="section-head"><h2>Controle NF-689</h2></div>
+      <div class="section-head">
+        <h2>Contador dos blocos de consultoria</h2>
+        <span class="note">dias consumidos e o que cada bloco deixa em imposto e em reten&ccedil;&atilde;o</span>
+      </div>
       <div class="card">
-        <p style="margin-bottom:10px;">NF-689 (Sodexo, SDX-1) &eacute; usada como refer&ecirc;ncia provis&oacute;ria dos dias de consultoria SGI ainda n&atilde;o refaturados, mesmo padr&atilde;o das NFS-e 51 e 56. <b>Auditoria (SDX-1 servi&ccedil;o A) nunca entra aqui: sempre tem NF pr&oacute;pria &agrave; parte.</b> Contagem restrita, s&oacute; servi&ccedil;o C:</p>
-        <div class="figure tabular" id="nf689-count">&hellip;</div>
+        <p style="margin-bottom:12px;">Blocos anuais do SDX-1, faturados em nota &uacute;nica. <b>Auditoria (servi&ccedil;o A) e acompanhamento (servi&ccedil;o O) nunca entram aqui: t&ecirc;m nota pr&oacute;pria &agrave; parte.</b> Contagem restrita a servi&ccedil;o C, somando meias di&aacute;rias.</p>
+        <div id="contador-blocos"></div>
+        <p class="note" id="contador-base" style="margin-top:12px;"></p>
       </div>
     </section>
 
@@ -1294,14 +1315,57 @@
       summary.pendente + " com viagem pendente";
   }
 
-  // Controle NF-689: restrito a SDX-1 · serviço C (consultoria). Auditoria (s:"A") nunca entra aqui.
-  var nf689 = AGENDA.filter(function(e){ return e.p === "SDX-1" && e.nf === "NF 689"; });
-  var nf689Audit = AGENDA.filter(function(e){ return e.p === "SDX-1" && e.s === "A" && e.nf === "NF 689"; });
-  var nf689El = document.getElementById("nf689-count");
-  if (nf689El) {
-    var nf689Hd = nf689.reduce(function(sum, e){ return sum + e.hd; }, 0);
-    nf689El.innerHTML = fmtHd(nf689Hd) + ' h/d <small>em ' + nf689.length + ' dias (SDX-1 · C)' +
-      (nf689Audit.length ? '. <b style="color:var(--warn)">ATENÇÃO: ' + nf689Audit.length + ' dia(s) de auditoria vazaram para NF 689</b>' : ', 0 dias de auditoria') + '</small>';
+  // Contador dos blocos de consultoria. Cada bloco e uma nota unica anual do SDX-1.
+  // Restrito a servico C: auditoria (A) e acompanhamento (O) tem nota propria.
+  var BLOCOS = [
+    { nf: "NF 689", nome: "Ciclo FY26", periodo: "30/10/2025 a 23/09/2026",
+      bruto: 82000, dias: 40, situacao: "emitida em 27/08/2025" },
+    { nf: null, nome: "Ciclo FY27", periodo: "01/09/2026 a 31/08/2027",
+      bruto: 84000, dias: 42, situacao: "a emitir em setembro, aditivo aprovado em 02/09" }
+  ];
+  var blkEl = document.getElementById("contador-blocos");
+  if (blkEl) {
+    var brl0 = function (v) { return "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 0 }); };
+    var pct1 = function (v) { return (Math.round(v * 1000) / 10).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + "%"; };
+    var vazou = [];
+    blkEl.innerHTML = BLOCOS.map(function (b) {
+      var usados = 0;
+      if (b.nf) {
+        AGENDA.forEach(function (e) {
+          if (e.nf !== b.nf || !/^SDX-1/.test(e.p)) return;
+          if (e.s === "A" || e.s === "O") { vazou.push(b.nf + " em " + e.d); return; }
+          usados += e.hd;
+        });
+      }
+      var trib = b.bruto * MODELO.tributo;
+      var cust = b.bruto * MODELO.custo;
+      var lrc = b.bruto * 0.6407;
+      var cqt = b.bruto - trib - cust - lrc;
+      var frac = b.dias ? Math.min(1, usados / b.dias) : 0;
+      return '<div class="blk">'
+        + '<div class="blk-head"><div><div class="blk-nome">' + b.nome + (b.nf ? " &middot; " + b.nf : "")
+        + '</div><div class="blk-sub">' + b.periodo + " &middot; " + b.situacao + '</div></div>'
+        + '<div class="blk-dias">' + fmtHd(usados) + ' <small>de ' + b.dias + ' dias</small></div></div>'
+        + '<div class="blk-bar"><i style="width:' + (frac * 100).toFixed(1) + '%"></i></div>'
+        + '<div class="blk-grid">'
+        + '<div class="blk-cell"><span class="k">Bruto da nota</span><span class="v">' + brl0(b.bruto) + '</span></div>'
+        + '<div class="blk-cell"><span class="k">Reten&ccedil;&atilde;o de impostos</span><span class="v">' + brl0(trib) + '</span><span class="p">' + pct1(MODELO.tributo) + '</span></div>'
+        + '<div class="blk-cell is-cqt"><span class="k">Reten&ccedil;&atilde;o CQT</span><span class="v">' + brl0(cqt) + '</span><span class="p">' + pct1(cqt / b.bruto) + '</span></div>'
+        + '<div class="blk-cell is-lrc"><span class="k">Repasse Leandro</span><span class="v">' + brl0(lrc) + '</span><span class="p">' + pct1(lrc / b.bruto) + '</span></div>'
+        + '</div>'
+        + '<p class="note" style="margin-top:8px;">Fora do quadro, Prefeitura e contador: <b>' + brl0(cust) + '</b> (' + pct1(MODELO.custo) + ').</p>'
+        + '</div>';
+    }).join("");
+    var cbEl = document.getElementById("contador-base");
+    if (cbEl) {
+      cbEl.innerHTML = "Decomposi&ccedil;&atilde;o calculada ao abrir a p&aacute;gina, pelas al&iacute;quotas da Planilha HD do Rubens: imposto <b>"
+        + pct1(MODELO.tributo) + "</b>, Prefeitura e contador <b>" + pct1(MODELO.custo)
+        + "</b> e reten&ccedil;&atilde;o da CQT <b>" + pct1(MODELO.admConsultor - MODELO.admLRC)
+        + "</b> quando quem executa &eacute; o Leandro."
+        + (vazou.length ? ' <b style="color:var(--warn)">ATEN&Ccedil;&Atilde;O: ' + vazou.length
+            + ' dia(s) de auditoria ou acompanhamento vazaram para um bloco de consultoria (' + vazou.join("; ") + ').</b>'
+          : " Nenhum dia de auditoria ou acompanhamento vazou para os blocos.");
+    }
   }
 
   // Retencao efetiva por frente: calculada a partir de MODELO e FRENTES, nunca digitada a mao.
