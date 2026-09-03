@@ -128,7 +128,7 @@
     font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .14em;
     text-transform: uppercase; color: var(--text-subtitle); margin: 0 0 28px; text-wrap: pretty;
   }
-  #painel-rubens-root .stats { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  #painel-rubens-root .stats { display: flex; align-items: center; gap: 14px; flex-wrap: nowrap; white-space: nowrap; }
   #painel-rubens-root .stat {
     font-family: var(--font-mono); display: inline-flex; align-items: baseline; gap: 5px; padding: 2px 8px;
     font-size: 9.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
@@ -430,10 +430,10 @@
       <h1>Painel de Atividades LRC</h1>
       <div class="subtitle">Snapshot est&aacute;tico &middot; Atualizado 03/09/2026 &middot; N&uacute;meros do cabe&ccedil;alho: <b>s&oacute; notas j&aacute; emitidas</b></div>
       <div class="stats">
-        <span class="stat">Fonte &middot; <b>Planilha HD do Rubens (01/09/2026)</b></span>
-        <span class="stat">Faturado no ano &middot; <b>R$ 390.918,71</b></span>
-        <span class="stat">Repasse Leandro &middot; <b>R$ 310.998,93</b></span>
+        <span class="stat">Faturado at&eacute; o momento &middot; <b>R$ 390.918,71</b></span>
+        <span class="stat">Impostos &middot; <b>R$ 36.284,20</b></span>
         <span class="stat">Reten&ccedil;&atilde;o CQT &middot; <b>R$ 33.521,53</b></span>
+        <span class="stat">Repasse Leandro &middot; <b>R$ 310.998,93</b></span>
         <span class="stat">NFs pendentes de pagamento &middot; <b>5</b></span>
       </div>
     </div>
@@ -526,48 +526,54 @@
       </div>
       <div class="stat-row">
         <div class="kpi"><div class="label">Faturado &middot; 26 notas emitidas</div><div class="value tabular">R$ 390.918,71</div></div>
-        <div class="kpi"><div class="label">Repasse Leandro &middot; 79,6%</div><div class="value tabular">R$ 310.998,93</div></div>
+        <div class="kpi"><div class="label">Impostos &middot; 9,3%</div><div class="value tabular">R$ 36.284,20</div></div>
         <div class="kpi"><div class="label">Reten&ccedil;&atilde;o CQT &middot; 8,6%</div><div class="value accent tabular">R$ 33.521,53</div></div>
+        <div class="kpi"><div class="label">Repasse Leandro &middot; 79,6%</div><div class="value tabular">R$ 310.998,93</div></div>
       </div>
 
       <div class="table-wrap" style="margin-top:14px;">
         <table>
           <thead>
-            <tr><th>Origem</th><th class="num">Base</th><th class="num">Tributo e custo</th><th class="num">Repasse Leandro</th><th class="num">Reten&ccedil;&atilde;o CQT</th></tr>
+            <tr><th>Origem</th><th class="num">Base</th><th class="num">Impostos</th><th class="num">Custo e tarifas</th><th class="num">Reten&ccedil;&atilde;o CQT</th><th class="num">Repasse Leandro</th></tr>
           </thead>
           <tbody>
             <tr>
               <td><b>Nacional</b> &middot; 23 notas emitidas</td>
               <td class="num tabular">R$ 164.560,00</td>
-              <td class="num tabular">R$ 38.556,41</td>
-              <td class="num tabular">R$ 103.800,00</td>
+              <td class="num tabular">R$ 28.847,37 &middot; 17,53%</td>
+              <td class="num tabular">R$ 9.709,04 &middot; 5,90%</td>
               <td class="num tabular">R$ 22.203,59 &middot; 13,49%</td>
+              <td class="num tabular">R$ 103.800,00</td>
             </tr>
             <tr>
               <td><b>Exporta&ccedil;&atilde;o recebida</b> &middot; &Iacute;ndia, Su&eacute;cia e Arganda</td>
               <td class="num tabular">R$ 226.358,71</td>
-              <td class="num tabular">R$ 7.841,83</td>
-              <td class="num tabular">R$ 207.198,93</td>
+              <td class="num tabular">R$ 7.436,83 &middot; 3,29%</td>
+              <td class="num tabular">R$ 405,00 <span class="note">tarifa Ita&uacute;</span></td>
               <td class="num tabular">R$ 11.317,94 &middot; 5,00%</td>
+              <td class="num tabular">R$ 207.198,93</td>
             </tr>
             <tr>
-              <td><b>Faturado no ano</b></td>
+              <td><b>Faturado at&eacute; o momento</b></td>
               <td class="num tabular"><b>R$ 390.918,71</b></td>
-              <td class="num tabular"><b>R$ 46.398,24</b></td>
-              <td class="num tabular"><b>R$ 310.998,93</b></td>
+              <td class="num tabular"><b>R$ 36.284,20</b></td>
+              <td class="num tabular"><b>R$ 10.114,04</b></td>
               <td class="num tabular"><b>R$ 33.521,53</b></td>
+              <td class="num tabular"><b>R$ 310.998,93</b></td>
             </tr>
             <tr class="is-prev">
               <td><i>A faturar</i> &middot; ainda sem nota fiscal</td>
               <td class="num tabular"><i>R$ 196.672,23</i></td>
               <td class="num tabular"><i>&mdash;</i></td>
-              <td class="num tabular"><i>R$ 130.146,08</i></td>
               <td class="num tabular"><i>&mdash;</i></td>
+              <td class="num tabular"><i>&mdash;</i></td>
+              <td class="num tabular"><i>R$ 130.146,08</i></td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="note" style="margin-top:8px;"><b>S&oacute; nota emitida entra no total.</b> A linha <i>A faturar</i> fica fora da soma e sem decomposi&ccedil;&atilde;o, porque enquanto n&atilde;o h&aacute; nota n&atilde;o h&aacute; tributo apurado nem reten&ccedil;&atilde;o realizada. Detalhe dela em <b>O que ainda n&atilde;o foi emitido</b>, abaixo.</p>
+      <p class="note" style="margin-top:8px;"><b>Imposto e custo s&atilde;o coisas diferentes e ficam em colunas separadas.</b> Imposto vai para o governo: PIS, COFINS, CSLL, IRPJ, ISS e o adicional de IR, 17,53% no nacional. Custo &eacute; Prefeitura e contador, 5,90%, e no exterior a tarifa do Ita&uacute; por opera&ccedil;&atilde;o de c&acirc;mbio. Nenhum dos dois &eacute; reten&ccedil;&atilde;o da CQT.</p>
+      <p class="note"><b>S&oacute; nota emitida entra no total.</b> A linha <i>A faturar</i> fica fora da soma e sem decomposi&ccedil;&atilde;o, porque enquanto n&atilde;o h&aacute; nota n&atilde;o h&aacute; tributo apurado nem reten&ccedil;&atilde;o realizada. Detalhe dela em <b>O que ainda n&atilde;o foi emitido</b>, abaixo.</p>
       <p class="note">No nacional a base &eacute; o valor faturado ao cliente. Na exporta&ccedil;&atilde;o &eacute; a <b>entrada em reais depois do c&acirc;mbio</b>, que &eacute; sobre o que a adm de 5% incide. S&atilde;o bases diferentes, de prop&oacute;sito.</p>
       <p class="note">Pendentes de pagamento pelo cliente: NFS-e 59, 67, 68, 72 e 75, somando R$ 28.320,00. A <b>NFS-e 61 saiu da lista</b>, o repasse dela foi depositado em 01/09.</p>
     </section>
