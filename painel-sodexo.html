@@ -543,7 +543,7 @@
         <span class="note"><span id="afat-nota">R$ 110.502,11</span> &middot; calculado pela agenda</span>
       </div>
       <div class="card">
-        <p style="margin-bottom:10px;">Fora as invoices da &Iacute;ndia, da Tail&acirc;ndia e do Vietn&atilde;, nada abaixo existe como documento fiscal hoje. Os valores s&atilde;o o bruto previsto por di&aacute;ria contratada, na posi&ccedil;&atilde;o desta data.</p>
+        <p style="margin-bottom:10px;">Fora a invoice da Tail&acirc;ndia, nada abaixo existe como documento fiscal hoje. Os valores s&atilde;o o bruto previsto por di&aacute;ria contratada, na posi&ccedil;&atilde;o desta data.</p>
         <div class="table-wrap">
           <table>
             <thead>
@@ -555,14 +555,7 @@
                 <td>SDX-G APMEA Thailand</td>
                 <td class="num tabular">2,5</td>
                 <td class="num tabular">R$ 11.283,79</td>
-                <td>cadastro de fornecedor e PO</td>
-              </tr>
-              <tr class="afat-fixo" data-bruto="13218.32" data-dias="2.5">
-                <td><span class="tabular">QT-VNM</span>, cota&ccedil;&atilde;o de 20/08</td>
-                <td>SDX-G APMEA Vietnam</td>
-                <td class="num tabular">2,5</td>
-                <td class="num tabular">R$ 13.218,32</td>
-                <td>PO, em processamento desde 25/08</td>
+                <td>PO (cadastro de fornecedor feito em 30/09)</td>
               </tr>
               <tr>
                 <td><b>Total</b></td>
@@ -691,9 +684,12 @@
     {nf:"NFS-e 74", projeto:"SDX-G EMEA Sweden", emissao:"2026-08-20", valor:0, situacao:"cancelada",
       obs:"Cancelada em 28/08/2026 e substitu&iacute;da pela NFS-e 78, depois de rever o enquadramento da opera&ccedil;&atilde;o. Zerada aqui para o faturamento n&atilde;o contar duas vezes.",
       dias:[]},
-    {nf:"Invoice CQT_2026-04-001.A", projeto:"SDX-G APAC India", emissao:"2026-05-25", valor:20113.69, estimado:true, situacao:"paga", vencimento:"2026-05-25", pagamento:"2026-10-09",
-      obs:"Cobran&ccedil;a de &euro; 3.545,45 contra a PO SFMS/ROMG TP/26-27/002. <b>Paga em 09/10/2026.</b> O valor em reais &eacute; estimativa at&eacute; o fechamento do c&acirc;mbio.",
+    {nf:"Invoice CQT_2026-04-001.A", projeto:"SDX-G APAC India", emissao:"2026-05-25", valor:19166.70, situacao:"paga", vencimento:"2026-05-25", pagamento:"2026-10-09",
+      obs:"Cobran&ccedil;a de &euro; 3.545,45 contra a PO SFMS/ROMG TP/26-27/002. <b>Paga em 09/10/2026.</b> Valor em reais pela taxa do c&acirc;mbio de 13/10/2026 (R$ 5,406).",
       dias:["2026-04-17","2026-04-24","2026-05-06"]},
+    {nf:"Invoice CQT_2026-09-001.B", projeto:"SDX-G APMEA Vietnam", emissao:"2026-09-07", valor:12650.04, situacao:"paga", vencimento:"2026-10-07", pagamento:"2026-10-13",
+      obs:"&euro; 2.340,00 contra a PO PO-TPBD-AD-26-09-002. <b>Paga em 13/10/2026.</b> Valor em reais pela taxa do c&acirc;mbio de 13/10/2026 (R$ 5,406).",
+      dias:[]},
     {nf:"NFS-e 75", projeto:"SDX-G Brazil Region", emissao:"2026-08-21", valor:3200.00, situacao:"paga", vencimento:"2026-09-24", pagamento:"2026-09-25",
       dias:["2026-08-13"]},
     {nf:"NFS-e 61", projeto:"SDX-G Brazil Region", emissao:"2026-07-29", valor:6400.00, situacao:"paga", pagamento:"2026-09-01",
