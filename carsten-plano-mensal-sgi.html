@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Plano mensal · IM-PP-002 · Carsten Serviços</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--t:#14304C;--a:#336699;--c:#D3E2F2;--bg:#F3F0E9;--bg2:#ECE7DC;--fio:#CBD1D8;--s:#315275;--h:34px;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans Condensed',sans-serif;--mola:cubic-bezier(.4,0,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--t);-webkit-font-smoothing:antialiased}
+.wrap{max-width:none;margin:0;padding:24px 48px 32px}
+/* cabecalho */
+.cab{display:flex;flex-direction:row-reverse;align-items:flex-end;justify-content:space-between;gap:24px}
+.cab .logo svg{width:92px;height:auto;display:block;margin:-30px -7px -6px 0}
+.cab .id{text-align:left;display:grid;gap:9px}
+.rot{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--s)}
+h1{font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin:14px 0 3px}
+.sub{font-family:var(--mono);font-size:11px;color:var(--s);line-height:1.5}
+/* navegacao das secoes: fica no topo e o fio desliza ate a secao visivel */
+.nav{position:sticky;top:0;z-index:30;background:var(--bg);display:flex;margin-top:12px;border-top:.5pt solid var(--t);border-bottom:.5pt solid var(--fio)}
+.nav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);text-decoration:none;height:var(--h);padding:0 18px;display:flex;align-items:center;gap:8px;transition:color .25s}
+.nav a:first-of-type{padding-left:0}
+.nav a b{font-weight:500}
+.nav a.at,.nav a:hover{color:var(--t)}
+.nav .fio{position:absolute;bottom:-.5pt;height:2px;background:var(--t);transition:left .34s var(--mola),width .34s var(--mola)}
+section{scroll-margin-top:calc(var(--h) + 8px)}
+h2{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin:44px 0 10px;display:flex;gap:12px}
+#sa h2{margin-top:26px}
+.nota{font-size:13px;line-height:1.45;margin:0 0 8px;max-width:none;text-align:justify;hyphens:auto}
+.leg{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;margin:0 0 8px;align-items:center}
+.leg i{display:inline-block;width:26px;height:9px;margin-right:6px;vertical-align:middle}
+.leg i.te{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%23F3F0E9'/%3E%3Cg fill='%2314304C'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='1' y='0' width='1' height='1'/%3E%3Crect x='2' y='0' width='1' height='1'/%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='3' y='1' width='1' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='1' height='1'/%3E%3Crect x='3' y='2' width='1' height='1'/%3E%3Crect x='1' y='3' width='1' height='1'/%3E%3Crect x='3' y='3' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E") 0 0/4px 4px repeat}
+.leg i.tl{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%23F3F0E9'/%3E%3Cg fill='%23336699'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='2' y='0' width='1' height='1'/%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E") 0 0/4px 4px repeat}
+.leg .dica{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--s)}
+.dica b{width:6px;height:6px;border-radius:50%;background:var(--a);animation:p 2.2s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:.35}50%{opacity:1}}
+/* quadro: toda linha com a mesma altura */
+.q{border:.5pt solid var(--t);border-radius:3px;overflow:hidden;background:var(--bg)}
+.gr{display:grid;grid-template-columns:330px repeat(8,1fr);border-top:.5pt solid var(--fio);height:var(--h)}
+.gr:first-child{border-top:0}
+.gr>div{display:flex;align-items:center}
+.gr .lb{padding:0 12px;font-size:13.5px;gap:8px;white-space:nowrap;overflow:hidden}
+.gr .lb em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--s);width:22px;flex:none}
+.gr .c{justify-content:center;border-left:.5pt solid var(--fio);font-family:var(--mono);font-size:11px;position:relative;transition:background .25s}
+.gr .c.m{background:rgba(51,102,153,.09)}
+.gh{background:var(--t)}
+.gh .c,.gh .lb{color:#fff;border-color:rgba(255,255,255,.18);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+.gh .c{cursor:pointer}
+.gh .c.m{background:var(--a)}
+.gt{font-weight:600}
+.gt .c{font-size:13px}
+.bar{position:absolute;top:50%;height:12px;margin-top:-6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600}
+.bar.e{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%23F3F0E9'/%3E%3Cg fill='%2314304C'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='1' y='0' width='1' height='1'/%3E%3Crect x='2' y='0' width='1' height='1'/%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='3' y='1' width='1' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='1' height='1'/%3E%3Crect x='3' y='2' width='1' height='1'/%3E%3Crect x='1' y='3' width='1' height='1'/%3E%3Crect x='3' y='3' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E") 0 0/4px 4px repeat}
+.bar.l{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' shape-rendering='crispEdges'%3E%3Crect width='4' height='4' fill='%23F3F0E9'/%3E%3Cg fill='%23336699'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='2' y='0' width='1' height='1'/%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E") 0 0/4px 4px repeat}
+.bar span{background:var(--t);color:#fff;padding:0 4px;border-radius:2px}
+.cl{cursor:pointer;transition:background .2s}
+.cl:hover,.cl.ab{background:var(--bg2)}
+.cl .lb::after{content:'';margin-left:auto;width:6px;height:6px;border-right:1.5px solid var(--s);border-bottom:1.5px solid var(--s);transform:rotate(-45deg);transition:transform .25s var(--mola)}
+.cl.ab .lb::after{transform:rotate(45deg)}
+.det{display:grid;grid-template-rows:0fr;background:var(--bg2);transition:grid-template-rows .32s var(--mola)}
+.det.ab{grid-template-rows:1fr;border-top:.5pt solid var(--fio)}
+.det>div{overflow:hidden;display:flex;gap:26px;flex-wrap:wrap;padding:0 18px 0 46px}
+.det.ab>div{padding-top:12px;padding-bottom:14px}
+.det .bl{flex:1;min-width:220px}
+.det .bl.lg{flex:2;min-width:320px}
+h4{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--s);margin-bottom:5px}
+.det p,.det li{font-size:13px;line-height:1.45}
+.det p{text-align:justify;hyphens:auto}
+.det ul{padding-left:16px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;padding:2px 7px;border:.5pt solid var(--t);border-radius:2px;margin:0 5px 0 0}
+.novo{margin-top:7px;font-size:12.5px;line-height:1.45;padding:5px 10px;border-left:2px solid var(--a);background:var(--bg)}
+/* abas dos meses: o fundo escuro desliza ate o mes escolhido */
+.abas{position:relative;display:grid;grid-template-columns:repeat(8,1fr);border:.5pt solid var(--t);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.abas .ind{position:absolute;top:0;bottom:0;background:var(--t);transition:left .34s var(--mola),width .34s var(--mola)}
+.abas button{position:relative;z-index:1;border:0;border-left:.5pt solid var(--fio);background:transparent;color:var(--t);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;height:var(--h);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:color .25s}
+.abas button:first-of-type{border-left:0}
+.abas button small{font-size:10px;letter-spacing:.06em;color:var(--s);transition:color .25s}
+.abas button.at{color:#fff}
+.abas button.at small{color:#C6D4E4}
+.mes{display:none}
+.mes.at{display:block;animation:entra .3s var(--mola)}
+@keyframes entra{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.mr{display:grid;grid-template-columns:150px 1fr;height:var(--h);border-top:.5pt solid var(--fio);align-items:center;font-size:13.5px}
+.mr:first-child{border-top:0}
+.mr>span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);padding-left:12px}
+.mr>div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:12px}
+.mr.inf{background:var(--bg2)}
+.mr.dia>span{color:var(--t)}
+.chip{display:inline-block;font-size:12px;line-height:20px;height:22px;padding:0 6px;margin-right:4px;border:.5pt solid rgba(20,48,76,.5);border-radius:2px;background:var(--bg);cursor:pointer;vertical-align:middle;transition:background .2s,color .2s}
+.chip:hover{background:var(--t);color:#fff}
+/* ferramentas do portal */
+.fh{background:var(--t);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;height:var(--h);padding:0 12px;display:flex;align-items:center;justify-content:space-between}
+.fh span:last-child{color:#C6D4E4}
+.fgr{display:grid;grid-template-columns:150px 1fr;border-top:.5pt solid var(--fio);align-items:center}
+.fgr>span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--s);padding-left:12px;line-height:1.35}
+.fts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding:5px 8px 5px 0}
+.ft{height:30px;border:.5pt solid rgba(20,48,76,.5);border-radius:2px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;font-size:13.5px;white-space:nowrap;cursor:pointer;background:var(--bg);transition:background .22s,color .22s,box-shadow .22s}
+.ft small{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--s);transition:color .22s}
+.ft:hover{background:var(--bg2)}
+.ft.m{box-shadow:inset 3px 0 0 var(--a)}
+.ft.m small{color:var(--a);font-weight:600}
+.ft.sel{background:var(--t);color:#fff}
+.ft.sel small{color:#C6D4E4}
+.fd{border-top:.5pt solid var(--t);background:var(--bg2);display:grid;grid-template-columns:260px 1fr 300px;gap:0 26px;padding:12px 14px 14px 12px;height:86px}
+/* detalhe da ferramenta: o fundo fica parado e o conteudo gira como rolo de caca-niquel, de cima para baixo */
+.jan{position:relative;overflow:hidden;height:60px}
+.rolo{position:absolute;inset:0}
+.rolo.vem{animation:vem .52s cubic-bezier(.18,.82,.28,1.1) both}
+.rolo.vai{animation:vai .4s cubic-bezier(.5,0,.85,.45) both}
+@keyframes vem{from{transform:translateY(-115%)}to{transform:none}}
+@keyframes vai{from{transform:none}to{transform:translateY(115%)}}
+.fd .nm{font-size:17px;font-weight:700;line-height:1.15;margin-bottom:4px}
+.fd p{font-size:13px;line-height:1.45;text-align:justify;hyphens:auto}
+.fd .tags{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.fd .tag{margin:0;background:var(--bg);text-align:center;white-space:nowrap}
+/* valor */
+.tot{display:grid;grid-template-columns:repeat(4,1fr);border:.5pt solid var(--t);border-radius:3px;overflow:hidden}
+.tot>div{padding:10px 12px 12px;border-left:.5pt solid var(--fio)}
+.tot>div:first-child{border-left:0}
+.tot>div:last-child{background:var(--t);color:#fff}
+.tot>div:last-child .rot,.tot>div:last-child .nt{color:#C6D4E4}
+.tot .big{font-size:19px;font-weight:700;margin-top:3px}
+.tot .nt{font-size:12px;color:var(--s);margin-top:1px}
+.rod{font-size:12px;line-height:1.55;margin-top:10px;color:var(--s);max-width:none;text-align:justify;hyphens:auto}
+.rod b{color:var(--t);font-weight:600}
+.pe{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--s);margin-top:22px;padding-top:9px;border-top:.5pt solid var(--fio)}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;animation:none!important}
+  @page{size:297mm 210mm;margin:8mm}
+  .wrap{max-width:none;padding:0}
+  .nav,.abas,.dica{display:none}
+  .mes{display:block!important;break-inside:avoid;margin-bottom:8px}
+  #meses{min-height:0!important}
+  .gr,.mr,.fgr{break-inside:avoid}
+}
+@media (max-width:900px){.gr{grid-template-columns:190px repeat(8,1fr)}.fd{grid-template-columns:1fr;height:auto;gap:10px}.jan{height:74px}.mr>div{white-space:normal}.mr{height:auto;min-height:var(--h)}.fts{grid-template-columns:1fr}.tot{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cab">
+    <div class="logo"><svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="-13.02 -60 167.5 189.24">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g id="monograma-270" transform="translate(0.00 19.82) scale(1.37104)">
+    <g>
+      <g>
+        <path d="M41.24,13.41c-.35,0-.62.27-.62.62s.28.62.62.62.62-.27.62-.62-.27-.62-.62-.62ZM41.24,14.58c-.3,0-.53-.24-.53-.54s.24-.54.53-.54.53.24.53.54-.24.54-.53.54Z" fill="#14304c"/>
+        <ellipse cx="41.24" cy="14.03" rx=".36" ry=".35" fill="#14304c"/>
+      </g>
+      <path d="M41.75,12.78l.03-.29-.34-.05-.02.3c.11.01.22.03.33.05h0Z" fill="#14304c"/>
+      <polygon points="42.38 12.5 42.05 12.41 41.98 12.82 42.31 12.89 42.38 12.5" fill="#14304c"/>
+      <polygon points="43.48 12.52 43.14 12.38 42.95 13.14 43.26 13.29 43.48 12.52" fill="#14304c"/>
+      <path d="M44.12,13.84l.55-1.33-.35-.2-.49,1.32c.1.07.19.14.28.21h0Z" fill="#14304c"/>
+      <path d="M44.89,14.58h0s1.11-2.05,1.11-2.05l-.34-.27-1.02,2.05c.09.09.17.18.25.27Z" fill="#14304c"/>
+      <path d="M45.43,15.24c.04.06.08.12.12.19h0s1.99-2.72,1.99-2.72l-.34-.34-1.85,2.74s.05.09.08.12Z" fill="#14304c"/>
+      <polygon points="45.96 16.38 49.38 12.93 49.05 12.5 45.85 15.99 45.96 16.38" fill="#14304c"/>
+      <polygon points="66.91 17.48 53.46 19.69 50.08 20.25 53.64 20.72 67.09 19.34 66.91 17.48" fill="#14304c"/>
+      <polygon points="42.75 12.91 42.54 12.85 42.52 12.97 42.73 13.05 42.75 12.91" fill="#14304c"/>
+      <path d="M43.63,13.5h0s.17-.46.17-.46l-.2-.1-.15.45c.06.03.11.07.18.11Z" fill="#14304c"/>
+      <path d="M44.46,14.13h0s.46-.99.46-.99l-.2-.13-.43.98c.06.05.11.1.16.15Z" fill="#14304c"/>
+      <path d="M45.05,14.78s.03.03.05.06h.01s.07.09.08.1h0s.99-1.64.99-1.64l-.19-.17-.96,1.65Z" fill="#14304c"/>
+      <polygon points="45.67 15.61 45.78 15.82 47.63 13.54 47.45 13.33 45.67 15.61" fill="#14304c"/>
+      <path d="M45.99,16.51s.02.08.03.11c.01.04.02.08.04.13h0s3.32-2.9,3.32-2.9l-.18-.26-3.21,2.93Z" fill="#14304c"/>
+      <path d="M51.72,13.19l-.31-.54-5.71,4.67-4.18,3.42c.06,0,.12.01.19.02h0s4.17-3.15,4.17-3.15l5.85-4.43Z" fill="#14304c"/>
+      <path d="M39.78,21.52s.03-.05.05-.07l-.62-1.85h0s0-.01,0-.01l-.55-2c-.08-.03-.16-.06-.25-.09l-.06-.02h0c-.19-.1-.37-.22-.53-.35-.02-.01-.03-.02-.04-.03h0s-.03-.02-.04-.03h0s.88,1.81.88,1.81l1.17,2.66Z" fill="#14304c"/>
+      <path d="M54.81,14.81l-.25-.63-9.18,4.89,9.71-5.42-.45-1.03-7.33,4.67-4.08,2.6,2.6-1.74,5.81-3.88-.22-.41-5.72,4.07-3.99,2.84s.01,0,.02,0c0,0,.02,0,.03,0h0s.37-.17.37-.17l1.88-1.06.4.03.52.04,2.46-1.19,7.41-3.6Z" fill="#14304c"/>
+      <path d="M36.06,25.4l-5.48,4.73.11.19,8.79-7.83s0-.01,0-.02c0,0,0,0,0-.01h0s-3.41,2.94-3.41,2.94Z" fill="#14304c"/>
+      <path d="M39.47,22.57h0s0-.04,0-.07h0s-3.44,3.34-3.44,3.34l-5.64,5.47.2.29,5.53-5.62,3.36-3.41Z" fill="#14304c"/>
+      <polygon points="59.18 14.51 58.76 13.2 49.36 17.57 44.97 19.61 44.97 19.61 44.96 19.62 45.91 19.74 49.6 18.29 59.18 14.51" fill="#14304c"/>
+      <polygon points="62.55 16.57 62.23 15.03 51.11 18.48 46.69 19.85 48.39 20.04 51.29 19.33 62.55 16.57" fill="#14304c"/>
+      <polygon points="61.86 18.02 61.72 17.08 50.86 19.52 48.44 20.06 49.8 20.24 50.93 20.04 61.86 18.02" fill="#14304c"/>
+      <path d="M36.65,25.7l-4.69,5.17.12.16,7.39-8.41s0-.02,0-.03c0,0,0,0,0-.02h0s-2.82,3.11-2.82,3.11Z" fill="#14304c"/>
+      <polygon points="58.49 15.06 49.23 18.51 45.94 19.75 45.94 19.75 45.94 19.75 46.63 19.86 58.7 15.85 58.49 15.06" fill="#14304c"/>
+      <path d="M39.48,22.44s0-.02,0-.03c0,0,0,0,0,0h0v-.04s0,0,0,0v-.02s0-.05,0-.07v-.03s.01,0,.01,0c0,0,0-.04,0-.04,0-.02,0-.03,0-.05v-.02s.01-.03.01-.04v-.04s.03-.05.03-.05c.05-.17.12-.32.21-.46l-2.16-4.55s-.1-.11-.16-.17c-.01-.01-.02-.03-.04-.04-.14-.17-.26-.34-.33-.48l-.07.03,1.79,3.42-2.27-4.09-3.51-6.36-.03-.02-.5.4,6.37,10.49-2.54-3.97-3.75-5.86-.3.27,3.89,5.74,2.37,3.48-4.34-6.08-5.97-8.22-.61.62,10.9,14.01-4.57-5.59-6.15-7.52-.38.43,6.32,7.33,3.35,3.88-6.46-7.1L21.19,1.18l-.83,1.07,9.81,9.9,7.19,7.25L20.72,3.43l-.47.67,15.86,14.41-8.58-7.4L14.99.33l-.86,1.42,12.92,10.15,9.12,7.17-8.81-6.55L14.66,3.07l-.47.88,12.9,9.05,7.84,5.49-12.09-8L6.95,0l-.94,1.83,26.44,15.77,4.25,2.53-3.66-2.07-.1.25,5.35,2.81-5.74-2.8-.14.42,3.89,1.67,2.5,1.07-2.37-.94-3.8-1.51-.07.27,3.82,1.38,2.29.83-2.83-.94-4.5-1.48-.1.48,7.45,2.06-2.75-.68-4.43-1.08-.05.29,4.45.95,2.67.57-3.43-.63-5.4-.99-.07.58,5.44.71,3.28.44-3.08-.32-5.3-.55-.02.35,5.31.38,3.11.22-10.96-.47v.7s6.76-.05,6.76-.05l4.07-.04-3.85.15-6.67.24.02.43,10.39-.72-4.85.47-8.32.81.08.84,12.93-1.93-3.86.69-7.36,1.31.06.46,7.32-1.55,4.09-.86-4.37,1.05-7.92,1.9.14.78,7.85-2.31,4.34-1.28-3.61,1.17-6.85,2.22.11.42,6.78-2.43,3.61-1.3-3.86,1.51-7.29,2.85.2.71,11.04-4.95-3.27,1.57-6.38,3.07.13.4,6.31-3.27,3.31-1.72-10.26,5.68.26.66,6.6-4.08,3.59-2.22-3.14,2.06-5.92,3.91.13.28,5.86-4.06,3.71-2.56-3.85,2.89-6.15,4.64.16.32,6.08-4.81,3.82-3.03Z" fill="#14304c"/>
+      <path d="M39.47,22.7s0-.03,0-.05l-2.81,3.46-4.75,5.87.21.24,7.34-9.5v-.02Z" fill="#14304c"/>
+      <path d="M39.34,19.4h0s0,0,0,0l-.39-1.73c-.09-.02-.17-.04-.25-.06h0l.53,1.83.59,2.01s.02-.03.03-.04l-.52-1.98v-.03Z" fill="#14304c"/>
+      <path d="M39.78,23.73l-.28,2.14-.65,4.99.2.03.55-5.01.24-2.09s-.02-.03-.03-.05h-.01Z" fill="#14304c"/>
+      <path d="M39.69,23.56v-.02s-.03-.03-.04-.04l-.58,2.4-1.23,5.16.19.06,1.14-5.2.52-2.36Z" fill="#14304c"/>
+      <path d="M39.75,23.67s0-.01,0-.02c0,0,0-.01-.02-.02l-.38,2.05-.85,4.69.11.03.79-4.7.35-2.03Z" fill="#14304c"/>
+      <path d="M39.9,17.7c-.06,0-.12.02-.17.03l.22,3.58s.02-.03.03-.04l-.05-1.58-.03-1.99Z" fill="#14304c"/>
+      <path d="M45.98,16.81l-.18-.12-4.41,4.03,3.6-3.41.72-.69s-.05-.04-.08-.06c-.06-.04-.12-.08-.19-.12,0,0,0,0,0,0h0s-.07-.04-.1-.06c-.02,0-.04-.02-.05-.03-.05-.03-.1-.05-.14-.07h-.03s0-.01,0-.01h0c-.06-.03-.11-.05-.17-.08l-.29-.12h0s-.02,0-.02,0c-.04-.01-.09-.03-.14-.04h-.04s0-.01,0-.01h-.02c-.05-.02-.09-.03-.13-.03h-.04c-.06-.02-.11-.02-.17-.03h-.04c-.1-.01-.2-.02-.3-.02h-.02s-.02,0-.02,0c-.05,0-.1,0-.15,0h-.04s-.01,0-.01,0c-.06,0-.11.01-.18.02h-.04s-.01,0-.01,0c-.06,0-.11.02-.15.03h-.02s-.01,0-.01,0l-.04.02c-.11.04-.22.09-.33.14h-.03s-.04.03-.04.03c-.05.02-.1.05-.16.09l-.04.02-.03.02c-.05.03-.11.06-.16.09l-.03.02-.04.02s-.09.06-.14.09l-.03.02-.03.02s-.07.05-.1.07c-.08.06-.15.12-.22.17-.05.04-.1.08-.16.12,0,0-.11.08-.13.1l-.05.03s-.08.06-.12.08c-.08.05-.15.1-.21.14v.03s-.01,0-.01,0l-.68,3.12.61-3.11s-.07.06-.11.08h-.03s-.05.04-.08.05c-.03.01-.06.02-.08.04-.03.01-.06.02-.09.03-.03.01-.06.02-.1.03-.03.01-.06.02-.09.03-.02,0-.04.01-.06.02-.05.01-.1.03-.15.04,0,0,0,0-.01,0l-.11,3.17.05-3.16h-.04s-.04.02-.05.02v3.57c.08-.08.17-.15.27-.22h.02c.05-.05.11-.08.17-.11h.02s.08-.04.1-.05h0s.02,0,.02,0h0s.08-.03.08-.03h.03s.07-.03.1-.04h.02s0,0,0,0h.01s.02,0,.03,0h.06s.07-.02.1-.03c0,0,0,0,0,0h0s0,0,0,0h.01s.02,0,.03,0h.04s.06,0,.06,0c.03,0,.06,0,.09,0,0,0,0,0,.02,0,0,0,0,0,.01,0,0,0,0,0,.01,0,0,0,0,0,.01,0,0,0,0,0,.01,0,0,0,0,0,.01,0,.03,0,.06,0,.09,0h.02s3.22-2.81,3.22-2.81l1.27-1.12Z" fill="#14304c"/>
+      <path d="M39.43,17.73c-.05,0-.11,0-.16,0h-.02s.63,3.65.63,3.65c0-.01.02-.02.03-.04h0s-.25-1.77-.25-1.77l-.24-1.84Z" fill="#14304c"/>
+      <path d="M39.54,17.74h-.04s.27,2.07.27,2.07l.16,1.52s.01-.01.02-.02l-.29-3.58s-.08,0-.12,0Z" fill="#14304c"/>
+      <path d="M39.17,17.71s-.04,0-.06,0h0s-.05,0-.08-.01l.47,2.04.38,1.67s.01-.02.02-.03l-.34-1.66-.38-2.01Z" fill="#14304c"/>
+      <path d="M39.5,22.98s0-.02,0-.02c0,0,0-.01,0-.02l-1.49,2.69-2.72,4.96.11.09,2.67-5.01,1.43-2.68Z" fill="#14304c"/>
+      <path d="M39.52,23.1h0s0-.05-.02-.07l-1.41,2.91-2.64,5.44.2.14,2.54-5.52,1.34-2.9Z" fill="#14304c"/>
+      <path d="M39.62,23.46v-.02s0,0,0,0c0-.01-.01-.03-.02-.04l-.68,2.29-1.4,4.79.12.05,1.34-4.81.64-2.25Z" fill="#14304c"/>
+      <path d="M37.47,25.71l2.01-2.91s0-.02,0-.03c0,0,0-.01,0-.02l-2.07,2.91-3.59,5.06.12.12,3.54-5.12Z" fill="#14304c"/>
+      <path d="M39.49,22.9v-.02s0-.03-.01-.04l-2.01,3.17-3.57,5.64.21.18,3.45-5.73,1.93-3.2Z" fill="#14304c"/>
+      <path d="M39.55,23.2s0-.01,0-.02c0,0,0-.02-.01-.02l-1.04,2.49-2.01,4.86.11.07,1.95-4.9,1-2.48Z" fill="#14304c"/>
+      <path d="M39.59,23.33s0-.02-.01-.04h0s-.01-.03-.01-.03l-.94,2.64-1.9,5.3.2.09,1.79-5.35.88-2.62Z" fill="#14304c"/>
+      <polygon points="66.07 19.81 54.2 20.79 57.76 21.29 66.13 20.93 66.07 19.81" fill="#14304c"/>
+      <polygon points="72.02 21.13 58.99 21.44 72.02 23.2 72.02 21.13" fill="#14304c"/>
+    </g>
+    <g>
+      <g>
+        <g>
+          <rect x="64.59" y="55.77" width="2.59" height="5.13" fill="#14304c"/>
+          <path d="M93.57,64.06c-.33-.09-.58-.2-.73-.32-.15-.12-.26-.28-.33-.47-.07-.19-.12-.46-.14-.78-.02-.33-.03-.82-.03-1.46v-7.81s-2.01-2.07-2.01-2.07h-4.39l-2.02,2.08v-2.08h-6.44l-2.02,2.08v-2.08h0v-.35h-5.92v1.37l.09.02c.44.09.75.2.92.31.17.11.29.26.37.45.08.19.14.45.16.76.02.33.03.84.03,1.54v5.79c0,.88-.03,1.5-.09,1.82-.06.31-.17.57-.33.75-.16.18-.46.33-.89.45l-.08.02v1.14h7.04v-1.14l-.08-.02c-.4-.1-.68-.24-.84-.42-.16-.18-.26-.44-.31-.77-.05-.35-.08-.96-.08-1.84v-5.75c0-1.16.91-2.1,2.04-2.1s2.04.94,2.04,2.1v1.09c0,.23,0,.48,0,.75,0,.05,0,.1,0,.15v3.77c0,.89-.03,1.51-.08,1.85-.05.32-.16.57-.31.75-.15.18-.43.32-.85.41l-.08.02v1.14h7v-1.14l-.08-.02c-.33-.09-.58-.2-.73-.32-.15-.12-.26-.28-.33-.47-.07-.19-.12-.46-.14-.78-.02-.33-.03-.82-.03-1.46v-5.48s0-.01,0-.02v-.26c0-1.16.91-2.1,2.04-2.1s2.04.94,2.04,2.1v1.33c0,.17,0,.34,0,.52,0,.05,0,.1,0,.15v3.77c0,.89-.03,1.51-.08,1.85-.05.32-.16.57-.31.75-.15.18-.43.32-.85.41l-.08.02v1.14h7v-1.14l-.08-.02Z" fill="#14304c"/>
+        </g>
+        <path d="M97.79,51.15v.69h-1.34v3.5h-.83v-3.5h-1.34v-.69h3.52ZM102.32,55.35l-.15-2.47c-.02-.32-.02-.73-.03-1.17h-.05c-.11.37-.23.86-.35,1.25l-.76,2.33h-.86l-.76-2.39c-.08-.32-.2-.82-.29-1.19h-.05c0,.39-.02.79-.03,1.17l-.15,2.47h-.8l.31-4.2h1.25l.73,2.05c.09.32.17.63.28,1.06h.02c.11-.39.2-.74.29-1.05l.73-2.07h1.2l.32,4.2h-.83Z" fill="#14304c"/>
+      </g>
+      <g>
+        <g>
+          <rect x="1.83" y="48.31" width="4.23" height="1.8" fill="#14304c"/>
+          <path d="M.88,52.37c.19.08.34.2.45.35.11.15.19.36.23.62.04.28.06.64.06,1.09v6.55c0,.88-.03,1.5-.09,1.83-.06.32-.17.56-.34.75-.16.18-.48.33-.93.45l-.09.02v1.13h7.36v-1.14l-.09-.02c-.26-.06-.47-.13-.63-.22-.15-.08-.27-.16-.35-.25-.08-.1-.15-.2-.19-.31-.05-.11-.09-.24-.12-.39-.03-.15-.05-.36-.06-.64-.02-.29-.02-.69-.02-1.21v-10.25H0v1.39l.09.02c.32.06.59.14.79.23Z" fill="#14304c"/>
+        </g>
+        <path d="M56.1,47.09c.08.13.14.31.18.54.04.25.07.55.08.91.01.37.02.95.02,1.73v10.73c0,.58,0,1.03-.03,1.34-.02.3-.06.53-.11.69-.06.16-.12.29-.2.39-.07.09-.18.18-.31.26-.14.08-.35.15-.6.21l-.13.03v1.23h7.11v-1.23l-.13-.03c-.43-.11-.73-.25-.87-.42-.15-.17-.25-.41-.3-.7-.05-.32-.08-.91-.08-1.77v-15.9h-5.9v1.22c.36.05.77.27.94.42.13.11.25.23.33.35Z" fill="#14304c"/>
+        <path d="M39.69,61.55c0,.7.16,1.33.47,1.87.31.54.79.97,1.4,1.27h0s0,0,0,0c.6.3,1.32.45,2.14.45s1.98-.16,2.71-.5c.6-.28,1.01-.94,1.2-1.15l.29-1.22h.31s0,1.09,0,1.09v1.78h5.37v-1.23c-.34-.05-.75-.31-.88-.4-.1-.07-.19-.18-.27-.27-.07-.08-.14-.19-.19-.32-.05-.14-.09-.37-.12-.69-.03-.32-.04-.79-.04-1.39v-5.38c0-1.19-.17-2.14-.52-2.83-.35-.69-.88-1.21-1.58-1.52-.69-.3-1.61-.46-2.74-.46-.44,0-.88.03-1.32.09-.43.06-.93.15-1.49.29-.55.13-1.11.3-1.68.51-.56.2-1.28.49-2.13.87l-.1.05v3.25h2.94v-.59c.12-.7.3-1.25.53-1.64.23-.38.49-.64.76-.77.28-.13.63-.2,1.03-.2s.73.09,1,.26c.27.17.5.47.68.89.18.44.27,1.08.27,1.91v.5c-2.64.21-4.64,1.14-5.97,2.12-1.29.95-2.09,1.93-2.09,3.35ZM44.87,59.2h0c.63-.45,1.62-1,2.91-1.05l.02,1.12c.06.8-.13,2.03-.34,2.38-.21.35-.49.63-.84.84-.35.21-.73.31-1.12.31-.51,0-.9-.13-1.18-.4-.28-.27-.41-.65-.41-1.17,0-.9.31-1.57.95-2.03Z" fill="#14304c"/>
+        <path d="M31.26,65.16c4.38,0,6.4-2.31,6.4-2.31v-2.23l-.02-.02h-3.11v.7c-.03.51-.39,1.39-2.75,1.37-2.57-.02-3.01-.99-3.11-1.95-.07-.64,0-2.56,0-2.56h0s.13,0,.13,0h9.19v-.19c-.01-1.09-.11-2.03-.31-2.8-.19-.76-.48-1.44-.85-2.03-.32-.5-.73-.93-1.22-1.29-.49-.35-1.08-.63-1.76-.83h0s0,0,0,0c-.67-.2-1.47-.29-2.36-.29h0s-.04,0-.07,0c-.16,0-.31,0-.47.01-.15,0-.3.02-.45.03-.02,0-.05,0-.07,0-1.02.11-1.96.37-2.78.79-1.1.57-1.97,1.41-2.57,2.51-.6,1.09-.9,2.41-.9,3.91,0,1.9.39,3.44,1.17,4.59.18.28.38.53.61.76,1.16,1.19,3.01,1.8,5.3,1.8ZM28.71,54.9c0-1.32,1.15-2.39,2.57-2.39h0c1.42,0,2.57,1.07,2.57,2.39v.93h-5.18s.04-.93.04-.93Z" fill="#14304c"/>
+        <path d="M22.43,63.4c-.15-.12-.27-.27-.34-.43-.07-.17-.12-.41-.14-.71-.02-.31-.03-.82-.03-1.51v-15.64h-5.9v1.22l.14.03c.54.11.79.22.89.29.15.1.26.24.33.42.08.2.13.49.16.88.02.35.04,2.15.04,2.15v.94h0c-.45-.12-.85-.2-1.2-.24-.4-.05-.81-.08-1.22-.08-1.43,0-2.67.28-3.69.84-1.03.57-1.81,1.41-2.33,2.51-.51,1.09-.78,2.44-.78,4.02,0,2.33.16,4.56,1.33,5.77,1,1.04,2.13,1.3,3.86,1.3.45,0,1.11-.11,1.73-.29h0s-.02.04-.03.05c0,0,.02-.02.03-.03l.02-.02c.33-.1.64-.21.9-.34.59-.29.89-.73.97-.87l.32-1.38h.31s0,1.11,0,1.11c0,0,0,0,0,0l.03,1.78h5.63v-1.23c-.41-.09-.83-.39-1-.53ZM17.05,60.7c0,1.12-.91,2.03-2.03,2.03h-.1c-1.12,0-1.88-.94-2.03-1.64-.33-1.55,0-6.71,0-6.71,0-1.12.91-2.03,2.03-2.03h.1c1.12,0,2.03.91,2.03,2.03v6.32Z" fill="#14304c"/>
+      </g>
+    </g>
+    </g>
+  </g>
+</svg></div>
+    <div class="id"><div class="rot">Proposta IM-PP-002-A-0 · 10-nov-2026</div><div class="rot">Carsten Serviços · Agudos-SP</div></div>
+  </div>
+  <h1>Plano mensal do sistema de gestão integrado</h1>
+  <div class="sub">ISO 9001:2026 · ISO 14001:2026 · ISO 45001:2024 · Matriz e pátio de manutenção da frota</div>
+
+  <nav class="nav" id="nav">
+    <a href="#sa"><b>A.</b>Cronograma</a><a href="#sb"><b>B.</b>Mês a mês</a><a href="#sc"><b>C.</b>Ferramentas do portal</a><a href="#sd"><b>D.</b>Extensão e valor</a>
+    <i class="fio"></i>
+  </nav>
+
+  <section id="sa">
+  <h2><span>A.</span>Cronograma por mês</h2>
+  <p class="nota">Distribuição sugerida dos dias de consultoria. O levantamento inicial confirma a carga e o plano diretor fixa a ordem das atividades com a coordenação do SGI.</p>
+  <div class="leg"><span><i class="te"></i>Etapa com dias de consultoria</span><span><i class="tl"></i>Atividade contínua, dentro dos dias do mês</span><span class="dica"><b></b>Clique na linha ou no mês</span></div>
+  <div class="q" id="g"></div>
+  </section>
+
+  <section id="sb">
+  <h2><span>B.</span>O que trabalhar em cada mês</h2>
+  <p class="nota">Cada linha é um dia de consultoria. As visitas são presenciais na matriz ou remotas, pelo Microsoft Teams, conforme a atividade.</p>
+  <div class="abas" id="abas"><i class="ind"></i></div>
+  <div class="q" id="meses"></div>
+  </section>
+
+  <section id="sc">
+  <h2><span>C.</span>Ferramentas do portal do SGI</h2>
+  <p class="nota">Cada ferramenta é um módulo do portal. O mês indica quando a ferramenta entra em uso, e a faixa azul marca as ferramentas do mês escolhido em B.</p>
+  <div class="q">
+    <div class="fh"><span>Portal do SGI · Carsten Serviços</span><span>Clique na ferramenta</span></div>
+    <div id="ferr"></div>
+    <div class="fd" id="fd"></div>
+  </div>
+  </section>
+
+  <section id="sd">
+  <h2><span>D.</span>Extensão e valor</h2>
+  <div class="tot">
+    <div><div class="rot">Levantamento inicial</div><div class="big">2 HD</div><div class="nt">Dezembro de 2026</div></div>
+    <div><div class="rot">Implantação</div><div class="big">24 HD</div><div class="nt">4 dias por mês, janeiro a junho de 2027</div></div>
+    <div><div class="rot">Certificação</div><div class="big">5 HD</div><div class="nt">Julho de 2027, com a auditoria</div></div>
+    <div><div class="rot">Total estimado</div><div class="big">31 HD · R$ 93.000,00</div><div class="nt">Homem/dia a R$ 3.000,00</div></div>
+  </div>
+  <p class="rod"><b>Homem/dia.</b> A proposta fixa o valor do homem/dia para todo o projeto. A quantidade de dias é uma estimativa e não é um compromisso de consumo: o faturamento considera somente os dias realizados, e a Carsten pode usar menos dias que os estimados ou solicitar dias adicionais, sempre pelo mesmo valor.<br>
+  <b>ISO 45001.</b> Se a nova edição for publicada durante o projeto, a adequação a ela é feita dentro deste plano, nas mesmas etapas.<br>
+  <b>Organismo certificador.</b> A contratação e os custos da auditoria de certificação são da Carsten.</p>
+  </section>
+  <div class="pe"><span>idealmetrics.org · Ideal Metrics Ltda · CNPJ 69.202.916/0001-20</span><span>Sugestão de distribuição</span></div>
+</div>
+<script>
+const D = {"meses": ["dez/26", "jan/27", "fev/27", "mar/27", "abr/27", "mai/27", "jun/27", "jul/27"], "linhas": [["lev", "Levantamento inicial", "E1", [2, 0, 0, 0, 0, 0, 0, 0], "Visita à matriz e ao pátio de manutenção. Entrevistas com a coordenação do SGI, o SESMT e os líderes de processos. Comparação da operação e da base documental com as três normas, requisito a requisito.", ["Relatório de lacunas por norma", "Carga de consultoria confirmada"], ["9001", "14001", "45001"], []], ["pd", "Plano diretor", "E2", [0, 2, 0, 0, 0, 0, 0, 0], "Cada lacuna vira atividade com responsável e prazo. Definição dos processos do sistema de gestão integrado, da rota de construção do portal do SGI e do painel do projeto.", ["Plano diretor aprovado", "Matriz de responsabilidades", "Rota do portal definida"], ["9001", "14001", "45001"], []], ["ctx", "Contexto, partes interessadas e política", "E3", [0, 2, 0, 0, 0, 0, 0, 0], "Questões internas e externas, partes interessadas e seus requisitos, inclusive os ligados à mudança climática. Escopo do sistema de gestão integrado, política integrada e objetivos.", ["Matriz de contexto e partes interessadas", "Escopo do sistema de gestão", "Política integrada"], ["9001", "14001", "45001"], ["4.1 e 4.2: mudança climática no contexto"]], ["rsk", "Riscos, aspectos, perigos e requisitos legais", "E3", [0, 0, 4, 0, 0, 0, 0, 0], "Riscos e oportunidades em matrizes separadas. Aspectos e impactos ambientais da operação e da manutenção da frota (óleo usado, resíduos, emissões). Perigos e riscos de saúde e segurança com hierarquia de controles. Levantamento das obrigações de compliance.", ["Matriz de riscos e matriz de oportunidades", "Levantamento de aspectos e impactos", "Inventário de perigos e riscos", "Registro de requisitos legais"], ["9001", "14001", "45001"], ["6.1.2 e 6.1.3: riscos e oportunidades em separado", "6.1.3 da ISO 14001: obrigações de compliance"]], ["ops", "Controle operacional e emergências", "E3", [0, 0, 0, 4, 0, 0, 0, 0], "Controle da prestação do serviço e da manutenção da frota. Fornecedores, agregados e processos providos externamente. Tratamento de RNCs de clientes e de não conformidades internas. Preparação e resposta a emergências ambientais e de segurança.", ["Procedimentos de controle operacional", "Critérios para fornecedores e agregados", "Fluxo de não conformidades e RNCs de clientes", "Plano de emergências"], ["9001", "14001", "45001"], ["8.1 da ISO 14001: processos e serviços providos externamente"]], ["mud", "Mudanças, indicadores e competências", "E3", [0, 0, 0, 0, 4, 0, 0, 0], "Planejamento de mudanças. Objetivos e indicadores, monitoramento e medição. Competências e treinamentos. Consulta e participação dos trabalhadores e investigação de incidentes.", ["Procedimento de gestão de mudanças", "Painel de indicadores", "Matriz de competências", "Registro de incidentes"], ["9001", "14001", "45001"], ["6.3: planejamento de mudanças"]], ["cul", "Cultura da qualidade e auditores internos", "E3", [0, 0, 0, 0, 0, 4, 0, 0], "Cultura da qualidade e conduta ética com a direção e os líderes. Formação de auditores internos nas três normas. Comunicação interna e satisfação dos clientes.", ["Registro das ações da direção", "Auditores internos formados", "Pesquisa de satisfação estruturada"], ["9001", "14001", "45001"], ["5.1 e 7.3 da ISO 9001: cultura da qualidade e conduta ética"]], ["ver", "Auditoria interna e análise crítica", "E4", [0, 0, 0, 0, 0, 0, 4, 0], "Auditoria interna integrada das três normas conforme a ISO 19011:2026, tratamento das não conformidades e análise crítica pela direção.", ["Relatório de auditoria interna", "Ações corretivas concluídas", "Ata da análise crítica"], ["9001", "14001", "45001"], []], ["cer", "Preparação e auditoria de certificação", "E5", [0, 0, 0, 0, 0, 0, 0, 5], "Preparação das equipes, acompanhamento da auditoria do organismo certificador na matriz e apoio na resposta às constatações.", ["Empresa pronta para a certificação", "Plano de ação das constatações, quando houver"], ["9001", "14001", "45001"], []]], "continuas": [["portal", "Portal do SGI", [0, 1, 1, 1, 1, 1, 1, 0], "Cada metodologia implantada entra no portal como módulo: tela de registro, fluxo de aprovação, painel e histórico. A rota (área de desenvolvimento da Carsten ou HTML5) é definida no plano diretor.", ["Documentos e registros", "Não conformidades e ações", "Requisitos legais", "Indicadores", "Mudanças", "Auditorias internas", "Treinamentos"]], ["trein", "Treinamentos das equipes", [0, 0, 1, 1, 1, 1, 1, 0], "Cada metodologia é treinada com as equipes que vão usá-la, no mesmo mês em que entra em operação.", ["Registros de treinamento por metodologia", "Conscientização em cultura da qualidade e conduta ética"]]], "dias": {"dez/26": ["Abertura do projeto com a direção. Entrevistas com a coordenação do SGI, o SESMT e os líderes de processos. Visita à matriz e ao pátio de manutenção.", "Leitura da base documental frente às três normas, requisito a requisito. Fechamento do relatório de lacunas e da carga de consultoria."], "jan/27": ["Plano diretor: lacunas convertidas em atividades, responsáveis e prazos.", "Plano diretor: processos do sistema de gestão integrado, rota do portal com a área de desenvolvimento e painel do projeto.", "Contexto e partes interessadas, com a análise da mudança climática.", "Escopo do sistema de gestão, política integrada e objetivos. Estrutura do portal e módulo de documentos."], "fev/27": ["Riscos e oportunidades, em matrizes separadas, por processo.", "Aspectos e impactos ambientais da operação e da manutenção da frota: óleo usado, resíduos e emissões.", "Perigos e riscos de saúde e segurança, com hierarquia de controles.", "Requisitos legais e obrigações de compliance. Treinamento das equipes nas matrizes do mês."], "mar/27": ["Controle operacional da prestação do serviço.", "Controle operacional da manutenção da frota e do pátio.", "Fornecedores, agregados e processos providos externamente. Fluxo de não conformidades e RNCs de clientes no portal.", "Preparação e resposta a emergências ambientais e de segurança. Treinamento das equipes."], "abr/27": ["Planejamento de mudanças e módulo de mudanças no portal.", "Objetivos, indicadores, monitoramento e medição. Painel de indicadores no portal.", "Competências e treinamentos.", "Consulta e participação dos trabalhadores e investigação de incidentes."], "mai/27": ["Cultura da qualidade e conduta ética com a direção e os líderes.", "Formação de auditores internos: ISO 19011:2026 e requisitos das três normas.", "Formação de auditores internos: prática de auditoria nos processos da matriz.", "Comunicação interna e satisfação dos clientes. Módulo de auditorias no portal."], "jun/27": ["Auditoria interna integrada: processos de gestão e matriz.", "Auditoria interna integrada: operação e pátio de manutenção.", "Tratamento das não conformidades da auditoria interna.", "Análise crítica pela direção."], "jul/27": ["Preparação das equipes para a auditoria de certificação.", "Acompanhamento da auditoria de certificação na matriz.", "Acompanhamento da auditoria de certificação no pátio de manutenção.", "Acompanhamento da auditoria de certificação e reunião de encerramento.", "Apoio na resposta às constatações do organismo certificador."]}, "tot": [2, 4, 4, 4, 4, 4, 4, 5], "ferr": [["Comum às normas", "Documentos e registros", "jan/27", "Lista mestra dos documentos do sistema de gestão, com revisão vigente, aprovação e histórico de alterações."], ["Comum às normas", "Riscos e oportunidades", "fev/27", "Matriz de riscos e matriz de oportunidades por processo, com ações, responsáveis e reavaliação."], ["Comum às normas", "Requisitos legais", "fev/27", "Requisitos legais e outros requisitos aplicáveis à operação, com avaliação periódica do atendimento."], ["Comum às normas", "Não conformidades e ações", "mar/27", "Registro da não conformidade, análise de causa, ação, responsável, prazo e verificação da eficácia."], ["Comum às normas", "Gestão de mudanças", "abr/27", "Solicitação da mudança, avaliação de impacto, aprovação, comunicação e verificação da eficácia."], ["Comum às normas", "Objetivos e indicadores", "abr/27", "Objetivos, metas e indicadores por processo, com resultado mensal e desvio sinalizado."], ["Comum às normas", "Treinamentos e competências", "abr/27", "Matriz de competências por função, treinamentos planejados e realizados e registros de eficácia."], ["Comum às normas", "Auditorias internas", "mai/27", "Programa anual, plano de cada auditoria, constatações e ligação com as ações corretivas."], ["Comum às normas", "Análise crítica", "jun/27", "Pauta com as entradas exigidas pelas normas, decisões da direção e acompanhamento das saídas."], ["Qualidade", "RNCs de clientes", "mar/27", "Reclamações e RNCs abertas pelos clientes, com prazo de resposta, análise de causa e ação."], ["Qualidade", "Fornecedores e agregados", "mar/27", "Critérios de seleção, avaliação e reavaliação de fornecedores e agregados."], ["Qualidade", "Satisfação dos clientes", "mai/27", "Pesquisas e retornos dos clientes, com resultado por período e ações decorrentes."], ["Meio ambiente", "Aspectos e impactos", "fev/27", "Levantamento de aspectos e impactos ambientais por atividade, com significância e controles."], ["Meio ambiente", "Resíduos e efluentes", "mar/27", "Inventário de resíduos, destinação e manifestos, com o controle do óleo usado da manutenção."], ["Meio ambiente", "Emergências ambientais", "mar/27", "Cenários de emergência, plano de resposta, simulados e registros."], ["Saúde e segurança", "Perigos e riscos", "fev/27", "Inventário de perigos e avaliação de riscos por atividade, com hierarquia de controles."], ["Saúde e segurança", "Inspeções de segurança", "mar/27", "Roteiros de inspeção, registros em campo e acompanhamento das pendências."], ["Saúde e segurança", "Incidentes", "abr/27", "Registro e investigação de incidentes e quase acidentes, com causa e ação."]], "telas": ["Tela de registro", "Fluxo de aprovação", "Painel", "Histórico"], "semferr": {"dez/26": "Levantamento das ferramentas que a Carsten já usa.", "jul/27": "Portal completo em uso na auditoria de certificação."}};
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const ponto = t => /[.!?]$/.test(t) ? t : t + '.';
+let MES = 0;
+
+/* ---------- A. cronograma ---------- */
+const g = $('#g');
+function barras(arr, cls){
+  const ini = arr.findIndex(v => v > 0), fim = arr.length - 1 - [...arr].reverse().findIndex(v => v > 0);
+  return arr.map((v, k) => {
+    if (k < ini || k > fim) return `<div class="c" data-k="${k}"></div>`;
+    const l = k === ini ? 6 : 0, r = k === fim ? 6 : 0;
+    return `<div class="c" data-k="${k}"><div class="bar ${cls}" style="left:${l}px;right:${r}px">${cls === 'e' && v ? `<span>${v}</span>` : ''}</div></div>`;
+  }).join('');
+}
+let h = '<div class="gr gh"><div class="lb">Etapa</div>' + D.meses.map((m, k) => `<div class="c" data-k="${k}">${m}</div>`).join('') + '</div>';
+D.linhas.forEach(([id, rot, et, dias, esc, ent, normas, novos]) => {
+  h += `<div class="gr cl" data-id="${id}"><div class="lb"><em>${et}</em>${rot}</div>${barras(dias, 'e')}</div>`;
+  h += `<div class="det" id="d-${id}"><div><div class="bl lg"><h4>Escopo</h4><p>${esc}</p>` +
+       (novos.length ? `<div class="novo">${novos.map(n => 'Requisito novo · ' + ponto(n)).join('<br>')}</div>` : '') +
+       `</div><div class="bl"><h4>Entregas</h4><ul>${ent.map(e => `<li>${ponto(e)}</li>`).join('')}</ul></div>` +
+       `<div class="bl"><h4>Período e normas</h4><p>${D.meses.filter((m, k) => dias[k]).join(', ')} · ${dias.reduce((a, b) => a + b, 0)} HD</p><p style="margin-top:6px">${normas.map(n => `<span class="tag">ISO ${n}</span>`).join('')}</p></div></div></div>`;
+});
+D.continuas.forEach(([id, rot, ativo, esc, ent]) => {
+  h += `<div class="gr cl" data-id="${id}"><div class="lb"><em></em>${rot}</div>${barras(ativo, 'l')}</div>`;
+  h += `<div class="det" id="d-${id}"><div><div class="bl lg"><h4>Escopo</h4><p>${esc}</p></div><div class="bl"><h4>Itens</h4><ul>${ent.map(e => `<li>${ponto(e)}</li>`).join('')}</ul></div></div></div>`;
+});
+h += '<div class="gr gt"><div class="lb">Homens/dia no mês</div>' + D.tot.map((v, k) => `<div class="c" data-k="${k}">${v}</div>`).join('') + '</div>';
+g.innerHTML = h;
+$$('.cl', g).forEach(r => r.addEventListener('click', () => {
+  const d = $('#d-' + r.dataset.id), ab = d.classList.contains('ab');
+  $$('.det.ab', g).forEach(x => x.classList.remove('ab'));
+  $$('.cl.ab', g).forEach(x => x.classList.remove('ab'));
+  if (!ab) { d.classList.add('ab'); r.classList.add('ab'); }
+}));
+$$('.gh .c', g).forEach(c => c.addEventListener('click', () => { mostra(+c.dataset.k); $('#sb').scrollIntoView(); }));
+
+/* ---------- C. ferramentas ---------- */
+const GR = [...new Set(D.ferr.map(f => f[0]))];
+$('#ferr').innerHTML = GR.map(gr => `<div class="fgr"><span>${gr}</span><div class="fts">` +
+  D.ferr.map((f, i) => f[0] === gr ? `<div class="ft" data-i="${i}" data-m="${D.meses.indexOf(f[2])}"><span>${f[1]}</span><small>${f[2]}</small></div>` : '').join('') + '</div></div>').join('');
+function ferramenta(i){
+  const [gr, nome, mes, desc] = D.ferr[i], fd = $('#fd');
+  $$('.ft').forEach(x => x.classList.toggle('sel', +x.dataset.i === i));
+  const cols = [`<h4>${gr} · entra em ${mes}</h4><div class="nm">${nome}</div>`,
+    `<h4>O que a ferramenta faz</h4><p>${desc}</p>`,
+    `<h4>O que vem em cada ferramenta</h4><div class="tags">${D.telas.map(t => `<span class="tag">${t}</span>`).join('')}</div>`];
+  if (!fd.children.length) fd.innerHTML = '<div class="jan"></div><div class="jan"></div><div class="jan"></div>';
+  $$('.jan', fd).forEach((jan, k) => {
+    while (jan.children.length > 1) jan.removeChild(jan.firstElementChild);
+    const velho = jan.lastElementChild, novo = document.createElement('div');
+    novo.className = 'rolo'; novo.innerHTML = cols[k]; jan.appendChild(novo);
+    if (!velho) return;
+    const atraso = k * .08 + 's';
+    velho.className = 'rolo vai'; velho.style.animationDelay = atraso;
+    velho.addEventListener('animationend', () => { if (velho.parentNode) jan.removeChild(velho); }, {once: true});
+    novo.style.animationDelay = atraso; novo.classList.add('vem');
+  });
+}
+$('#ferr').addEventListener('click', e => { const t = e.target.closest('.ft'); if (t) ferramenta(+t.dataset.i); });
+
+/* ---------- B. mes a mes ---------- */
+const abas = $('#abas'), box = $('#meses');
+D.meses.forEach((m, k) => {
+  const etapas = D.linhas.filter(l => l[3][k]).map(l => l[1]).join(' · ');
+  const cont = D.continuas.filter(c => c[2][k]).map(c => c[1]).join(' · ');
+  const fs = D.ferr.map((f, i) => f[2] === m ? `<span class="chip" data-i="${i}">${f[1]}</span>` : '').join('');
+  abas.insertAdjacentHTML('beforeend', `<button data-k="${k}">${m}<small>${D.tot[k]} HD</small></button>`);
+  box.insertAdjacentHTML('beforeend', `<div class="mes" data-k="${k}">` +
+    `<div class="mr inf"><span>Etapas</span><div>${etapas}${cont ? ' · em paralelo: ' + cont : ''}</div></div>` +
+    `<div class="mr inf"><span>Ferramentas</span><div>${fs || D.semferr[m]}</div></div>` +
+    D.dias[m].map((t, i) => `<div class="mr dia"><span>Dia ${i + 1}</span><div title="${t}">${t}</div></div>`).join('') + '</div>');
+});
+box.addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) { ferramenta(+c.dataset.i); $('#sc').scrollIntoView(); } });
+function desliza(pai, alvo, ind){ ind.style.left = alvo.offsetLeft + 'px'; ind.style.width = alvo.offsetWidth + 'px'; }
+function mostra(k){
+  MES = k;
+  $$('button', abas).forEach(b => b.classList.toggle('at', +b.dataset.k === k));
+  desliza(abas, $(`button[data-k="${k}"]`, abas), $('.ind', abas));
+  $$('.mes', box).forEach(x => x.classList.toggle('at', +x.dataset.k === k));
+  $$('.c', g).forEach(c => c.classList.toggle('m', +c.dataset.k === k));
+  $$('.ft').forEach(f => f.classList.toggle('m', +f.dataset.m === k));
+}
+abas.addEventListener('click', e => { const b = e.target.closest('button'); if (b) mostra(+b.dataset.k); });
+// o quadro do mes nao muda de altura ao trocar de aba
+const H = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--h'));
+box.style.minHeight = (2 + Math.max(...D.tot)) * (H + .7) + 'px';
+
+/* ---------- navegacao das secoes ---------- */
+const nav = $('#nav'), links = $$('a', nav), secs = links.map(a => $(a.getAttribute('href')));
+function espia(){
+  let i = 0; secs.forEach((s, k) => { if (s.getBoundingClientRect().top <= H + 60) i = k; });
+  if (innerHeight + scrollY >= document.body.offsetHeight - 4) i = secs.length - 1;
+  links.forEach((a, k) => a.classList.toggle('at', k === i));
+  const a = links[i], f = $('.fio', nav); f.style.left = a.offsetLeft + (i ? 18 : 0) + 'px'; f.style.width = a.offsetWidth - (i ? 36 : 18) + 'px';
+}
+addEventListener('scroll', espia, {passive: true});
+addEventListener('resize', () => { espia(); mostra(MES); });
+ferramenta(0); mostra(0); espia();
+document.fonts && document.fonts.ready.then(() => { espia(); mostra(MES); });
+</script>
+</body>
+</html>
